@@ -1,5 +1,5 @@
 #labels Featured
-Bienvenidos a la Wiki de Android Robot Control.
+=Bienvenidos a la Wiki de Android Robot Control=
 
 
 ==Requerimientos==
@@ -15,5 +15,3 @@ Bienvenidos a la Wiki de Android Robot Control.
 
 
 ==Testing==
-
-
