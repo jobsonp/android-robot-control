@@ -4,14 +4,26 @@
 ----
 ==Requerimientos==
 
+
+
+
 ----
 ==Analisis==
+
+
+
 
 ----
 ==Disen~o==
 
+
+
+
 ----
 ==Desarrollo==
+
+
+
 
 ----
 ==Testing==
