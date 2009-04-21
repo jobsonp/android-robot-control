@@ -2,4 +2,4 @@
 
 Actualmente se encuentran terminando con sus materias de grado y preparando este proyecto que sera presentado en Diciembre del 2009 a modo de Proyecto Final de Ingenieria, dando fin asi a sus carreras universitarias.
 
-http://code.google.com/p/android-robot-control/source/browse/wiki/imagenes/logo_uade.gif
+[http://code.google.com/p/android-robot-control/source/browse/wiki/imagenes/logo_uade.gif]
