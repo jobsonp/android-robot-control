@@ -18,15 +18,14 @@ Asi mismo, la especificacion del software a utilizar servira como configuracion 
   * Polarion SVN conectors Eclipse Plugin.
   
 ==2) Descargar el software necesario. ==
-  * Descargar el JDK desde https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u13-oth-JPR@CDS-CDS_Developer
-  * Descargar Eclipse IDE for Java Developers desde http://www.eclipse.org/downloads/
+  * Descargar el *JDK* desde https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u13-oth-JPR@CDS-CDS_Developer
+  * Descargar *Eclipse IDE for Java Developers* desde http://www.eclipse.org/downloads/
   * Descargar el Android SDK 1.1 desde http://developer.android.com/sdk/1.1_r1/index.html
 
-==3) Descomprimir archivos descargados.
+==3) Descomprimir archivos descargados.==
 Una vez ubicados en el directorio de descargas, descomprimimos los archivos descargados con los siguientes comandos:
 {{{
 unzip <path_descargas>/android-sdk-linux_x86-1.1_r1.zip
-
 tar zxvf <path_descargas>/eclipse-java-ganymede-SR2-linux-gtk.tar.gz
 }}}
 
@@ -44,7 +43,7 @@ echo "export JRE_HOME=./jdk1.6.0_13/jre/" >> $HOME/.bashrc
 echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 }}}
 
-==5) Instalar plugins del Eclipse.
+==5) Instalar plugins del Eclipse.==
   * 
   
    
