@@ -2,7 +2,6 @@
 = Introduccion =
 
 Esta guia explicara como configurar el entorno de desarrollo para trabajar con este proyecto. Desde la obtencion del software a utilizar, hasta descargar el codigo del repositorio.
-
 Asi mismo, la especificacion del software a utilizar servira como configuracion "oficial" de desarrollo para el proyecto.
 
 =Desarrollo=
@@ -15,7 +14,7 @@ Asi mismo, la especificacion del software a utilizar servira como configuracion 
   * Subversive Eclipse Plugin 
   * Polarion SVN conectors Eclipse Plugin.
   
-==2) Descargar el software necesario. ==
+==2) Descargar el software necesario.==
   * Descargar el *JDK* desde https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u13-oth-JPR@CDS-CDS_Developer
   * Descargar *Eclipse IDE for Java Developers* desde http://www.eclipse.org/downloads/
   * Descargar el *Android SDK 1.1* desde http://developer.android.com/sdk/1.1_r1/index.html
@@ -47,7 +46,7 @@ echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 ==5) Instalar plugins del Eclipse.==
   * El eclipse cuenta con una herramienta para instalar y actualizar plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ingresar al menu de *_Help_* > *_Software Updates..._*. Una vez que estamos en la nueva ventana, cambiar a la solapa *_Available Software_*. 
 
-===5.1) Plugin de Android ===
+===5.1) Plugin de Android.===
   * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://dl-ssl.google.com/android/eclipse/
@@ -56,7 +55,7 @@ http://dl-ssl.google.com/android/eclipse/
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
   * Una vez reiniciado el Eclipse, ir al menu *_Window_* > *_Preferences_*. En la lista de la izquierda, seleccionar la opcion *_Android_*, donde deberemos configurar el directorio donde se encuentra el SDK de Android.
 
-===5.2) Plugin de Subversive===
+===5.2) Plugin de Subversive.===
   * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://download.eclipse.org/technology/subversive/0.7/update-site/
@@ -64,10 +63,12 @@ http://download.eclipse.org/technology/subversive/0.7/update-site/
   * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Team Provider Plugin_*. Chequearlo y presionar el boton de *_Install.._*.
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
 
-===5.3) Plugin de Polarion SVN conectors===
+===5.3) Plugin de Polarion SVN conectors.===
   * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://www.polarion.org/projects/subversive/download/eclipse/2.0/ganymede-site/
 }}}  
   * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Connectors_*. Chequearlo y presionar el boton de   *_Install.._*.
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
+
+==6) Descargar el codigo del repositorio.==
