@@ -35,14 +35,15 @@ tar zxvf <path_descargas>/eclipse-java-ganymede-SR2-linux-gtk.tar.gz
 export JAVA_HOME=./jdk1.6.0_13/
 export JRE_HOME=./jdk1.6.0_13/jre/
 export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1
-}}}  * Agregar las lineas anteriores al final del archivo de configuracion _.bashrc_ para que la configuracion de las variables de entorno este siempre disponible para el usuario. Ejecutar los siguientes comando:
+}}}  
+  * Agregar las lineas anteriores al final del archivo de configuracion _.bashrc_ para que la configuracion de las variables de entorno este siempre disponible para el usuario. Ejecutar los siguientes comando:
 {{{
 echo "export JAVA_HOME=./jdk1.6.0_13/" >> $HOME/.bashrc
 echo "export JRE_HOME=./jdk1.6.0_13/jre/" >> $HOME/.bashrc
 echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 }}}
 
-==6) Configurar Workspace.
+==6) Configurar Workspace.==
   * Ejecutar el Eclipse. Una vez iniciado el programa, nos solicitara configurar el _workspace_ donde seran guardados, por defecto, los proyectos en los que trabajemos. El workspace puede ser cualquier directorio sobre el cual el usuario debera poseer todos los permisos, lectura, escritura y ejecucion.
 
 ==5) Instalar plugins del Eclipse.==
