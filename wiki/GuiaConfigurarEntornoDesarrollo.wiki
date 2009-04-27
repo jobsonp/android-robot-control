@@ -47,14 +47,14 @@ echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
   * Ejecutar el Eclipse. Una vez iniciado el programa, nos solicitara configurar el _workspace_ donde seran guardados, por defecto, los proyectos en los que trabajemos. El workspace puede ser cualquier directorio sobre el cual el usuario debera poseer todos los permisos, lectura, escritura y ejecucion.
 
 ==5) Instalar plugins del Eclipse.==
-  * El eclipse cuenta con una herramienta para instalar y actualizar plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ingresar al menu de _Help_ y seleccionar la opcion de _Software Updates..._. Una vez que estamos en la nueva ventana, cambiar a la solapa _Available Software_. Para instalar los plugins, realizaremos siempre el mismo procedimiento.
+  * El eclipse cuenta con una herramienta para instalar y actualizar plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ingresar al menu de _Help_ y seleccionar la opcion de *_Software Updates..._*. Una vez que estamos en la nueva ventana, cambiar a la solapa _Available Software_. Para instalar los plugins, realizaremos siempre el mismo procedimiento.
 
    === 5.1) Plugin de Android ===
-  * Clickear en el boton _Add Site..._ y agregar la siguiente URL en el dialogo:
+  * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://dl-ssl.google.com/android/eclipse/
 }}}
-  * Una vez agregada la url a la lista, chequearla. Seleccionar todos los sub-items de la lista, y presionar el boton de _Install..._
+  * Una vez agregada la url a la lista, chequearla. Seleccionar todos los sub-items de la lista, y presionar el boton de *_Install..._*
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el eclipse.
   * 
 
