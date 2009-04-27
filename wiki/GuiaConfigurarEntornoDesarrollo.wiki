@@ -9,7 +9,7 @@ Asi mismo, la especificacion del software a utilizar servira como configuracion 
 
 =Desarrollo=
 
-  # ==Software a utilizar==
+==  # Software a utilizar==
   * Java JDK 1.6.0_13
   * Eclipse Ganymade 3.4.2
   * Android SDK 1.1
