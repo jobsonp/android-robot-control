@@ -1,5 +1,5 @@
-#labels Featured
-#Guia para configurar el entorno de desarrollo para realizar el proyecto.
+#labels Featured,Phase-Deploy,Phase-Implementation
+===Guia para configurar el entorno de desarrollo para realizar el proyecto.===
 
 = Introduccion =
 
