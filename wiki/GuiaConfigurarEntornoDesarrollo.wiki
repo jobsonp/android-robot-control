@@ -1,20 +1,46 @@
+#labels Featured
 #Guia para configurar el entorno de desarrollo para realizar el proyecto.
 
 = Introduction =
 
-Esta guia explicara como configurar el entorno de desarrollo para trabajar con este proyecto. Asi mismo, servira como configuracion "oficial" de desarrollo, detallando el software utilizado para el proyecto.
+Esta guia explicara como configurar el entorno de desarrollo para trabajar con este proyecto. Desde la obtencion del software a utilizar, hasta descargar el codigo del repositorio.
+
+Asi mismo, la especificacion del software a utilizar servira como configuracion "oficial" de desarrollo para el proyecto.
 
 = Details =
 
-  #Software a utilizar
-  * Eclipse Ganymade 3.4.2.
+  # Software a utilizar
+  * Java JDK 1.6.0_13
+  * Eclipse Ganymade 3.4.2
   * Android SDK 1.1
   * ADT Eclipse Plugin 0.8
   * Subversive Eclipse Plugin 
   * Polarion SVN conectors Eclipse Plugin.
 
+  # Descargar el software necesario
+  * Descargar el JDK desde https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u13-oth-JPR@CDS-CDS_Developer
+  * Descargar Eclipse IDE for Java Developers desde http://www.eclipse.org/downloads/
+  * Descargar el Android SDK 1.1 desde http://developer.android.com/sdk/1.1_r1/index.html
+  
+  # Una vez ubicados en el directorio de descargas, descomprimimos los archivos descargados con los siguientes comandos:
+{{{
+unzip <path_descargas>/android-sdk-linux_x86-1.1_r1.zip
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+tar zxvf <path_descargas>/eclipse-java-ganymede-SR2-linux-gtk.tar.gz
+}}}
+
+  # Setear variables de entorno.
+  * En una terminal ( o consola ), configuramos las variables de entorno necesarias.
+{{{
+export JAVA_HOME=./jdk1.6.0_13/
+  
+export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1
+}}}
+  * Agregar las dos lineas anteriores al final del archivo <$HOME>/.bashrc con el siguiente comando:
+{{{
+echo "export JAVA_HOME=./jdk1.6.0_13/" >> $HOME/.bashrc
+
+echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
+}}}
+
+  
