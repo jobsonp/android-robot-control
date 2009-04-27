@@ -44,10 +44,10 @@ echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 }}}
 
 ==6) Configurar Workspace.==
-  * Ejecutar el Eclipse. Una vez iniciado el programa, nos solicitara configurar el _workspace_ donde seran guardados, por defecto, los proyectos en los que trabajemos. El workspace puede ser cualquier directorio sobre el cual el usuario debera poseer todos los permisos, lectura, escritura y ejecucion.
+  * Ejecutar el Eclipse. Una vez iniciado el programa, nos solicitara configurar el *_workspace_* donde seran guardados, por defecto, los proyectos en los que trabajemos. El workspace puede ser cualquier directorio sobre el cual el usuario debera poseer todos los permisos, lectura, escritura y ejecucion.
 
 ==5) Instalar plugins del Eclipse.==
-  * El eclipse cuenta con una herramienta para instalar y actualizar plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ingresar al menu de _Help_ y seleccionar la opcion de *_Software Updates..._*. Una vez que estamos en la nueva ventana, cambiar a la solapa _Available Software_. Para instalar los plugins, realizaremos siempre el mismo procedimiento.
+  * El eclipse cuenta con una herramienta para instalar y actualizar plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ingresar al menu de *_Help_* > *_Software Updates..._*. Una vez que estamos en la nueva ventana, cambiar a la solapa *_Available Software_*. 
 
    === 5.1) Plugin de Android ===
   * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
@@ -55,17 +55,23 @@ echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 http://dl-ssl.google.com/android/eclipse/
 }}}
   * Una vez agregada la url a la lista, chequearla. Seleccionar todos los sub-items de la lista, y presionar el boton de *_Install..._*
-  * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el eclipse.
-  * 
+  * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
+  * Una vez reiniciado el Eclipse, ir al menu *_Window_* > *_Preferences_*. En la lista de la izquierda, seleccionar la opcion *_Android_*, donde deberemos configurar el directorio donde se encuentra el SDK de Android.
 
    === 5.2) Plugin de Subversive===
+  * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://download.eclipse.org/technology/subversive/0.7/update-site/
 }}}
+  * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Team Provider Plugin_*. Chequearlo y presionar el boton de *_Install.._*.
+  * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
+
    === 5.3) Plugin de Polarion SVN conectors===
+  * Clickear en el boton *_Add Site..._* y agregar la siguiente URL en el dialogo:
 {{{
 http://www.polarion.org/projects/subversive/download/eclipse/2.0/ganymede-site/
 }}}  
-   
+  * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Connectors_*. Chequearlo y presionar el boton de   *_Install.._*.
+  * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
 
   
