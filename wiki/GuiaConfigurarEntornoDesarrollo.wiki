@@ -33,14 +33,19 @@ tar zxvf <path_descargas>/eclipse-java-ganymede-SR2-linux-gtk.tar.gz
   * En una terminal ( o consola ), configuramos las variables de entorno necesarias.
 {{{
 export JAVA_HOME=./jdk1.6.0_13/
-  
+export JRE_HOME=./jdk1.6.0_13/jre/
 export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1
 }}}
-  * Agregar las dos lineas anteriores al final del archivo <$HOME>/.bashrc con el siguiente comando:
+  * Agregar las dos lineas anteriores al final del archivo de configuracion .bashrc para que la configuracion de las variables de entorno este siempre disponible para el usuario. Ejecutar los siguientes comando:
 {{{
 echo "export JAVA_HOME=./jdk1.6.0_13/" >> $HOME/.bashrc
-
+echo "export JRE_HOME=./jdk1.6.0_13/jre/" >> $HOME/.bashrc
 echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 }}}
+
+  # Instalacion de plugins para el Eclipse IDE.
+  * 
+  
+   
 
   
