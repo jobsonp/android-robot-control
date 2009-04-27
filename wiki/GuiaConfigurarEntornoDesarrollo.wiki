@@ -1,15 +1,15 @@
 #labels Featured
 #Guia para configurar el entorno de desarrollo para realizar el proyecto.
 
-= Introduction =
+= Introduccion =
 
 Esta guia explicara como configurar el entorno de desarrollo para trabajar con este proyecto. Desde la obtencion del software a utilizar, hasta descargar el codigo del repositorio.
 
 Asi mismo, la especificacion del software a utilizar servira como configuracion "oficial" de desarrollo para el proyecto.
 
-= Details =
+=Desarrollo=
 
-  # Software a utilizar
+  # ==Software a utilizar==
   * Java JDK 1.6.0_13
   * Eclipse Ganymade 3.4.2
   * Android SDK 1.1
