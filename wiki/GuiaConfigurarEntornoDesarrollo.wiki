@@ -20,7 +20,7 @@ Asi mismo, la especificacion del software a utilizar servira como configuracion 
 ==2) Descargar el software necesario. ==
   * Descargar el *JDK* desde https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jdk-6u13-oth-JPR@CDS-CDS_Developer
   * Descargar *Eclipse IDE for Java Developers* desde http://www.eclipse.org/downloads/
-  * Descargar el Android SDK 1.1 desde http://developer.android.com/sdk/1.1_r1/index.html
+  * Descargar el *Android SDK 1.1* desde http://developer.android.com/sdk/1.1_r1/index.html
 
 ==3) Descomprimir archivos descargados.==
 Una vez ubicados en el directorio de descargas, descomprimimos los archivos descargados con los siguientes comandos:
@@ -35,16 +35,25 @@ tar zxvf <path_descargas>/eclipse-java-ganymede-SR2-linux-gtk.tar.gz
 export JAVA_HOME=./jdk1.6.0_13/
 export JRE_HOME=./jdk1.6.0_13/jre/
 export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1
-}}}
-  * Agregar las dos lineas anteriores al final del archivo de configuracion .bashrc para que la configuracion de las variables de entorno este siempre disponible para el usuario. Ejecutar los siguientes comando:
+}}}  * Agregar las lineas anteriores al final del archivo de configuracion _.bashrc_ para que la configuracion de las variables de entorno este siempre disponible para el usuario. Ejecutar los siguientes comando:
 {{{
 echo "export JAVA_HOME=./jdk1.6.0_13/" >> $HOME/.bashrc
 echo "export JRE_HOME=./jdk1.6.0_13/jre/" >> $HOME/.bashrc
 echo "export ANDROID_HOME=./android-sdk-linux_x86-1.1_r1/" >> $HOME/.bashrc
 }}}
 
+==6) Configurar Workspace.
+  * Ejecutar el Eclipse. Una vez iniciado el programa, nos solicitara configurar el _workspace_ donde seran guardados, por defecto, los proyectos en los que trabajemos. El workspace puede ser cualquier directorio sobre el cual el usuario debera poseer todos los permisos, lectura, escritura y ejecucion.
+
 ==5) Instalar plugins del Eclipse.==
-  * 
+   * El eclipse cuenta con una opcion para instalar y actualizar los plugins directamente desde adentro del entorno. Para acceder a esta herramieta debemos ejecutar el Eclipse, y una vez  Utilizaremos la opcion de _Software Updates_ del menu _Help_ del Eclipse.
+Todos los plugins seran instalados de la misma manera.
+
+   === 5.1) Plugin de Android ===
+
+   === 5.2) Plugin de Subversive===
+
+   === 5.3) Plugin de Polarion SVN conectors===
   
    
 
