@@ -1,0 +1,20 @@
+#Guia para configurar el entorno de desarrollo para realizar el proyecto.
+
+= Introduction =
+
+Esta guia explicara como configurar el entorno de desarrollo para trabajar con este proyecto. Asi mismo, servira como configuracion "oficial" de desarrollo, detallando el software utilizado para el proyecto.
+
+= Details =
+
+  #Software a utilizar
+  * Eclipse Ganymade 3.4.2.
+  * Android SDK 1.1
+  * ADT Eclipse Plugin 0.8
+  * Subversive Eclipse Plugin 
+  * Polarion SVN conectors Eclipse Plugin.
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
