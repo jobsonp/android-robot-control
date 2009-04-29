@@ -89,17 +89,9 @@ http://android-robot-control.googlecode.com/files/eclipse-code-formatter.xml
   * En la nueva ventana, seleccionar la vista llamada *_SVN Reposity Exploring_*.
   * En la vista *_SVN Repositories_* ( a la izquierda del Eclipse ), hacer click en el icono del cilindro amarillo con el signo + de color verde.
   * Utilizaremos unicamente la configuracion ubicada en la solapa *_General_* ya que son suficientes. 
-===8.1) Para participantes del proyecto.=== 
-  * Si sos participante del proyecto vas a poder comitear codigo y paginas para la wiki. Vamos a sincronizar el Eclipse con la raiz del SVN para poder descargar tanto del Trunk, de las Branches o de la wiki.
+  * Vamos a sincronizar el Eclipse con la raiz del SVN para poder descargar tanto del Trunk, de las Branches como de la wiki.
   * Completa el campo *_URL_* con la siguiente direccion:
 {{{
 https://android-robot-control.googlecode.com/svn/
 }}}
-  * A su vez necesitaras completar la informacion de autenticacion. El campo *_User_* es el nombre de usuario de tu cuenta de Google. El campo *_Password_* es generado por Google, y lo podes encontrar en la seccion *_Source_* > *_Checkout_* de este proyecto, siempre y cuando estes logueado en Google.
-  * 
-===8.1) Para no participantes del proyecto.===
-  * Se pueden descargar el proyecto y mantenerlo actualizado. Sin embargo no les sera posible enviar modificaciones al repositorio.
-  * Para ello, completa el campo *_URL_* con la siguiente direccion:
-{{{
-
-}}}
+  * Si sos participante del proyecto, deberas completar la informacion de autenticacion para que no sea solicitada posteriormente. El campo *_User_* es el nombre de usuario de tu cuenta de Google. El campo *_Password_* es generado por Google, y lo podes encontrar en la seccion *_Source_* > *_Checkout_* de este proyecto, siempre y cuando estes logueado en Google.
