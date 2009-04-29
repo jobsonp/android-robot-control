@@ -71,4 +71,18 @@ http://www.polarion.org/projects/subversive/download/eclipse/2.0/ganymede-site/
   * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Connectors_*. Chequearlo y presionar el boton de   *_Install.._*.
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
 
-==7) Descargar el codigo del repositorio.==
+==7) Formateo de Codigo.
+Para unificar la manera en la que visualizamos el codigo, utilizaremos la herramienta de formateo automatico de codigo del Eclipse, con una configuracion personalizada.
+  * Descargar el archivo de configuracion de formateo de codigo de la seccion de downloads del proyecto o desde la siguiente direccion: 
+{{{
+http://android-robot-control.googlecode.com/files/eclipse-code-formatter.xml
+}}}
+  * Dentro del Eclipse, ir a *_Window_* > *_Preferences_*.
+  * En la nueva ventana, navegar por el menu de la izquierda hasta *_Java_* > *_Code Style_* > *_Formatter_* > 
+  * Hacer click en el boton de *_Import_*, y seleccionar el archivo anteriormente descargado.
+  * Chequear que se haya seleccionado la nueva configuracion en el Combo o DropDown identificado como *_Active Profile_*.
+  * Aceptar la configuracion haciendo click en el boton *_Ok_*
+  * Para formatear el codigo presionar *_Ctrl+Shift+F_*
+
+
+==8) Descargar el codigo del repositorio.==
