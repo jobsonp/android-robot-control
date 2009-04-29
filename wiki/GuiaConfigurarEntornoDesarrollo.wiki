@@ -71,7 +71,7 @@ http://www.polarion.org/projects/subversive/download/eclipse/2.0/ganymede-site/
   * Una vez agregada la url a la lista, chequearla. De los sub-items desplegados, el unico necesario es *_Subversive SVN Connectors_*. Chequearlo y presionar el boton de   *_Install.._*.
   * El Eclipse descargara los plugins y solicitara la aprobacion de sus terminos de uso. Una vez aceptado esto, la instalacion continuara. Una vez finalizada la instalacion, se recomienda reiniciar el Eclipse.
 
-===7) Formateo de Codigo.===
+==7) Formateo de Codigo.==
 Para unificar la manera en la que visualizamos el codigo, utilizaremos la herramienta de formateo automatico de codigo del Eclipse, con una configuracion personalizada.
   * Descargar el archivo de configuracion de formateo de codigo de la seccion de downloads del proyecto o desde la siguiente direccion: 
 {{{
@@ -85,3 +85,21 @@ http://android-robot-control.googlecode.com/files/eclipse-code-formatter.xml
   * Para formatear el codigo presionar *_Ctrl+Shift+F_*
 
 ==8) Descargar el codigo del repositorio.==
+  * Dentro del Eclipse, ir a *_Window_* > *_Open Perspective_* > *_Other_*.
+  * En la nueva ventana, seleccionar la vista llamada *_SVN Reposity Exploring_*.
+  * En la vista *_SVN Repositories_* ( a la izquierda del Eclipse ), hacer click en el icono del cilindro amarillo con el signo + de color verde.
+  * Utilizaremos unicamente la configuracion ubicada en la solapa *_General_* ya que son suficientes. 
+===8.1) Para participantes del proyecto.=== 
+  * Si sos participante del proyecto vas a poder comitear codigo y paginas para la wiki. Vamos a sincronizar el Eclipse con la raiz del SVN para poder descargar tanto del Trunk, de las Branches o de la wiki.
+  * Completa el campo *_URL_* con la siguiente direccion:
+{{{
+https://android-robot-control.googlecode.com/svn/
+}}}
+  * A su vez necesitaras completar la informacion de autenticacion. El campo *_User_* es el nombre de usuario de tu cuenta de Google. El campo *_Password_* es generado por Google, y lo podes encontrar en la seccion *_Source_* > *_Checkout_* de este proyecto, siempre y cuando estes logueado en Google.
+  * 
+===8.1) Para no participantes del proyecto.===
+  * Se pueden descargar el proyecto y mantenerlo actualizado. Sin embargo no les sera posible enviar modificaciones al repositorio.
+  * Para ello, completa el campo *_URL_* con la siguiente direccion:
+{{{
+
+}}}
