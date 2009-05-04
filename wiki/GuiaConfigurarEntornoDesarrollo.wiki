@@ -95,3 +95,6 @@ http://android-robot-control.googlecode.com/files/eclipse-code-formatter.xml
 https://android-robot-control.googlecode.com/svn/
 }}}
   * Si sos participante del proyecto, deberas completar la informacion de autenticacion para que no sea solicitada posteriormente. El campo *_User_* es el nombre de usuario de tu cuenta de Google. El campo *_Password_* es generado por Google, y lo podes encontrar en la seccion *_Source_* > *_Checkout_* de este proyecto, siempre y cuando estes logueado en Google.
+{{{
+http://code.google.com/p/android-robot-control/source/checkout
+}}}
