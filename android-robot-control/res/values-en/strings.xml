@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Generales -->
+    <string name="app_name">android-robot-control</string>
+    <string name="cancelar">Cancel</string>
+    <string name="aceptar">Ok</string>
+    
+    <!-- Actividades -->
+    <string name="conexion">Connection</string>
+    <string name="control">Main Control</string>
+    <string name="inicio">Start</string>
+    
+    <!-- Pantalla de coneccion -->
+    <string name="conectar">Connect</string>
+    <string name="ingresarIp">Enter the robot IP address:</string>
+    
+    <!-- Pantalla de control -->
+    <string name="avanzar">Forward</string>
+    <string name="retroceder">Backwards</string>
+    <string name="derecha">Turn right</string>
+    <string name="izquierda">Turn left</string>
+    
+    <!-- Dialogos de Confirmacion -->
+    <string name="salir">Exit</string>
+    <string name="salirMensaje">Are you sure you wanna exit?</string>
+    
+</resources>
