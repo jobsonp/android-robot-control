@@ -4,7 +4,7 @@
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent" 
 			  android:gravity="center_vertical">
-		<TextView android:text="Ingresar la IP del robot:" 
+		<TextView android:text="@string/ingresarIp" 
 				  android:id="@+id/TextView01"
 				  android:layout_width="wrap_content"
 				  android:layout_height="wrap_content">
@@ -19,6 +19,7 @@
 							  android:layout_gravity="center" 
 							  android:layout_width="0dip"
 							  android:maxLength="15"
+							  android:singleLine="True"
 							  >
 					</EditText>
 		</LinearLayout>
@@ -26,12 +27,12 @@
 					  android:layout_width="wrap_content" 
 					  android:layout_height="wrap_content"
 					  android:layout_gravity="right">
-					<Button android:text="Conectar" 
+					<Button android:text="@string/conectar" 
 							android:id="@+id/ButtonConectar"
 							android:layout_width="wrap_content" 
 							android:layout_height="wrap_content">
 					</Button>
-					<Button android:text="Cancelar" 
+					<Button android:text="@string/cancelar" 
 							android:id="@+id/ButtonCancelar"
 							android:layout_width="wrap_content" 
 							android:layout_height="wrap_content">
