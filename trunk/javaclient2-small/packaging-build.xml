@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Packaging Generator" default="jar">
+	<target name="jar" description="javaclient2-small.jar">
+		<jar destfile="javaclient2-small.jar">
+			<zipfileset dir="bin" includes="javaclient2/*.class, 
+				javaclient2/extra/*.class, 
+				javaclient2/xdr/*.class, 
+				javaclient2/structures/*.class, 
+				javaclient2/structures/camera/*.class, 
+				javaclient2/structures/gps/*.class, 
+				javaclient2/structures/log/*.class, 
+				javaclient2/structures/player/*.class, 
+				javaclient2/structures/power/*.class, 
+				javaclient2/structures/servoRTAI/*.class, 
+				javaclient2/structures/speech/*.class, 
+				javaclient2/structures/wifi/*.class" />
+		</jar>
+	</target>
+</project>
