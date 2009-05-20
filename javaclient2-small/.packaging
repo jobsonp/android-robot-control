@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configurations>
-<archive destination="" exploded="false" name="javaclientLabot.jar" used="true">
-<folder excludes="" includes="javaclient2/*.class, javaclient2/extra/*.class, javaclient2/xdr/*.class, javaclient2/structures/*, javaclient2/structures/actarray/*.class, javaclient2/structures/aio/*.class, javaclient2/structures/audiodsp/*.class, javaclient2/structures/audiomixer/*.class" location="bin" name="bin" prefix="" project="" projectLocation="bin" used="true"/>
-</archive>
-</configurations>
