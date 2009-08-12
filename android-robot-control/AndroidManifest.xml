@@ -2,19 +2,94 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="ar.edu.uade.android" android:versionCode="1"
 	android:versionName="1.0">
-	<application android:icon="@drawable/icon_arc" android:label="@string/app_name">
-		<activity android:name=".Conectar" android:label="@string/conexion">
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:icon="@drawable/icon_arc" android:label="@string/general.app_name">
+		<uses-library android:name="com.google.android.maps" />
+		<activity android:name="ar.edu.uade.android.actividades.ActividadConectar" 
+				  android:label="@string/general.app_name"
+				  android:icon="@drawable/icon_arc">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
-		</activity>
-		<activity android:name=".Controles" android:label="@string/control">
 			<intent-filter>
-				<action android:name="pantalla.controles" />
+				<action android:name="pantalla.conectar" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadDesconectar" 
+				  android:label="@string/actividad.desconectar"
+				  android:icon="@drawable/icon_arc">
+			<intent-filter>
+				<action android:name="acciones.desconectar" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamPrincipal" 
+				  android:label="@string/actividad.pantalla.webcam.principal"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.webcam.principal"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamBrazo" 
+				  android:label="@string/actividad.pantalla.webcam.brazo"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.webcam.brazo"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>        
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaMapa" 
+				  android:label="@string/actividad.pantalla.mapa"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.mapa"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+		<service android:enabled="true"
+         		 android:exported="false"
+         	  	 android:icon="@drawable/icon_arc"
+         		 android:label="@string/servicio.brazo"
+         		 android:name="ar.edu.uade.android.servicios.ServicioBrazo">
+         	<intent-filter>
+				<action android:name="servicio.brazo" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</service>
+		<service android:enabled="true"
+         		 android:exported="false"
+         	  	 android:icon="@drawable/icon_arc"
+         		 android:label="@string/servicio.gps"
+         		 android:name="ar.edu.uade.android.servicios.ServicioGPS">
+         	<intent-filter>
+				<action android:name="servicio.gps" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</service>
+		<service android:enabled="true"
+         		 android:exported="false"
+         	  	 android:icon="@drawable/icon_arc"
+         		 android:label="@string/servicio.servos"
+         		 android:name="ar.edu.uade.android.servicios.ServicioServos">
+         	<intent-filter>
+				<action android:name="servicio.servos" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</service>
+		<service android:enabled="true"
+         		 android:exported="false"
+         	  	 android:icon="@drawable/icon_arc"
+         		 android:label="@string/servicio.wifi"
+         		 android:name="ar.edu.uade.android.servicios.ServicioWIFI">
+         	<intent-filter>
+				<action android:name="servicio.wifi" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</service>		
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
-</manifest> 
+</manifest>

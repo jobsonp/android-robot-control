@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/MenuVista"
+    	  android:title="@string/menu.vista"
+    	  android:icon="@android:drawable/ic_menu_view" >
+    	<menu>
+	    	<group android:enabled="true"
+	    		   android:checkableBehavior="single">
+	    		<item android:id="@+id/SubmenuItemVistaCamaraPrincipal"
+	    			  android:title="@string/menu.vista.camara.principal"
+	    			  android:icon="@android:drawable/ic_menu_camera"/>
+	    		<item android:id="@+id/SubmenuItemVistaCamaraBrazo"
+	    		 	  android:title="@string/menu.vista.camara.brazo"
+	    		 	  android:icon="@android:drawable/ic_menu_camera"/>
+	    		<item android:id="@+id/SubmenuItemVistaMapa"
+	    			  android:title="@string/menu.vista.mapa"
+	    			  android:icon="@android:drawable/ic_menu_mapmode"/>		
+	    	</group>
+    	</menu>
+    </item>
+    <item android:id="@+id/MenuDesconectar"
+    	  android:title="@string/menu.desconectar" 
+    	  android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
+</menu>
