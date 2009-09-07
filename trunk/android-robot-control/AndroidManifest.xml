@@ -4,7 +4,7 @@
 	android:versionName="1.0">
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:icon="@drawable/icon_arc" android:label="@string/general.app_name">
+	<application android:icon="@drawable/icon_arc" android:label="@string/general.app_name" android:debuggable="true">
 		<uses-library android:name="com.google.android.maps" />
 		<activity android:name="ar.edu.uade.android.actividades.ActividadConectar" 
 				  android:label="@string/general.app_name"
