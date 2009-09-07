@@ -1,11 +1,13 @@
 package ar.edu.uade.android.actividades;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.widget.TextView;
 import ar.edu.uade.android.R;
 
 
 public class ActividadPantallaWebcamPrincipal
-    extends ActividadPantallaAbstract
+    extends ActividadPantallaAbstract 
 {
     
     @Override
@@ -17,6 +19,25 @@ public class ActividadPantallaWebcamPrincipal
         setContentView( R.layout.webcam_principal );
     }
 
+    @Override
+    public boolean onTrackballEvent( MotionEvent event )
+    {
+        boolean eventHandled = false;
+
+        TextView posX = (TextView) this.findViewById( R.id.pos_x );
+        TextView posY = (TextView) this.findViewById( R.id.pos_y );
+        
+        if( event.getAction() == MotionEvent.ACTION_MOVE )
+        {
+            posX.setText( String.valueOf(  event.getX( ) ) );
+            posY.setText( String.valueOf(  event.getY( ) ) );
+            
+            eventHandled = true;
+        }
+        
+        return eventHandled;
+    }
+    
     @Override
     protected boolean isRouteDisplayed()
     {

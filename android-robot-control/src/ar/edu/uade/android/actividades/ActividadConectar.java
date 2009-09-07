@@ -36,7 +36,7 @@ public class ActividadConectar
             {
                 // 1) Intentar conectar
                 // 2) Lanzar un nuevo thread para streaming
-                //Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
+                Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
                 startActivity( new Intent( Constantes.INTENT_PANTALLA_WEBCAM_PRINCIPAL ) );
                 break;   
             }

@@ -49,6 +49,7 @@
     
     <!-- Mensajes de Toast -->
     <string name="toast.conectando">Connecting...</string>
+    <string name="toast.desconectando">Disconnecting...</string>
     <string name="toast.conectado.al.robot">Connected to the robot</string>
     
     

@@ -5,7 +5,31 @@
 			  android:layout_height="fill_parent" 
 			  android:gravity="center_vertical">
 			<TextView android:text="@string/actividad.pantalla.webcam.brazo"
-					  android:layout_width="fill_parent" 
-        			  android:layout_height="fill_parent">
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
 			</TextView>
+			<TextView android:text="X: "
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
+			<TextView android:id="@+id/pos_x"
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
+			<TextView android:text="Y: "
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
+			<TextView android:id="@+id/pos_y"
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
+			<TextView android:text="Event: "
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
+			<TextView android:id="@+id/TrackballClick"
+					  android:layout_width="wrap_content" 
+        			  android:layout_height="wrap_content">
+			</TextView> 
 </LinearLayout>

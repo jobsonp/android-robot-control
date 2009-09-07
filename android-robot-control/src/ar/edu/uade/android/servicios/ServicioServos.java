@@ -39,11 +39,6 @@ public class ServicioServos
         ruedas.Atras();
     }
 
-    public void Stop()
-    {
-        ruedas.Stop();
-    }
-
     public void RotarIzq()
     {
         ruedas.RotarIzq();
@@ -54,6 +49,7 @@ public class ServicioServos
         ruedas.RotarDer();
     }
 
+    // Metodos que probablemente no usemos.
     public void GirarIzq()
     {
         ruedas.GirarIzq();
@@ -62,5 +58,10 @@ public class ServicioServos
     public void GirarDer()
     {
         ruedas.GirarDer();
+    }
+    
+    public void Stop()
+    {
+        ruedas.Stop();
     }
 }
