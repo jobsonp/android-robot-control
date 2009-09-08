@@ -23,12 +23,4 @@
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
 			</TextView> 
-			<TextView android:text="Click "
-					  android:layout_width="wrap_content" 
-        			  android:layout_height="wrap_content">
-			</TextView> 
-			<TextView android:id="@+id/TrackballClick"
-					  android:layout_width="wrap_content" 
-        			  android:layout_height="wrap_content">
-			</TextView> 
 </LinearLayout>

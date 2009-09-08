@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			  android:orientation="vertical" 
 			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent" 
-			  android:gravity="center_vertical">
+			  android:layout_height="fill_parent">
 			<TextView android:text="@string/actividad.pantalla.webcam.brazo"
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
@@ -12,7 +11,7 @@
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
 			</TextView> 
-			<TextView android:id="@+id/pos_x"
+			<TextView android:id="@+id/pos_x_brazo"
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
 			</TextView> 
@@ -20,7 +19,7 @@
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
 			</TextView> 
-			<TextView android:id="@+id/pos_y"
+			<TextView android:id="@+id/pos_y_brazo"
 					  android:layout_width="wrap_content" 
         			  android:layout_height="wrap_content">
 			</TextView> 

@@ -24,8 +24,8 @@ public class ActividadPantallaWebcamBrazo
         boolean eventHandled = false;
         
         TextView trackballClick = (TextView) this.findViewById( R.id.TrackballClick );
-        TextView posX = (TextView) this.findViewById( R.id.pos_x );
-        TextView posY = (TextView) this.findViewById( R.id.pos_y );
+        TextView posX = (TextView) this.findViewById( R.id.pos_x_brazo );
+        TextView posY = (TextView) this.findViewById( R.id.pos_y_brazo );
         
         trackballClick.setText( "" );
         posX.setText( "" );
