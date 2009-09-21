@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.dialogo.DialogoSalir;
+import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 import ar.edu.uade.android.utils.Validador;
 
@@ -41,9 +42,13 @@ public class ActividadConectar
                 // 2) Lanzar un nuevo thread para streaming
                 String robotIpAndPort = ( (EditText) this.findViewById( R.id.RobotIpAndPort ) ).getText().toString();
                 robotIpAndPort = robotIpAndPort.replaceAll( " ", "" );
-                
+
                 if ( Validador.validarIpPuerto( robotIpAndPort ) )
                 {
+                    // Ahora que la ip y el puerto son validos los cargo a la configuracion.
+                    Configuracion.setConfiguracion( Constantes.IP_PLAYER, robotIpAndPort.split( ":" )[0] );
+                    Configuracion.setConfiguracion( Constantes.PORT_PLAYER, robotIpAndPort.split( ":" )[1] );
+                    
                     Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
                     startActivity( new Intent( Constantes.INTENT_PANTALLA_WEBCAM_PRINCIPAL ) );
                 }
