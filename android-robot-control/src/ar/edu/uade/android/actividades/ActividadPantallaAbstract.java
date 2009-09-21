@@ -6,7 +6,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import ar.edu.uade.android.R;
-import ar.edu.uade.android.constantes.Constantes;
+import ar.edu.uade.android.utils.Constantes;
 
 import com.google.android.maps.MapActivity;
 

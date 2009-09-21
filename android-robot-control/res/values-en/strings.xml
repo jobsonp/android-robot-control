@@ -20,7 +20,7 @@
     
     <!-- Pantalla de coneccion -->
     <string name="conectar">Connect</string>
-    <string name="ingresarIp">Enter the robot IP address:</string>
+    <string name="ingresarIp">Enter the robot IP address and port:</string>
     
     <!-- Pantalla de control -->
     <string name="avanzar">Forward</string>
@@ -51,6 +51,7 @@
     <string name="toast.conectando">Connecting...</string>
     <string name="toast.desconectando">Disconnecting...</string>
     <string name="toast.conectado.al.robot">Connected to the robot</string>
+    <string name="toast.ip.o.puerto.invalidos">Invalid ip or port</string>
     
     
     <!-- Google Maps Api Key -->

@@ -5,8 +5,8 @@ package framework.modulos;
 
 import java.util.Vector;
 
+import ar.edu.uade.android.utils.Constantes;
 import framework.conector.Conector;
-import framework.constants.Constants;
 
 public class ModuloBrazo
     extends ModuloServos
@@ -83,9 +83,9 @@ public class ModuloBrazo
         // lo primero que hay que hacer es setear el brazo en una posicion inicial
         // para poder saber en que posici�n estar� (esto se debe a que no hay forma
         // de preguntarle al driver en que posici�n se encuentra)
-        setPosicionAbsoluta( id[Constants.SERVO_HORIZONTAL_ARRAY], 63 ); // num servo, grados
-        setPosicionAbsoluta( id[Constants.SERVO_VERTICAL_ARRAY], 63 ); // num servo, grados
-        setPosicionAbsoluta( id[Constants.SERVO_MANO_ARRAY], 63 ); // num servo, grados
+        setPosicionAbsoluta( id[Constantes.SERVO_HORIZONTAL_ARRAY], 63 ); // num servo, grados
+        setPosicionAbsoluta( id[Constantes.SERVO_VERTICAL_ARRAY], 63 ); // num servo, grados
+        setPosicionAbsoluta( id[Constantes.SERVO_MANO_ARRAY], 63 ); // num servo, grados
 
     } // END Constructor.
 
@@ -112,26 +112,26 @@ public class ModuloBrazo
     private void setearPosicionSuave( int servo, int posicion )
     {
         // Verificar que no se exceda de la escala
-        if ( servo == id[Constants.SERVO_VERTICAL_ARRAY] )
+        if ( servo == id[Constantes.SERVO_VERTICAL_ARRAY] )
         {
-            if ( posicion > max[Constants.SERVO_VERTICAL_ARRAY] )
-                posicion = max[Constants.SERVO_VERTICAL_ARRAY];
-            if ( posicion < min[Constants.SERVO_VERTICAL_ARRAY] )
-                posicion = min[Constants.SERVO_VERTICAL_ARRAY];
+            if ( posicion > max[Constantes.SERVO_VERTICAL_ARRAY] )
+                posicion = max[Constantes.SERVO_VERTICAL_ARRAY];
+            if ( posicion < min[Constantes.SERVO_VERTICAL_ARRAY] )
+                posicion = min[Constantes.SERVO_VERTICAL_ARRAY];
         }
-        if ( servo == id[Constants.SERVO_HORIZONTAL_ARRAY] )
+        if ( servo == id[Constantes.SERVO_HORIZONTAL_ARRAY] )
         {
-            if ( posicion > max[Constants.SERVO_HORIZONTAL_ARRAY] )
-                posicion = max[Constants.SERVO_HORIZONTAL_ARRAY];
-            if ( posicion < min[Constants.SERVO_HORIZONTAL_ARRAY] )
-                posicion = min[Constants.SERVO_HORIZONTAL_ARRAY];
+            if ( posicion > max[Constantes.SERVO_HORIZONTAL_ARRAY] )
+                posicion = max[Constantes.SERVO_HORIZONTAL_ARRAY];
+            if ( posicion < min[Constantes.SERVO_HORIZONTAL_ARRAY] )
+                posicion = min[Constantes.SERVO_HORIZONTAL_ARRAY];
         }
-        if ( servo == id[Constants.SERVO_MANO_ARRAY] )
+        if ( servo == id[Constantes.SERVO_MANO_ARRAY] )
         {
-            if ( posicion > max[Constants.SERVO_MANO_ARRAY] )
-                posicion = max[Constants.SERVO_MANO_ARRAY];
-            if ( posicion < min[Constants.SERVO_MANO_ARRAY] )
-                posicion = min[Constants.SERVO_MANO_ARRAY];
+            if ( posicion > max[Constantes.SERVO_MANO_ARRAY] )
+                posicion = max[Constantes.SERVO_MANO_ARRAY];
+            if ( posicion < min[Constantes.SERVO_MANO_ARRAY] )
+                posicion = min[Constantes.SERVO_MANO_ARRAY];
         }
 
         if ( posicion == valorActualServos[servo] )
@@ -180,37 +180,37 @@ public class ModuloBrazo
 
     public void brazoSubir( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_VERTICAL_ARRAY], valorActualServos[id[Constants.SERVO_VERTICAL_ARRAY]]
+        setearPosicionSuave( id[Constantes.SERVO_VERTICAL_ARRAY], valorActualServos[id[Constantes.SERVO_VERTICAL_ARRAY]]
             + presicion );
     }
 
     public void brazoBajar( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_VERTICAL_ARRAY], valorActualServos[id[Constants.SERVO_VERTICAL_ARRAY]]
+        setearPosicionSuave( id[Constantes.SERVO_VERTICAL_ARRAY], valorActualServos[id[Constantes.SERVO_VERTICAL_ARRAY]]
             - presicion );
     }
 
     public void brazoDerecha( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_HORIZONTAL_ARRAY],
-                             valorActualServos[id[Constants.SERVO_HORIZONTAL_ARRAY]] + presicion );
+        setearPosicionSuave( id[Constantes.SERVO_HORIZONTAL_ARRAY],
+                             valorActualServos[id[Constantes.SERVO_HORIZONTAL_ARRAY]] + presicion );
     }
 
     public void brazoIzquierda( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_HORIZONTAL_ARRAY],
-                             valorActualServos[id[Constants.SERVO_HORIZONTAL_ARRAY]] - presicion );
+        setearPosicionSuave( id[Constantes.SERVO_HORIZONTAL_ARRAY],
+                             valorActualServos[id[Constantes.SERVO_HORIZONTAL_ARRAY]] - presicion );
     }
 
     public void manoAbrir( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_MANO_ARRAY], valorActualServos[id[Constants.SERVO_MANO_ARRAY]]
+        setearPosicionSuave( id[Constantes.SERVO_MANO_ARRAY], valorActualServos[id[Constantes.SERVO_MANO_ARRAY]]
             + presicion );
     }
 
     public void manoCerrar( int presicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_MANO_ARRAY], valorActualServos[id[Constants.SERVO_MANO_ARRAY]]
+        setearPosicionSuave( id[Constantes.SERVO_MANO_ARRAY], valorActualServos[id[Constantes.SERVO_MANO_ARRAY]]
             - presicion );
     }
 
@@ -221,9 +221,9 @@ public class ModuloBrazo
     public int[] getPosBrazo()
     {
         int[] data = new int[3];
-        data[0] = valorActualServos[id[Constants.SERVO_HORIZONTAL_ARRAY]];
-        data[1] = valorActualServos[id[Constants.SERVO_VERTICAL_ARRAY]];
-        data[2] = valorActualServos[id[Constants.SERVO_MANO_ARRAY]];
+        data[0] = valorActualServos[id[Constantes.SERVO_HORIZONTAL_ARRAY]];
+        data[1] = valorActualServos[id[Constantes.SERVO_VERTICAL_ARRAY]];
+        data[2] = valorActualServos[id[Constantes.SERVO_MANO_ARRAY]];
         return data;
     }
 
@@ -252,50 +252,50 @@ public class ModuloBrazo
      */
     public void setPosBrazo( int[] pos )
     {
-        setPosicionAbsoluta( id[Constants.SERVO_HORIZONTAL_ARRAY], pos[Constants.SERVO_HORIZONTAL_ARRAY] );
-        setPosicionAbsoluta( id[Constants.SERVO_VERTICAL_ARRAY], pos[Constants.SERVO_VERTICAL_ARRAY] );
-        setPosicionAbsoluta( id[Constants.SERVO_MANO_ARRAY], pos[Constants.SERVO_MANO_ARRAY] );
+        setPosicionAbsoluta( id[Constantes.SERVO_HORIZONTAL_ARRAY], pos[Constantes.SERVO_HORIZONTAL_ARRAY] );
+        setPosicionAbsoluta( id[Constantes.SERVO_VERTICAL_ARRAY], pos[Constantes.SERVO_VERTICAL_ARRAY] );
+        setPosicionAbsoluta( id[Constantes.SERVO_MANO_ARRAY], pos[Constantes.SERVO_MANO_ARRAY] );
     }
 
     public void manoAbrirMaximo()
     {
-        if ( valorActualServos[id[Constants.SERVO_MANO_ARRAY]] != min[Constants.SERVO_MANO_ARRAY] )
-            setearPosicionSuave( id[Constants.SERVO_MANO_ARRAY], min[Constants.SERVO_MANO_ARRAY] );
+        if ( valorActualServos[id[Constantes.SERVO_MANO_ARRAY]] != min[Constantes.SERVO_MANO_ARRAY] )
+            setearPosicionSuave( id[Constantes.SERVO_MANO_ARRAY], min[Constantes.SERVO_MANO_ARRAY] );
     }
 
     public void manoCerrarMaximo()
     {
-        if ( valorActualServos[id[Constants.SERVO_MANO_ARRAY]] != max[Constants.SERVO_MANO_ARRAY] )
-            setearPosicionSuave( id[Constants.SERVO_MANO_ARRAY], max[Constants.SERVO_MANO_ARRAY] );
+        if ( valorActualServos[id[Constantes.SERVO_MANO_ARRAY]] != max[Constantes.SERVO_MANO_ARRAY] )
+            setearPosicionSuave( id[Constantes.SERVO_MANO_ARRAY], max[Constantes.SERVO_MANO_ARRAY] );
     }
 
     public int getValorVertical()
     {
-        return valorActualServos[id[Constants.SERVO_VERTICAL_ARRAY]];
+        return valorActualServos[id[Constantes.SERVO_VERTICAL_ARRAY]];
     }
 
     public int getValorHorizontal()
     {
-        return valorActualServos[id[Constants.SERVO_HORIZONTAL_ARRAY]];
+        return valorActualServos[id[Constantes.SERVO_HORIZONTAL_ARRAY]];
     }
 
     public int getValorMano()
     {
-        return valorActualServos[id[Constants.SERVO_MANO_ARRAY]];
+        return valorActualServos[id[Constantes.SERVO_MANO_ARRAY]];
     }
 
     public void moverVerticalSuave( int posicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_VERTICAL_ARRAY], posicion );
+        setearPosicionSuave( id[Constantes.SERVO_VERTICAL_ARRAY], posicion );
     }
 
     public void moverHorizontalSuave( int posicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_HORIZONTAL_ARRAY], posicion );
+        setearPosicionSuave( id[Constantes.SERVO_HORIZONTAL_ARRAY], posicion );
     }
 
     public void moverManoSuave( int posicion )
     {
-        setearPosicionSuave( id[Constants.SERVO_MANO_ARRAY], posicion );
+        setearPosicionSuave( id[Constantes.SERVO_MANO_ARRAY], posicion );
     }
 }

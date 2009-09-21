@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import ar.edu.uade.android.R;
-import ar.edu.uade.android.constantes.Constantes;
 import ar.edu.uade.android.dialogo.DialogoSalir;
+import ar.edu.uade.android.utils.Constantes;
+import ar.edu.uade.android.utils.Validador;
 
 public class ActividadConectar
-    extends Activity implements OnClickListener
+    extends Activity
+    implements OnClickListener
 {
     public void onCreate( Bundle savedInstanceState )
     {
@@ -36,9 +39,19 @@ public class ActividadConectar
             {
                 // 1) Intentar conectar
                 // 2) Lanzar un nuevo thread para streaming
-                Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
-                startActivity( new Intent( Constantes.INTENT_PANTALLA_WEBCAM_PRINCIPAL ) );
-                break;   
+                String robotIpAndPort = ( (EditText) this.findViewById( R.id.RobotIpAndPort ) ).getText().toString();
+                robotIpAndPort = robotIpAndPort.replaceAll( " ", "" );
+                
+                if ( Validador.validarIpPuerto( robotIpAndPort ) )
+                {
+                    Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
+                    startActivity( new Intent( Constantes.INTENT_PANTALLA_WEBCAM_PRINCIPAL ) );
+                }
+                else
+                {
+                    Toast.makeText( this, R.string.toast_ip_o_puerto_invalidos, Toast.LENGTH_SHORT ).show();
+                }
+                break;
             }
             case R.id.ButtonCancelar:
             {
