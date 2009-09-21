@@ -7,9 +7,9 @@ import javaclient2.PlayerClient;
 import javaclient2.ServoRTAIInterface;
 import javaclient2.WiFiInterface;
 import javaclient2.structures.PlayerConstants;
-import framework.constants.Constants;
-import framework.utils.LeeConfig;
-import framework.utils.Logs;
+import android.util.Log;
+import ar.edu.uade.android.utils.Configuracion;
+import ar.edu.uade.android.utils.Constantes;
 
 public class Conector
 {
@@ -48,42 +48,34 @@ public class Conector
 
     private Conector()
     {
-        ip = LeeConfig.buscarConfiguracion( Constants.IP_PLAYER );
-        puerto = Integer.parseInt( LeeConfig.buscarConfiguracion( Constants.PORT_PLAYER ) );
-        online = Boolean.parseBoolean( LeeConfig.buscarConfiguracion( Constants.ONLINE_PLAYER ) );
-        brazo_id_servos[Constants.SERVO_HORIZONTAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_HORIZ_ID ) );
-        brazo_id_servos[Constants.SERVO_VERTICAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_VERT_ID ) );
-        brazo_id_servos[Constants.SERVO_MANO_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_MANO_ID ) );
-        brazo_min[Constants.SERVO_HORIZONTAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_HORIZ_MIN ) );
-        brazo_max[Constants.SERVO_HORIZONTAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_HORIZ_MAX ) );
-        brazo_min[Constants.SERVO_VERTICAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_VERT_MIN ) );
-        brazo_max[Constants.SERVO_VERTICAL_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_VERT_MAX ) );
-        brazo_min[Constants.SERVO_MANO_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_MANO_MIN ) );
-        brazo_max[Constants.SERVO_MANO_ARRAY] = Integer.parseInt( LeeConfig
-            .buscarConfiguracion( Constants.BRAZO_MANO_MAX ) );
-        brazo_pasos = Integer.parseInt( LeeConfig.buscarConfiguracion( Constants.BRAZO_STEP ) );
+        ip = Configuracion.getConfigString( Constantes.IP_PLAYER );
+        puerto = Configuracion.getConfigInt( Constantes.PORT_PLAYER );
+        online = Configuracion.getConfigBoolean( Constantes.ONLINE_PLAYER );
+        brazo_id_servos[Constantes.SERVO_HORIZONTAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_HORIZ_ID );
+        brazo_id_servos[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_VERT_ID );
+        brazo_id_servos[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_ID );
+        brazo_min[Constantes.SERVO_HORIZONTAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_HORIZ_MIN );
+        brazo_max[Constantes.SERVO_HORIZONTAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_HORIZ_MAX );
+        brazo_min[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt(  Constantes.BRAZO_VERT_MIN );
+        brazo_max[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_VERT_MAX );
+        brazo_min[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_MIN );
+        brazo_max[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_MAX );
+        brazo_pasos = Configuracion.getConfigInt( Constantes.BRAZO_STEP );
 
-        Logs.mensaje( null, "M8", Constants.MSG_STD, "OBTUVO IP: " + ip );
-        Logs.mensaje( null, "M8", Constants.MSG_STD, "OBTUVO PUERTO: " + puerto );
-        Logs.mensaje( null, "M8", Constants.MSG_STD, "OBTUVO ESTADO: " + online );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: HORIZ ID SERVO: " + brazo_id_servos[0] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: VERT ID SERVO: " + brazo_id_servos[1] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: MANO ID SERVO: " + brazo_id_servos[1] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: PASOS SERVO: " + brazo_pasos );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: BRAZO HORIZ MIN: " + brazo_min[0] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: BRAZO HORIZ MAX: " + brazo_max[0] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: BRAZO VERT MIN: " + brazo_min[1] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: BRAZO VERT MAX: " + brazo_max[1] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: MANO MIN: " + brazo_min[2] );
-        Logs.mensaje( null, "M2", Constants.MSG_STD, "OBTUVO ESTADO: MANO MAX: " + brazo_max[2] );
+        Log.d( Conector.class.getName(), "OBTUVO IP: " + ip );
+        Log.d( Conector.class.getName(), "OBTUVO PUERTO: " + puerto );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: " + online );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: HORIZ ID SERVO: " + brazo_id_servos[0] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: VERT ID SERVO: " + brazo_id_servos[1] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: MANO ID SERVO: " + brazo_id_servos[1] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: PASOS SERVO: " + brazo_pasos );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: BRAZO HORIZ MIN: " + brazo_min[0] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: BRAZO HORIZ MAX: " + brazo_max[0] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: BRAZO VERT MIN: " + brazo_min[1] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: BRAZO VERT MAX: " + brazo_max[1] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: MANO MIN: " + brazo_min[2] );
+        Log.d( Conector.class.getName(), "OBTUVO ESTADO: MANO MAX: " + brazo_max[2] );
+        Log.i( Conector.class.getName(), "Conector inicializado." );
     }
 
     public Vector getInterfaceGPS()
@@ -95,16 +87,17 @@ public class Conector
             try
             {
                 gps = robot.requestInterfaceGPS( 0, PlayerConstants.PLAYER_OPEN_MODE );
-                Logs.mensaje( "L6", "M8", Constants.MSG_STD, null );
+                
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_OK);
             }
             catch ( Exception e )
             {
-                Logs.mensaje( "L7", "M8", Constants.MSG_ERR, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_FAILED);
             }
         }
         else
         {
-            Logs.mensaje( "L3", "M8", Constants.MSG_ERR, null );
+            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
@@ -121,16 +114,16 @@ public class Conector
             try
             {
                 servo = robot.requestInterfaceServoRTAI( 0, PlayerConstants.PLAYER_OPEN_MODE );
-                Logs.mensaje( "L12", "M8", Constants.MSG_STD, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_SERVORTAI_OK );
             }
             catch ( Exception e )
             {
-                Logs.mensaje( "L13", "M8", Constants.MSG_ERR, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_SERVORTAI_FAILED );
             }
         }
         else
         {
-            Logs.mensaje( "L3", "M8", Constants.MSG_ERR, null );
+            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
@@ -157,16 +150,16 @@ public class Conector
             try
             {
                 servo = robot.requestInterfaceServoRTAI( 1, PlayerConstants.PLAYER_OPEN_MODE );
-                Logs.mensaje( "L14", "M8", Constants.MSG_STD, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_MOTOR_OK );
             }
             catch ( Exception e )
             {
-                Logs.mensaje( "L15", "M8", Constants.MSG_ERR, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_MOTOR_OK );
             }
         }
         else
         {
-            Logs.mensaje( "L3", "M8", Constants.MSG_ERR, null );
+            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
@@ -183,25 +176,20 @@ public class Conector
             try
             {
                 wifi = robot.requestInterfaceWiFi( 0, PlayerConstants.PLAYER_OPEN_MODE );
-                Logs.mensaje( "L10", "M8", Constants.MSG_STD, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_WIRELESS_OK );
             }
             catch ( Exception e )
             {
-                Logs.mensaje( "L11", "M8", Constants.MSG_ERR, null );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_WIRELESS_FAILED );
             }
         }
         else
         {
-            Logs.mensaje( "L3", "M8", Constants.MSG_ERR, null );
+            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
         vv.addElement( wifi );
         return vv;
-    }
-
-    public static void main( String[] args )
-    {
-
     }
 }

@@ -37,7 +37,6 @@ public class ModuloRuedas extends ModuloServos {
 		((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ADELANTE);
 		//	    CERRAR CONEXION
 		((PlayerClient) vv.elementAt(0)).stop();
-		
 	}
 	
 	public void Atras()
@@ -48,42 +47,6 @@ public class ModuloRuedas extends ModuloServos {
 		((PlayerClient) vv.elementAt(0)).start();
 		//		EJECUTAR COMANDO
 		((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ATRAS);
-		//	    CERRAR CONEXION
-		((PlayerClient) vv.elementAt(0)).stop();
-	}
-	
-	public void Stop()
-	{
-		//		INICIAR CONEXION
-		Conector conector = Conector.getInstance();
-		Vector vv = conector.getInterfaceMOTOR();
-		((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);//.runThreaded(-1,-1)();
-		//		EJECUTAR COMANDO
-		((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,STOP);
-		//	    CERRAR CONEXION
-		((PlayerClient) vv.elementAt(0)).stop();
-	}
-	
-	public void RotarIzq()
-	{
-		//		INICIAR CONEXION
-		Conector conector = Conector.getInstance();
-		Vector vv = conector.getInterfaceMOTOR();
-		((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);
-		//		EJECUTAR COMANDO
-		((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ROT_IZQUIERDA);
-		//	    CERRAR CONEXION
-		((PlayerClient) vv.elementAt(0)).stop();
-	}
-	
-	public void RotarDer()
-	{
-		//		INICIAR CONEXION
-		Conector conector = Conector.getInstance();
-		Vector vv = conector.getInterfaceMOTOR();
-		((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);
-		//		EJECUTAR COMANDO
-		((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ROT_DERECHA);
 		//	    CERRAR CONEXION
 		((PlayerClient) vv.elementAt(0)).stop();
 	}
@@ -111,5 +74,45 @@ public class ModuloRuedas extends ModuloServos {
 		//	    CERRAR CONEXION
 		((PlayerClient) vv.elementAt(0)).stop();
 	}
+
 	
+	/**
+	 * Methodos que probablmente no utilicemos.
+	 
+    public void Stop()
+    {
+        //      INICIAR CONEXION
+        Conector conector = Conector.getInstance();
+        Vector vv = conector.getInterfaceMOTOR();
+        ((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);//.runThreaded(-1,-1)();
+        //      EJECUTAR COMANDO
+        ((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,STOP);
+        //      CERRAR CONEXION
+        ((PlayerClient) vv.elementAt(0)).stop();
+    }
+    
+    public void RotarIzq()
+    {
+        //      INICIAR CONEXION
+        Conector conector = Conector.getInstance();
+        Vector vv = conector.getInterfaceMOTOR();
+        ((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);
+        //      EJECUTAR COMANDO
+        ((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ROT_IZQUIERDA);
+        //      CERRAR CONEXION
+        ((PlayerClient) vv.elementAt(0)).stop();
+    }
+    
+    public void RotarDer()
+    {
+        //      INICIAR CONEXION
+        Conector conector = Conector.getInstance();
+        Vector vv = conector.getInterfaceMOTOR();
+        ((PlayerClient) vv.elementAt(0)).runThreaded(-1,-1);
+        //      EJECUTAR COMANDO
+        ((ServoRTAIInterface)vv.elementAt(1)).moveServo(7,ROT_DERECHA);
+        //      CERRAR CONEXION
+        ((PlayerClient) vv.elementAt(0)).stop();
+    }
+    */
 }

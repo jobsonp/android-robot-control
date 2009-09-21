@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import ar.edu.uade.android.R;
-import ar.edu.uade.android.constantes.Constantes;
+import ar.edu.uade.android.utils.Constantes;
 
 public class ActividadDesconectar
     extends Activity
