@@ -56,7 +56,7 @@ public class Conector
         brazo_id_servos[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_ID );
         brazo_min[Constantes.SERVO_HORIZONTAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_HORIZ_MIN );
         brazo_max[Constantes.SERVO_HORIZONTAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_HORIZ_MAX );
-        brazo_min[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt(  Constantes.BRAZO_VERT_MIN );
+        brazo_min[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_VERT_MIN );
         brazo_max[Constantes.SERVO_VERTICAL_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_VERT_MAX );
         brazo_min[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_MIN );
         brazo_max[Constantes.SERVO_MANO_ARRAY] = Configuracion.getConfigInt( Constantes.BRAZO_MANO_MAX );
@@ -87,17 +87,17 @@ public class Conector
             try
             {
                 gps = robot.requestInterfaceGPS( 0, PlayerConstants.PLAYER_OPEN_MODE );
-                
-                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_OK);
+
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_OK );
             }
             catch ( Exception e )
             {
-                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_FAILED);
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_GPS_FAILED );
             }
         }
         else
         {
-            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+            Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
@@ -123,13 +123,14 @@ public class Conector
         }
         else
         {
-            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+            Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
         vv.addElement( servo );
         return vv;
     }
+
 
     public Vector getInfoBrazo()
     {
@@ -159,7 +160,7 @@ public class Conector
         }
         else
         {
-            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+            Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
@@ -185,7 +186,7 @@ public class Conector
         }
         else
         {
-            Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+            Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
         Vector vv = new Vector();
         vv.addElement( robot );
