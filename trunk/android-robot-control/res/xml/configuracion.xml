@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/configuracion.categoria.pantalla">
+		<CheckBoxPreference android:summary="@string/configuracion.seleccion.fps.descripcion" 
+		  					android:title="@string/configuracion.seleccion.fps.titulo" android:key="@string/configuracion.seleccion.fps.key">
+		</CheckBoxPreference>
+
+		<ListPreference android:summary="@string/configuracion.seleccion.pantalla.inicio.descripcion" 
+						android:negativeButtonText="@string/general.cancelar" 
+						android:selectable="true" 
+						android:title="@string/configuracion.seleccion.pantalla.inicio.titulo" 
+						android:dialogTitle="@string/configuracion.seleccion.pantalla" android:entries="@array/configuracion_seleccion_pantalla_keys" android:entryValues="@array/configuracion_seleccion_pantalla_values" android:defaultValue="@string/configuracion.vista.main.titulo" android:key="@string/configuracion.seleccion.pantalla.inicio.key">
+		</ListPreference>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/configuracion.categoria.trackball">
+		<CheckBoxPreference android:selectable="true" 
+							android:summary="@string/configuracion.mostrar.trackball.descripcion" 
+							android:title="@string/configuracion.mostrar.trackball.titulo" 
+							android:key="@string/configuracion.mostrar.trackball.key">
+		</CheckBoxPreference>
+	</PreferenceCategory>
+</PreferenceScreen>

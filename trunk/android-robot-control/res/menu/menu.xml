@@ -21,4 +21,7 @@
     <item android:id="@+id/MenuDesconectar"
     	  android:title="@string/menu.desconectar" 
     	  android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
+    <item android:id="@+id/MenuConfiguracion"
+    	  android:title="@string/menu.configuracion"
+    	  android:icon="@android:drawable/ic_menu_preferences"/>
 </menu>

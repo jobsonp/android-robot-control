@@ -50,46 +50,14 @@
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
-		<service android:enabled="true"
-         		 android:exported="false"
-         	  	 android:icon="@drawable/icon_arc"
-         		 android:label="@string/servicio.brazo"
-         		 android:name="ar.edu.uade.android.servicios.ServicioBrazo">
-         	<intent-filter>
-				<action android:name="servicio.brazo" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</service>
-		<service android:enabled="true"
-         		 android:exported="false"
-         	  	 android:icon="@drawable/icon_arc"
-         		 android:label="@string/servicio.gps"
-         		 android:name="ar.edu.uade.android.servicios.ServicioGPS">
-         	<intent-filter>
-				<action android:name="servicio.gps" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</service>
-		<service android:enabled="true"
-         		 android:exported="false"
-         	  	 android:icon="@drawable/icon_arc"
-         		 android:label="@string/servicio.servos"
-         		 android:name="ar.edu.uade.android.servicios.ServicioServos">
-         	<intent-filter>
-				<action android:name="servicio.servos" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</service>
-		<service android:enabled="true"
-         		 android:exported="false"
-         	  	 android:icon="@drawable/icon_arc"
-         		 android:label="@string/servicio.wifi"
-         		 android:name="ar.edu.uade.android.servicios.ServicioWIFI">
-         	<intent-filter>
-				<action android:name="servicio.wifi" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</service>		
+		<activity android:name="ar.edu.uade.android.actividades.ActividadConfiguracion" 
+				  android:label="@string/actividad.configuracion"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.configuracion"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>	
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 </manifest>
