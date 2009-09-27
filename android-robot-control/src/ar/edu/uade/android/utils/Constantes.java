@@ -13,6 +13,8 @@ public class Constantes
     public static final String INTENT_PANTALLA_WEBCAM_PRINCIPAL = "pantalla.webcam.principal";
 
     public static final String INTENT_PANTALLA_WEBCAM_BRAZO = "pantalla.webcam.brazo";
+    
+    public static final String INTENT_PANTALLA_CONFIGURACION = "pantalla.configuracion";
 
     public static final String INTENT_ACCIONES_DESCONECTAR = "acciones.desconectar";
 
@@ -24,6 +26,12 @@ public class Constantes
 
     public static final String INTENT_SERVICIO_WIFI = "servicio.wifi";
 
+    /**
+     * Nombre del archivo de Preferencias
+     */
+    
+    public static final String NOMBRE_ARCHIVO_PREFERENCIAS = "ar.edu.uade.android.preferences"; 
+    
     /**
      * Debug Messages
      */

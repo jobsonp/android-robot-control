@@ -20,6 +20,7 @@ public abstract class ActividadPantallaAbstract extends MapActivity implements O
 
         menu.getItem( 0 ).setOnMenuItemClickListener( this );
         menu.getItem( 1 ).setOnMenuItemClickListener( this );
+        menu.getItem( 2 ).setOnMenuItemClickListener( this );
         
         menu.getItem( 0 ).getSubMenu().getItem( 0 ).setOnMenuItemClickListener( this );
         menu.getItem( 0 ).getSubMenu().getItem( 1 ).setOnMenuItemClickListener( this );
@@ -33,7 +34,6 @@ public abstract class ActividadPantallaAbstract extends MapActivity implements O
     {
         if( item.getItemId() == R.id.MenuDesconectar )
         {
-            item.setChecked( true );
             startActivity( new Intent( Constantes.INTENT_ACCIONES_DESCONECTAR ) );
         }
         else if( item.getItemId() == R.id.SubmenuItemVistaCamaraBrazo )
@@ -50,6 +50,10 @@ public abstract class ActividadPantallaAbstract extends MapActivity implements O
         {
             item.setChecked( true );
             startActivity( new Intent( Constantes.INTENT_PANTALLA_MAPA ) );
+        }
+        else if ( item.getItemId() == R.id.MenuConfiguracion )
+        {
+            startActivity( new Intent( Constantes.INTENT_PANTALLA_CONFIGURACION) );
         }
         return false;
     }
