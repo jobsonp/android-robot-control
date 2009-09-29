@@ -21,7 +21,11 @@
     
     <!-- Pantalla de coneccion -->
     <string name="conectar">Connect</string>
-    <string name="ingresarIp">Enter the robot IP address and port:</string>
+    <string name="ingresarIp">Enter the robot IP address:</string>
+    <string name="ingresarPuertoPlayerServer">Player Server Port:</string>
+    <string name="ingresarPuertoWebcamPrincipal">Main Webcam Port:</string>
+    <string name="ingresarPuertoWebcamBrazo">Arm Webcam Port:</string>
+    
     
     <!-- Pantalla de configuracion -->
     <string name="configuracion.titulo">Settings</string>
@@ -59,7 +63,7 @@
     <string name="toast.conectando">Connecting...</string>
     <string name="toast.desconectando">Disconnecting...</string>
     <string name="toast.conectado.al.robot">Connected to the robot</string>
-    <string name="toast.ip.o.puerto.invalidos">Invalid ip or port</string>
+    <string name="toast.ip.o.puerto.invalidos">Invalid ip or port(s)</string>
     
     <string name="toast.posicionActualizada">Robot position has been updated</string>
     

@@ -40,15 +40,23 @@ public class ActividadConectar
             {
                 // 1) Intentar conectar
                 // 2) Lanzar un nuevo thread para streaming
-                String robotIpAndPort = ( (EditText) this.findViewById( R.id.RobotIpAndPort ) ).getText().toString();
-                robotIpAndPort = robotIpAndPort.replaceAll( " ", "" );
+                String robotIp = ( (EditText) this.findViewById( R.id.RobotIp ) ).getText().toString();
+                String playerServerPort = ( (EditText) this.findViewById( R.id.PlayerServerPort ) ).getText()
+                    .toString();
+                String mainWebcamPort = ( (EditText) this.findViewById( R.id.MainWebcamPort ) ).getText().toString();
+                String armWebcamPort = ( (EditText) this.findViewById( R.id.ArmWebcamPort ) ).getText().toString();
 
-                if ( Validador.validarIpPuerto( robotIpAndPort ) )
+                if ( Validador.validarIp( robotIp ) && 
+                     Validador.validarPuerto( playerServerPort ) && 
+                     Validador.validarPuerto( mainWebcamPort ) && 
+                     Validador.validarPuerto( armWebcamPort ) )
                 {
-                    // Ahora que la ip y el puerto son validos los cargo a la configuracion.
-                    Configuracion.setConfiguracion( Constantes.IP_PLAYER, robotIpAndPort.split( ":" )[0] );
-                    Configuracion.setConfiguracion( Constantes.PORT_PLAYER, robotIpAndPort.split( ":" )[1] );
-                    
+                    // Ahora que la ip y los puertos son validos los cargo a la configuracion.
+                    Configuracion.setConfiguracion( Constantes.IP_PLAYER, robotIp );
+                    Configuracion.setConfiguracion( Constantes.PORT_PLAYER, playerServerPort );
+                    Configuracion.setConfiguracion( Constantes.MAIN_WEBCAM_PORT, mainWebcamPort );
+                    Configuracion.setConfiguracion( Constantes.ARM_WEBCAM_PORT, armWebcamPort );
+
                     Toast.makeText( this, R.string.toast_conectando, Toast.LENGTH_SHORT ).show();
                     startActivity( new Intent( Constantes.INTENT_PANTALLA_WEBCAM_PRINCIPAL ) );
                 }
