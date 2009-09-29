@@ -8,6 +8,8 @@ import android.widget.TextView;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
+import ar.edu.uade.android.utils.Configuracion;
+import ar.edu.uade.android.utils.Constantes;
 
 public class ActividadPantallaWebcamPrincipal
     extends ActividadPantallaAbstract
@@ -21,19 +23,23 @@ public class ActividadPantallaWebcamPrincipal
         // TODO Auto-generated method stub
         super.onCreate( savedInstanceState );
 
-        // sample public cam
-        String URL = "http://10.0.2.2:1234";
-
         requestWindowFeature( Window.FEATURE_NO_TITLE );
-        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
+        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                              WindowManager.LayoutParams.FLAG_FULLSCREEN );
 
         setContentView( R.layout.webcam_principal );
 
-        mv = (MjpegView) this.findViewById( R.id.mjpeg_view_main );
+        startStreaming();
+    }
 
-        mv.setSource( MjpegInputStream.read( URL ) );
+    private void startStreaming()
+    {
+        mv = (MjpegView) this.findViewById( R.id.mjpeg_view_main );
+        mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.IP_PLAYER ) + ":"
+            + Configuracion.getConfigString( Constantes.MAIN_WEBCAM_PORT ) ) );
         mv.setDisplayMode( MjpegView.SIZE_BEST_FIT );
-        mv.showFps( true );
+
+        mv.showFps( super.getPreferences().getBoolean( "Show FPS Key", true ) );
     }
 
     @Override

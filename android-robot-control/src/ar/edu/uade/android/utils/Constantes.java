@@ -13,7 +13,7 @@ public class Constantes
     public static final String INTENT_PANTALLA_WEBCAM_PRINCIPAL = "pantalla.webcam.principal";
 
     public static final String INTENT_PANTALLA_WEBCAM_BRAZO = "pantalla.webcam.brazo";
-    
+
     public static final String INTENT_PANTALLA_CONFIGURACION = "pantalla.configuracion";
 
     public static final String INTENT_ACCIONES_DESCONECTAR = "acciones.desconectar";
@@ -29,9 +29,9 @@ public class Constantes
     /**
      * Nombre del archivo de Preferencias
      */
-    
-    public static final String NOMBRE_ARCHIVO_PREFERENCIAS = "ar.edu.uade.android.preferences"; 
-    
+
+    public static final String NOMBRE_ARCHIVO_PREFERENCIAS = "ar.edu.uade.android_preferences";
+
     /**
      * Debug Messages
      */
@@ -81,6 +81,10 @@ public class Constantes
     public static final String IP_PLAYER = "IP_PLAYER";
 
     public static final String PORT_PLAYER = "PORT_PLAYER";
+    
+    public static final String MAIN_WEBCAM_PORT = "MAIN_WEBCAM_PORT";
+    
+    public static final String ARM_WEBCAM_PORT = "ARM_WEBCAM_PORT";
 
     public static final String ONLINE_PLAYER = "ONLINE_PLAYER";
 

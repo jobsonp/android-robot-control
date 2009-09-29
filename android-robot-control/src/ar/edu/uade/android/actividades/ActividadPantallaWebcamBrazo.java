@@ -1,5 +1,6 @@
 package ar.edu.uade.android.actividades;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
+import ar.edu.uade.android.utils.Configuracion;
+import ar.edu.uade.android.utils.Constantes;
 
 
 public class ActividadPantallaWebcamBrazo
@@ -21,9 +24,6 @@ public class ActividadPantallaWebcamBrazo
         // TODO Auto-generated method stub
         super.onCreate( savedInstanceState );
 
-        // sample public cam
-        String URL = "http://10.0.2.2:1234";
-
         requestWindowFeature( Window.FEATURE_NO_TITLE );
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
 
@@ -31,9 +31,15 @@ public class ActividadPantallaWebcamBrazo
 
         mv = (MjpegView) this.findViewById( R.id.mjpeg_view_brazo );
 
-        mv.setSource( MjpegInputStream.read( URL ) );
+        startStreaming();
+    }
+
+    private void startStreaming()
+    {
+        mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.PORT_PLAYER ) + ":"
+            + Configuracion.getConfigString( Constantes.ARM_WEBCAM_PORT ) ) );
         mv.setDisplayMode( MjpegView.SIZE_BEST_FIT );
-        mv.showFps( true );
+        mv.showFps( super.getPreferences().getBoolean( "Show FPS Key", true ) );
     }
 
     @Override
