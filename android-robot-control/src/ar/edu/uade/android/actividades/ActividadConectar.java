@@ -46,10 +46,8 @@ public class ActividadConectar
                 String mainWebcamPort = ( (EditText) this.findViewById( R.id.MainWebcamPort ) ).getText().toString();
                 String armWebcamPort = ( (EditText) this.findViewById( R.id.ArmWebcamPort ) ).getText().toString();
 
-                if ( Validador.validarIp( robotIp ) && 
-                     Validador.validarPuerto( playerServerPort ) && 
-                     Validador.validarPuerto( mainWebcamPort ) && 
-                     Validador.validarPuerto( armWebcamPort ) )
+                if ( Validador.validarIp( robotIp ) && Validador.validarPuerto( playerServerPort )
+                    && Validador.validarPuerto( mainWebcamPort ) && Validador.validarPuerto( armWebcamPort ) )
                 {
                     // Ahora que la ip y los puertos son validos los cargo a la configuracion.
                     Configuracion.setConfiguracion( Constantes.IP_PLAYER, robotIp );

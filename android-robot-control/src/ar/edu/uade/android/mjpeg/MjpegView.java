@@ -1,4 +1,3 @@
-
 package ar.edu.uade.android.mjpeg;
 
 import java.io.IOException;
@@ -16,21 +15,24 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class MjpegView extends SurfaceView implements SurfaceHolder.Callback {
-    public final static int POSITION_UPPER_LEFT  = 9;
+public class MjpegView
+    extends SurfaceView
+    implements SurfaceHolder.Callback
+{
+    public final static int POSITION_UPPER_LEFT = 9;
     public final static int POSITION_UPPER_RIGHT = 3;
-    public final static int POSITION_LOWER_LEFT  = 12;
+    public final static int POSITION_LOWER_LEFT = 12;
     public final static int POSITION_LOWER_RIGHT = 6;
 
-    public final static int SIZE_STANDARD   = 1;
-    public final static int SIZE_BEST_FIT   = 4;
+    public final static int SIZE_STANDARD = 1;
+    public final static int SIZE_BEST_FIT = 4;
     public final static int SIZE_FULLSCREEN = 8;
-   
+
     private MjpegViewThread thread;
-    private MjpegInputStream mIn = null;    
+    private MjpegInputStream mIn = null;
     private boolean showFps = false;
     private boolean mRun = false;
-    private boolean surfaceDone = false;    
+    private boolean surfaceDone = false;
     private Paint overlayPaint;
     private int overlayTextColor;
     private int overlayBackgroundColor;
@@ -39,119 +41,147 @@ public class MjpegView extends SurfaceView implements SurfaceHolder.Callback {
     private int dispHeight;
     private int displayMode;
 
-    public class MjpegViewThread extends Thread {
+    public class MjpegViewThread
+        extends Thread
+    {
         private SurfaceHolder mSurfaceHolder;
         private int frameCounter = 0;
         private long start;
         private String fps = "";
         private Bitmap ovl;
-         
-        public MjpegViewThread(SurfaceHolder surfaceHolder, Context context) {
+
+        public MjpegViewThread( SurfaceHolder surfaceHolder, Context context )
+        {
             mSurfaceHolder = surfaceHolder;
         }
 
-        private Rect destRect(int bmw, int bmh) {
+        private Rect destRect( int bmw, int bmh )
+        {
             int tempx;
             int tempy;
-            if (displayMode == MjpegView.SIZE_STANDARD) {
-                tempx = (dispWidth / 2) - (bmw / 2);
-                tempy = (dispHeight / 2) - (bmh / 2);
-                return new Rect(tempx, tempy, bmw + tempx, bmh + tempy);
+            if ( displayMode == MjpegView.SIZE_STANDARD )
+            {
+                tempx = ( dispWidth / 2 ) - ( bmw / 2 );
+                tempy = ( dispHeight / 2 ) - ( bmh / 2 );
+                return new Rect( tempx, tempy, bmw + tempx, bmh + tempy );
             }
-            if (displayMode == MjpegView.SIZE_BEST_FIT) {
+            if ( displayMode == MjpegView.SIZE_BEST_FIT )
+            {
                 float bmasp = (float) bmw / (float) bmh;
                 bmw = dispWidth;
-                bmh = (int) (dispWidth / bmasp);
-                if (bmh > dispHeight) {
+                bmh = (int) ( dispWidth / bmasp );
+                if ( bmh > dispHeight )
+                {
                     bmh = dispHeight;
-                    bmw = (int) (dispHeight * bmasp);
+                    bmw = (int) ( dispHeight * bmasp );
                 }
-                tempx = (dispWidth / 2) - (bmw / 2);
-                tempy = (dispHeight / 2) - (bmh / 2);
-                return new Rect(tempx, tempy, bmw + tempx, bmh + tempy);
+                tempx = ( dispWidth / 2 ) - ( bmw / 2 );
+                tempy = ( dispHeight / 2 ) - ( bmh / 2 );
+                return new Rect( tempx, tempy, bmw + tempx, bmh + tempy );
             }
-            if (displayMode == MjpegView.SIZE_FULLSCREEN)
-                return new Rect(0, 0, dispWidth, dispHeight);
+            if ( displayMode == MjpegView.SIZE_FULLSCREEN )
+                return new Rect( 0, 0, dispWidth, dispHeight );
             return null;
         }
-         
-        public void setSurfaceSize(int width, int height) {
-            synchronized(mSurfaceHolder) {
+
+        public void setSurfaceSize( int width, int height )
+        {
+            synchronized ( mSurfaceHolder )
+            {
                 dispWidth = width;
                 dispHeight = height;
             }
         }
-         
-        private Bitmap makeFpsOverlay(Paint p) {
+
+        private Bitmap makeFpsOverlay( Paint p )
+        {
             Rect b = new Rect();
-            p.getTextBounds(fps, 0, fps.length(), b);
+            p.getTextBounds( fps, 0, fps.length(), b );
 
-            // false indentation to fix forum layout        
-            Bitmap bm = Bitmap.createBitmap(b.width(), b.height(), Bitmap.Config.ARGB_8888);
+            // false indentation to fix forum layout
+            Bitmap bm = Bitmap.createBitmap( b.width(), b.height(), Bitmap.Config.ARGB_8888 );
 
-            Canvas c = new Canvas(bm);
-            p.setColor(overlayBackgroundColor);
-            c.drawRect(0, 0, b.width(), b.height(), p);
-            p.setColor(overlayTextColor);
-            c.drawText(fps, -b.left, b.bottom-b.top-p.descent(), p);
+            Canvas c = new Canvas( bm );
+            p.setColor( overlayBackgroundColor );
+            c.drawRect( 0, 0, b.width(), b.height(), p );
+            p.setColor( overlayTextColor );
+            c.drawText( fps, -b.left, b.bottom - b.top - p.descent(), p );
             return bm;
         }
 
-        public void run() {
+        public void run()
+        {
             start = System.currentTimeMillis();
-            PorterDuffXfermode mode = new PorterDuffXfermode(PorterDuff.Mode.DST_OVER);
+            PorterDuffXfermode mode = new PorterDuffXfermode( PorterDuff.Mode.DST_OVER );
             Bitmap bm;
             int width;
             int height;
             Rect destRect;
             Canvas c = null;
             Paint p = new Paint();
-            while (mRun) {
-                if(surfaceDone) {
-                    try {
+            while ( mRun )
+            {
+                if ( surfaceDone )
+                {
+                    try
+                    {
                         c = mSurfaceHolder.lockCanvas();
-                        synchronized (mSurfaceHolder) {
-                            try {
+                        synchronized ( mSurfaceHolder )
+                        {
+                            try
+                            {
                                 bm = mIn.readMjpegFrame();
-                                destRect = destRect(bm.getWidth(),bm.getHeight());
-                                c.drawColor(Color.BLACK);
-                                c.drawBitmap(bm, null, destRect, p);
-                                if(showFps) {
-                                    p.setXfermode(mode);
-                                    if(ovl != null) {
+                                destRect = destRect( bm.getWidth(), bm.getHeight() );
+                                c.drawColor( Color.BLACK );
+                                c.drawBitmap( bm, null, destRect, p );
+                                if ( showFps )
+                                {
+                                    p.setXfermode( mode );
+                                    if ( ovl != null )
+                                    {
+                                        height = ( ( ovlPos & 1 ) == 1 ) ? destRect.top : destRect.bottom
+                                            - ovl.getHeight();
+                                        width = ( ( ovlPos & 8 ) == 8 ) ? destRect.left : destRect.right
+                                            - ovl.getWidth();
 
-// false indentation to fix forum layout                                        
-height = ((ovlPos & 1) == 1) ? destRect.top : destRect.bottom-ovl.getHeight();
-width  = ((ovlPos & 8) == 8) ? destRect.left : destRect.right -ovl.getWidth();
-
-                                        c.drawBitmap(ovl, width, height, null);
+                                        c.drawBitmap( ovl, width, height, null );
                                     }
-                                    p.setXfermode(null);
+                                    p.setXfermode( null );
                                     frameCounter++;
-                                    if((System.currentTimeMillis() - start) >= 1000) {
-                                        fps = String.valueOf(frameCounter)+"fps";
+                                    if ( ( System.currentTimeMillis() - start ) >= 1000 )
+                                    {
+                                        fps = String.valueOf( frameCounter ) + "fps";
                                         frameCounter = 0;
                                         start = System.currentTimeMillis();
-                                        ovl = makeFpsOverlay(overlayPaint);
+                                        ovl = makeFpsOverlay( overlayPaint );
                                     }
                                 }
-                            } catch (IOException e) {}
+                            }
+                            catch ( IOException e )
+                            {
+                            }
                         }
-                    } finally { if (c != null) mSurfaceHolder.unlockCanvasAndPost(c); }
+                    }
+                    finally
+                    {
+                        if ( c != null )
+                            mSurfaceHolder.unlockCanvasAndPost( c );
+                    }
                 }
             }
         }
     }
 
-    private void init(Context context) {
+    private void init( Context context )
+    {
         SurfaceHolder holder = getHolder();
-        holder.addCallback(this);
-        thread = new MjpegViewThread(holder, context);
-        setFocusable(true);
+        holder.addCallback( this );
+        thread = new MjpegViewThread( holder, context );
+        setFocusable( true );
         overlayPaint = new Paint();
-        overlayPaint.setTextAlign(Paint.Align.LEFT);
-        overlayPaint.setTextSize(12);
-        overlayPaint.setTypeface(Typeface.DEFAULT);
+        overlayPaint.setTextAlign( Paint.Align.LEFT );
+        overlayPaint.setTextSize( 12 );
+        overlayPaint.setTypeface( Typeface.DEFAULT );
         overlayTextColor = Color.WHITE;
         overlayBackgroundColor = Color.BLACK;
         ovlPos = MjpegView.POSITION_LOWER_RIGHT;
@@ -159,45 +189,94 @@ width  = ((ovlPos & 8) == 8) ? destRect.left : destRect.right -ovl.getWidth();
         dispWidth = getWidth();
         dispHeight = getHeight();
     }
-   
-    public void startPlayback() {
-        if(mIn != null) {
+
+    public void startPlayback()
+    {
+        if ( mIn != null )
+        {
             mRun = true;
-            thread.start();             
+            thread.start();
         }
     }
-   
-    public void stopPlayback() {
+
+    public void stopPlayback()
+    {
         mRun = false;
         boolean retry = true;
-        while(retry) {
-            try {
+        while ( retry )
+        {
+            try
+            {
                 thread.join();
                 retry = false;
-            } catch (InterruptedException e) {}
+            }
+            catch ( InterruptedException e )
+            {
+            }
         }
     }
 
-    public MjpegView(Context context, AttributeSet attrs) {
-        super(context, attrs); init(context);
+    public MjpegView( Context context, AttributeSet attrs )
+    {
+        super( context, attrs );
+        init( context );
     }
 
-    public void surfaceChanged(SurfaceHolder holder, int f, int w, int h) {
-        thread.setSurfaceSize(w, h);
+    public void surfaceChanged( SurfaceHolder holder, int f, int w, int h )
+    {
+        thread.setSurfaceSize( w, h );
     }
 
-    public void surfaceDestroyed(SurfaceHolder holder) {
+    public void surfaceDestroyed( SurfaceHolder holder )
+    {
         surfaceDone = false;
         stopPlayback();
     }
-   
-    public MjpegView(Context context) { super(context); init(context); }    
-    public void surfaceCreated(SurfaceHolder holder) { surfaceDone = true; }
-    public void showFps(boolean b) { showFps = b; }
-    public void setSource(MjpegInputStream source) { mIn = source; startPlayback();}
-    public void setOverlayPaint(Paint p) { overlayPaint = p; }
-    public void setOverlayTextColor(int c) { overlayTextColor = c; }
-    public void setOverlayBackgroundColor(int c) { overlayBackgroundColor = c; }
-    public void setOverlayPosition(int p) { ovlPos = p; }
-    public void setDisplayMode(int s) { displayMode = s; }
-} 
+
+    public MjpegView( Context context )
+    {
+        super( context );
+        init( context );
+    }
+
+    public void surfaceCreated( SurfaceHolder holder )
+    {
+        surfaceDone = true;
+    }
+
+    public void showFps( boolean b )
+    {
+        showFps = b;
+    }
+
+    public void setSource( MjpegInputStream source )
+    {
+        mIn = source;
+        startPlayback();
+    }
+
+    public void setOverlayPaint( Paint p )
+    {
+        overlayPaint = p;
+    }
+
+    public void setOverlayTextColor( int c )
+    {
+        overlayTextColor = c;
+    }
+
+    public void setOverlayBackgroundColor( int c )
+    {
+        overlayBackgroundColor = c;
+    }
+
+    public void setOverlayPosition( int p )
+    {
+        ovlPos = p;
+    }
+
+    public void setDisplayMode( int s )
+    {
+        displayMode = s;
+    }
+}
