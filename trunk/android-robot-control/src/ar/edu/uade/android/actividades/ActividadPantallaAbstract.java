@@ -69,7 +69,7 @@ public abstract class ActividadPantallaAbstract
         }
         return false;
     }
-    
+
     public SharedPreferences getPreferences()
     {
         return preferences;

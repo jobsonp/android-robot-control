@@ -1,6 +1,5 @@
 package ar.edu.uade.android.actividades;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -12,12 +11,11 @@ import ar.edu.uade.android.mjpeg.MjpegView;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
-
 public class ActividadPantallaWebcamBrazo
     extends ActividadPantallaAbstract
 {
     private MjpegView mv;
-    
+
     @Override
     protected void onCreate( Bundle savedInstanceState )
     {
@@ -46,51 +44,51 @@ public class ActividadPantallaWebcamBrazo
     public boolean onTrackballEvent( MotionEvent event )
     {
         boolean eventHandled = false;
-        
+
         TextView trackballClick = (TextView) this.findViewById( R.id.TrackballClick );
         TextView posX = (TextView) this.findViewById( R.id.pos_x_brazo );
         TextView posY = (TextView) this.findViewById( R.id.pos_y_brazo );
-        
+
         trackballClick.setText( "" );
         posX.setText( "" );
         posY.setText( "" );
-        
-        if( event.getAction() == MotionEvent.ACTION_DOWN )
+
+        if ( event.getAction() == MotionEvent.ACTION_DOWN )
         {
             trackballClick.setText( "Event: Down!" );
 
             eventHandled = true;
         }
-        else if( event.getAction() == MotionEvent.ACTION_UP )
+        else if ( event.getAction() == MotionEvent.ACTION_UP )
         {
             trackballClick.setText( "Event: Up!" );
 
             eventHandled = true;
         }
-        else if( event.getAction() == MotionEvent.ACTION_CANCEL )
+        else if ( event.getAction() == MotionEvent.ACTION_CANCEL )
         {
             trackballClick.setText( "Event: Cancel!" );
 
             eventHandled = true;
         }
-        else if( event.getAction() == MotionEvent.ACTION_MOVE )
+        else if ( event.getAction() == MotionEvent.ACTION_MOVE )
         {
-            trackballClick.setText( "Event: Move!" ); 
-            posX.setText( "X: " + String.valueOf(  event.getX( ) ) );
-            posY.setText( "Y: " + String.valueOf(  event.getY( ) ) );
-            
+            trackballClick.setText( "Event: Move!" );
+            posX.setText( "X: " + String.valueOf( event.getX() ) );
+            posY.setText( "Y: " + String.valueOf( event.getY() ) );
+
             eventHandled = true;
         }
-        
+
         return eventHandled;
     }
-    
+
     @Override
     protected boolean isRouteDisplayed()
     {
         return false;
     }
-    
+
     @Override
     public void onPause()
     {

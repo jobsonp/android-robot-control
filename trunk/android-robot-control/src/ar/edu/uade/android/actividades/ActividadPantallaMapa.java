@@ -17,65 +17,76 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 
-public class ActividadPantallaMapa extends ActividadPantallaAbstract implements OnMenuItemClickListener {
+public class ActividadPantallaMapa
+    extends ActividadPantallaAbstract
+    implements OnMenuItemClickListener
+{
 
-	PositionReceiver receiver;
-	
-    MapView mapView;
+    private PositionReceiver receiver;
 
-    MapController mc;
+    private MapView mapView;
 
-    GeoPoint p;
+    private MapController mc;
+
+    private GeoPoint p;
 
     /** Called when the activity is first created. */
     @Override
-    public void onCreate( Bundle savedInstanceState ) {
+    public void onCreate( Bundle savedInstanceState )
+    {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.mapa );
         refreshGPSPosition();
     }
-    
+
     @Override
-    protected void onResume() {
-    	IntentFilter filter;
-	    filter = new IntentFilter(ServicioGPS.POSITION_UPDATED);
-	    receiver = new PositionReceiver();
-	    registerReceiver(receiver, filter);
-		super.onResume();
+    protected void onResume()
+    {
+        IntentFilter filter;
+        filter = new IntentFilter( ServicioGPS.POSITION_UPDATED );
+        receiver = new PositionReceiver();
+        registerReceiver( receiver, filter );
+        super.onResume();
     }
 
     @Override
-    public void onPause() {
-      unregisterReceiver(receiver);
-      super.onPause();
+    public void onPause()
+    {
+        unregisterReceiver( receiver );
+        super.onPause();
     }
-    
+
     @SuppressWarnings("deprecation")
-	private void refreshGPSPosition() {
-    	mapView = (MapView) findViewById( R.id.mapa );
+    private void refreshGPSPosition()
+    {
+        mapView = (MapView) findViewById( R.id.mapa );
         LinearLayout zoomLayout = (LinearLayout) findViewById( R.id.layout_zoom );
         View zoomView = mapView.getZoomControls();
 
         zoomLayout.addView( zoomView, new LinearLayout.LayoutParams( LayoutParams.WRAP_CONTENT,
                                                                      LayoutParams.WRAP_CONTENT ) );
         mapView.displayZoomControls( true );
-        startService(new Intent(this, ServicioGPS.class));
+        startService( new Intent( this, ServicioGPS.class ) );
     }
-    
-    public class PositionReceiver extends BroadcastReceiver {
-    	
-  	  @Override
-  	  public void onReceive(Context context, Intent intent) {
-  		loadPositionFromProvider(intent);
-  	  }
-  	  
- 	}
-    
-	private void loadPositionFromProvider(Intent intent) {
-    	
-    	float latitude = (Float)intent.getExtras().get("latitude");
-    	float longitude = (Float)intent.getExtras().get("latitude");
-    	
+
+    public class PositionReceiver
+        extends BroadcastReceiver
+    {
+
+        @Override
+        public void onReceive( Context context, Intent intent )
+        {
+            loadPositionFromProvider( intent );
+        }
+
+    }
+
+    private void loadPositionFromProvider( Intent intent )
+    {
+
+        float latitude = (Float) intent.getExtras().get( "latitude" );
+        float longitude = (Float) intent.getExtras().get( "latitude" );
+
         mc = mapView.getController();
 
         double latPoint = latitude;
@@ -86,14 +97,15 @@ public class ActividadPantallaMapa extends ActividadPantallaAbstract implements 
         mc.animateTo( p );
         mc.setZoom( 10 );
         mapView.invalidate();
-        
+
         Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT ).show();
-        
+
     }
-    
+
     @Override
-    protected boolean isRouteDisplayed() {
-      return false;
+    protected boolean isRouteDisplayed()
+    {
+        return false;
     }
 
 }

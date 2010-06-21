@@ -6,12 +6,12 @@ import ar.edu.uade.android.R;
 
 public class ActividadConfiguracion
     extends PreferenceActivity
-{    
+{
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
 
-        addPreferencesFromResource( R.xml.configuracion ); 
+        addPreferencesFromResource( R.xml.configuracion );
     }
 }

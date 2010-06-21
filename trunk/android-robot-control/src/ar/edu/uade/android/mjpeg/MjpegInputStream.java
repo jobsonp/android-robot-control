@@ -1,4 +1,3 @@
-
 package ar.edu.uade.android.mjpeg;
 
 import java.io.BufferedInputStream;
@@ -17,75 +16,95 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-public class MjpegInputStream extends DataInputStream {
+public class MjpegInputStream
+    extends DataInputStream
+{
     private final byte[] SOI_MARKER = { (byte) 0xFF, (byte) 0xD8 };
     private final byte[] EOF_MARKER = { (byte) 0xFF, (byte) 0xD9 };
     private final String CONTENT_LENGTH = "Content-Length";
     private final static int HEADER_MAX_LENGTH = 100;
     private final static int FRAME_MAX_LENGTH = 40000 + HEADER_MAX_LENGTH;
     private int mContentLength = -1;
-     
-    public static MjpegInputStream read(String url) {
+
+    public static MjpegInputStream read( String url )
+    {
         HttpResponse res;
-        DefaultHttpClient httpclient = new DefaultHttpClient();       
-        try {
-            res = httpclient.execute(new HttpGet(URI.create(url)));
-            return new MjpegInputStream(res.getEntity().getContent());                    
-        } catch (ClientProtocolException e) {
-        } catch (IOException e) {}
+        DefaultHttpClient httpclient = new DefaultHttpClient();
+        try
+        {
+            res = httpclient.execute( new HttpGet( URI.create( url ) ) );
+            return new MjpegInputStream( res.getEntity().getContent() );
+        }
+        catch ( ClientProtocolException e )
+        {
+        }
+        catch ( IOException e )
+        {
+        }
         return null;
     }
-     
-    public MjpegInputStream(InputStream in) {
-        super(new BufferedInputStream(in, FRAME_MAX_LENGTH));
+
+    public MjpegInputStream( InputStream in )
+    {
+        super( new BufferedInputStream( in, FRAME_MAX_LENGTH ) );
     }
-     
-    private int getEndOfSeqeunce(DataInputStream in, byte[] sequence)
+
+    private int getEndOfSeqeunce( DataInputStream in, byte[] sequence )
         throws IOException
     {
         int seqIndex = 0;
         byte c;
-        for(int i=0; i < FRAME_MAX_LENGTH; i++) {
+        for ( int i = 0; i < FRAME_MAX_LENGTH; i++ )
+        {
             c = (byte) in.readUnsignedByte();
-            if(c == sequence[seqIndex]) {
+            if ( c == sequence[seqIndex] )
+            {
                 seqIndex++;
-                if(seqIndex == sequence.length) return i + 1;
-            } else seqIndex = 0;
+                if ( seqIndex == sequence.length )
+                    return i + 1;
+            }
+            else
+                seqIndex = 0;
         }
         return -1;
     }
-     
-    private int getStartOfSequence(DataInputStream in, byte[] sequence)
+
+    private int getStartOfSequence( DataInputStream in, byte[] sequence )
         throws IOException
     {
-        int end = getEndOfSeqeunce(in, sequence);
-        return (end < 0) ? (-1) : (end - sequence.length);
+        int end = getEndOfSeqeunce( in, sequence );
+        return ( end < 0 ) ? ( -1 ) : ( end - sequence.length );
     }
 
-    private int parseContentLength(byte[] headerBytes)
+    private int parseContentLength( byte[] headerBytes )
         throws IOException, NumberFormatException
     {
-        ByteArrayInputStream headerIn = new ByteArrayInputStream(headerBytes);
+        ByteArrayInputStream headerIn = new ByteArrayInputStream( headerBytes );
         Properties props = new Properties();
-        props.load(headerIn);
-        return Integer.parseInt(props.getProperty(CONTENT_LENGTH));
-    }     
+        props.load( headerIn );
+        return Integer.parseInt( props.getProperty( CONTENT_LENGTH ) );
+    }
 
-    public Bitmap readMjpegFrame() throws IOException {
-        mark(FRAME_MAX_LENGTH);
-        int headerLen = getStartOfSequence(this, SOI_MARKER);
+    public Bitmap readMjpegFrame()
+        throws IOException
+    {
+        mark( FRAME_MAX_LENGTH );
+        int headerLen = getStartOfSequence( this, SOI_MARKER );
         reset();
         byte[] header = new byte[headerLen];
-        readFully(header);
-        try {
-            mContentLength = parseContentLength(header);
-        } catch (NumberFormatException nfe) {
-            mContentLength = getEndOfSeqeunce(this, EOF_MARKER);
+        readFully( header );
+        try
+        {
+            mContentLength = parseContentLength( header );
+        }
+        catch ( NumberFormatException nfe )
+        {
+            mContentLength = getEndOfSeqeunce( this, EOF_MARKER );
         }
         reset();
         byte[] frameData = new byte[mContentLength];
-        skipBytes(headerLen);
-        readFully(frameData);
-        return BitmapFactory.decodeStream(new ByteArrayInputStream(frameData));
+        skipBytes( headerLen );
+        readFully( frameData );
+        return BitmapFactory.decodeStream( new ByteArrayInputStream( frameData ) );
     }
-} 
+}

@@ -17,9 +17,9 @@ public class ActividadDesconectar
         // 1) Abrir aviso de loading
         // 2) Desconectar y hacer toda la cochinada
         // 3) Cerrar aviso de loading
-        
+
         Toast.makeText( this, R.string.toast_desconectando, Toast.LENGTH_SHORT ).show();
-        
+
         startActivity( new Intent( Constantes.INTENT_PANTALLA_CONEXION ) );
     }
 }
