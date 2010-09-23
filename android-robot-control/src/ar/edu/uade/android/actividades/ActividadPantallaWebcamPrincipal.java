@@ -11,9 +11,7 @@ import ar.edu.uade.android.mjpeg.MjpegView;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
-public class ActividadPantallaWebcamPrincipal
-    extends ActividadPantallaAbstract
-{
+public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract {
 
     private MjpegView mv;
 
@@ -79,4 +77,5 @@ public class ActividadPantallaWebcamPrincipal
         super.onDestroy();
         mv.stopPlayback();
     }
+
 }

@@ -1,25 +1,28 @@
-package framework.modulos;
+package framework.modulos.player;
 
 import java.util.Vector;
+
 import javaclient2.PlayerClient;
 import javaclient2.WiFiInterface;
 import framework.conector.Conector;
+import framework.interfaces.IModuloWireless;
 
-public class ModuloWireless {
+public class ModuloPlayerWireless implements IModuloWireless {
 	
-	private static ModuloWireless instance = null;
+	private static ModuloPlayerWireless instance = null;
 
-	private ModuloWireless() {
+	private ModuloPlayerWireless() {
 		
 	}
 	
-	public static ModuloWireless getInstance ()
+	public static ModuloPlayerWireless getInstance ()
 	{
 		if (instance==null)
-			instance = new ModuloWireless();
+			instance = new ModuloPlayerWireless();
 		return instance;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private int[] getSenal ()
 	{
 		int[] datos = {0,0,0};

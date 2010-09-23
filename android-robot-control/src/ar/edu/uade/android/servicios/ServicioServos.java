@@ -1,32 +1,16 @@
 package ar.edu.uade.android.servicios;
 
-import android.app.Service;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.IBinder;
-import framework.modulos.ModuloRuedas;
+import framework.enums.ModuloType;
+import framework.factories.ModuloRuedasFactory;
+import framework.interfaces.IModuloRuedas;
 
-public class ServicioServos
-    extends Service
-{
+public class ServicioServos {
 
-    private ModuloRuedas ruedas;
-
-    @Override
-    public ComponentName startService( Intent service )
-    {
-        super.startService( service );
-        
-        ruedas = ModuloRuedas.getInstance();
-        
-        return new ComponentName( "ar.edu.uade.android.servicios", "ServicioServos" );
-    }
+    private IModuloRuedas ruedas;
     
-    @Override
-    public IBinder onBind( Intent intent )
-    {
-        // TODO Auto-generated method stub
-        return null;
+    public ServicioServos() {
+    	ModuloRuedasFactory factory = new ModuloRuedasFactory();
+        ruedas = (IModuloRuedas)factory.createModulo(ModuloType.STAGE);
     }
 
     public void Adelante()
@@ -49,22 +33,4 @@ public class ServicioServos
         ruedas.GirarDer();
     }
 
-    /**
-     *  Metodos que probablemente no usemos.
-     
-    public void RotarIzq()
-    {
-        ruedas.RotarIzq();
-    }
-
-    public void RotarDer()
-    {
-        ruedas.RotarDer();
-    }
-    
-    public void Stop()
-    {
-        ruedas.Stop();
-    }
-    */
 }

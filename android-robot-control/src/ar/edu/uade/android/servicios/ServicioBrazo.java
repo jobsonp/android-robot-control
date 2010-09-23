@@ -3,16 +3,16 @@ package ar.edu.uade.android.servicios;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import framework.modulos.ModuloBrazo;
+import framework.modulos.player.ModuloPlayerBrazo;
 
 public class ServicioBrazo
     extends Service
 {
-    private ModuloBrazo brazo;
+    private ModuloPlayerBrazo brazo;
 
     public ServicioBrazo()
     {
-        brazo = ModuloBrazo.getInstance();
+        brazo = ModuloPlayerBrazo.getInstance();
     }
 
     @Override

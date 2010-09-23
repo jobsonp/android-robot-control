@@ -1,18 +1,17 @@
 /**
  * ModuloBrazo.
  */
-package framework.modulos;
+package framework.modulos.player;
 
 import java.util.Vector;
 
 import ar.edu.uade.android.utils.Constantes;
 import framework.conector.Conector;
+import framework.interfaces.IModuloBrazo;
 
-public class ModuloBrazo
-    extends ModuloServos
-{
+public class ModuloPlayerBrazo extends ModuloPlayerServos implements IModuloBrazo  {
 
-    private static ModuloBrazo instance = null;
+    private static ModuloPlayerBrazo instance = null;
 
     // Los siguientes array mantienen los valores minimos y maximos que se deben manejar
     // de los servos (LIMITES POR SOFT).
@@ -23,7 +22,8 @@ public class ModuloBrazo
     private int[] max = { 127, 127, 127 };
 
     // Tope de escala de los servos (HARDWARE)
-    private int maximoValor = 127;
+    @SuppressWarnings("unused")
+	private int maximoValor = 127;
 
     // Valores actuales actualizados momento a momento de la ubicacion de cada servo
     private int[] valorActualServos;
@@ -31,7 +31,7 @@ public class ModuloBrazo
     /**
      * Constructor privado porque se aplica el patr�n de dise�o singleton
      */
-    private ModuloBrazo()
+    private ModuloPlayerBrazo()
     {
         super();
         InicializarBrazo();
@@ -41,10 +41,10 @@ public class ModuloBrazo
      * El getInstance devuelve la instancia, en caso de no existir, la crea. Singleton
      * @return ModuloBrazo
      */
-    public static ModuloBrazo getInstance()
+    public static ModuloPlayerBrazo getInstance()
     {
         if ( instance == null )
-            instance = new ModuloBrazo();
+            instance = new ModuloPlayerBrazo();
         return instance;
     }
 
@@ -53,14 +53,15 @@ public class ModuloBrazo
      */
     private void setMaximoValor( int data )
     {
-        maximoValor = data;
+       this.maximoValor = data;
     }
 
     /**
      * InicializarBrazo es el primer m�todo que debe ser invocado, coloca el brazo en una posicion
      * media e inicializa el vector con los valores actuales.
      */
-    private void InicializarBrazo()
+    @SuppressWarnings("unchecked")
+	private void InicializarBrazo()
     {
 
         // Cargar desde la configuraci�n el valor maximo de pasos para los servos.

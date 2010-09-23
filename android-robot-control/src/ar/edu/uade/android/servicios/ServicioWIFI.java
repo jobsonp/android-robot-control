@@ -1,26 +1,16 @@
 package ar.edu.uade.android.servicios;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import framework.modulos.ModuloWireless;
+import framework.enums.ModuloType;
+import framework.factories.ModuloWirelessFactory;
+import framework.interfaces.IModuloWireless;
 
-public class ServicioWIFI
-    extends Service
-{
+public class ServicioWIFI {
 
-    private ModuloWireless wireless;
+    private IModuloWireless wireless;
 
-    public ServicioWIFI()
-    {
-        wireless = ModuloWireless.getInstance();
-    }
-
-    @Override
-    public IBinder onBind( Intent intent )
-    {
-        // TODO Auto-generated method stub
-        return null;
+    public ServicioWIFI() {
+    	ModuloWirelessFactory factory = new ModuloWirelessFactory();
+    	wireless = (IModuloWireless)factory.createModulo(ModuloType.STAGE);
     }
 
     public int[] getWifiData()

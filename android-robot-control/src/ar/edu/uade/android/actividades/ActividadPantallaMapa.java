@@ -5,106 +5,110 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.View;
 import android.view.MenuItem.OnMenuItemClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import ar.edu.uade.android.R;
-import ar.edu.uade.android.servicios.ServicioGPS;
+import ar.edu.uade.android.servicios.RobotService;
+import ar.edu.uade.android.utils.GpsPosition;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 
-public class ActividadPantallaMapa
-    extends ActividadPantallaAbstract
-    implements OnMenuItemClickListener
-{
-
-    private PositionReceiver receiver;
+public class ActividadPantallaMapa extends ActividadPantallaAbstract implements OnMenuItemClickListener {
+	
+	private IntentFilter mFilter;
+	
+	private BroadcastReceiver mReceiver;
 
     private MapView mapView;
 
     private MapController mc;
 
     private GeoPoint p;
-
-    /** Called when the activity is first created. */
+    
     @Override
-    public void onCreate( Bundle savedInstanceState )
-    {
+    public void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
+        
+        /* instantiate the filter and the receiver */
+		mFilter = getIntentFilter();
+		mReceiver = getReceiver();
+        
         setContentView( R.layout.mapa );
-        refreshGPSPosition();
+        /* Start the service if it's not up */
+		startService(getServerIntent());
+        createMap();
     }
-
+    
     @Override
-    protected void onResume()
-    {
-        IntentFilter filter;
-        filter = new IntentFilter( ServicioGPS.POSITION_UPDATED );
-        receiver = new PositionReceiver();
-        registerReceiver( receiver, filter );
-        super.onResume();
-    }
+	protected void onResume() {
+		super.onResume();
+		registerReceiver(mReceiver, mFilter);
+	}
 
-    @Override
-    public void onPause()
-    {
-        unregisterReceiver( receiver );
-        super.onPause();
-    }
+	@Override
+	public void onPause() {
+		super.onPause();
+		unregisterReceiver(mReceiver);
+	}
 
-    @SuppressWarnings("deprecation")
-    private void refreshGPSPosition()
-    {
+	public BroadcastReceiver getReceiver() {
+		return new GpsPositionUpdateReceiver();
+	}
+
+	protected Intent getServerIntent() {
+		Intent i;
+		i = new Intent(this, RobotService.class);
+		i.setAction(RobotService.NEW_GPS_POSITION);
+		return i;
+	}
+
+	protected IntentFilter getIntentFilter() {
+		return new IntentFilter(RobotService.NEW_GPS_POSITION);
+	}
+	
+	private class GpsPositionUpdateReceiver extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context arg0, Intent i) {
+			GpsPosition pos = (GpsPosition)i.getExtras().get("newGpsPosition");
+			updateGpsPosition(pos);
+		}
+	}
+	
+	private void createMap() {
         mapView = (MapView) findViewById( R.id.mapa );
-        LinearLayout zoomLayout = (LinearLayout) findViewById( R.id.layout_zoom );
-        View zoomView = mapView.getZoomControls();
-
-        zoomLayout.addView( zoomView, new LinearLayout.LayoutParams( LayoutParams.WRAP_CONTENT,
-                                                                     LayoutParams.WRAP_CONTENT ) );
+        mapView.setBuiltInZoomControls(true);
         mapView.displayZoomControls( true );
-        startService( new Intent( this, ServicioGPS.class ) );
     }
+	
+	private void updateGpsPosition(GpsPosition pos) {
+		
+		if (pos!=null) {
+			
+			float latitude = pos.getLatitud();
+			float longitude = pos.getLongitud();
 
-    public class PositionReceiver
-        extends BroadcastReceiver
-    {
+			mc = mapView.getController();
 
-        @Override
-        public void onReceive( Context context, Intent intent )
-        {
-            loadPositionFromProvider( intent );
-        }
+			double latPoint = latitude;
+			double longPoint = longitude;
 
-    }
+			p = new GeoPoint( (int) ( latPoint * 1E6 ), (int) ( longPoint * 1E6 ) );
 
-    private void loadPositionFromProvider( Intent intent )
-    {
-
-        float latitude = (Float) intent.getExtras().get( "latitude" );
-        float longitude = (Float) intent.getExtras().get( "latitude" );
-
-        mc = mapView.getController();
-
-        double latPoint = latitude;
-        double longPoint = longitude;
-
-        p = new GeoPoint( (int) ( latPoint * 1E6 ), (int) ( longPoint * 1E6 ) );
-
-        mc.animateTo( p );
-        mc.setZoom( 10 );
-        mapView.invalidate();
-
-        Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT ).show();
-
-    }
-
-    @Override
-    protected boolean isRouteDisplayed()
-    {
+			mc.animateTo( p );
+			mc.setZoom( 10 );
+			mapView.invalidate();
+		        
+			Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT ).show();
+			
+		}
+       
+	}
+	
+	@Override
+    protected boolean isRouteDisplayed() {
         return false;
     }
 

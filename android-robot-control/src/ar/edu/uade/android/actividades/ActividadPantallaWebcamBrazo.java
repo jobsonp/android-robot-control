@@ -11,10 +11,9 @@ import ar.edu.uade.android.mjpeg.MjpegView;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
-public class ActividadPantallaWebcamBrazo
-    extends ActividadPantallaAbstract
-{
-    private MjpegView mv;
+public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
+    
+	private MjpegView mv;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -102,4 +101,5 @@ public class ActividadPantallaWebcamBrazo
         super.onDestroy();
         mv.stopPlayback();
     }
+
 }

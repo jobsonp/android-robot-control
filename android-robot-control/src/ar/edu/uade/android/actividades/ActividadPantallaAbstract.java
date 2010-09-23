@@ -12,19 +12,18 @@ import ar.edu.uade.android.utils.Constantes;
 
 import com.google.android.maps.MapActivity;
 
-public abstract class ActividadPantallaAbstract
-    extends MapActivity
-    implements OnMenuItemClickListener
-{
-    private SharedPreferences preferences;
-
+public abstract class ActividadPantallaAbstract extends MapActivity implements OnMenuItemClickListener {
+    
+	private SharedPreferences preferences;
+	
     @Override
     protected void onCreate( Bundle icicle )
     {
         super.onCreate( icicle );
         preferences = getSharedPreferences( Constantes.NOMBRE_ARCHIVO_PREFERENCIAS, 0 );
+        
     }
-
+    
     public boolean onCreateOptionsMenu( Menu menu )
     {
         MenuInflater inflater = getMenuInflater();
@@ -74,4 +73,5 @@ public abstract class ActividadPantallaAbstract
     {
         return preferences;
     }
+
 }

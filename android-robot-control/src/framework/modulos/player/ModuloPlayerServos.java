@@ -1,4 +1,4 @@
-package framework.modulos;
+package framework.modulos.player;
 
 import java.util.Vector;
 
@@ -6,18 +6,19 @@ import javaclient2.PlayerClient;
 import javaclient2.ServoRTAIInterface;
 import framework.conector.Conector;
 
-public class ModuloServos {
+public class ModuloPlayerServos {
 
 
 	//Posiciones
 	int[] posicionServo = {0,0,0,0,0,0,0,0};
 	
-	public ModuloServos() {
+	public ModuloPlayerServos() {
 		
 	}
 
 
 	
+	@SuppressWarnings("unchecked")
 	public void setServo(int numServo, int pos)
 	{
 		//mover servo y actualizar posicionServo
@@ -41,7 +42,7 @@ public class ModuloServos {
 	
 	public static void main (String[] args)
 	{
-		ModuloServos i = new ModuloServos();
+		ModuloPlayerServos i = new ModuloPlayerServos();
 		for (int j=0; j<=7; j++)
 			i.setServo(j,63);
 		
