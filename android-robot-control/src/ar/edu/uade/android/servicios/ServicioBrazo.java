@@ -1,25 +1,16 @@
 package ar.edu.uade.android.servicios;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import framework.modulos.player.ModuloPlayerBrazo;
+import framework.enums.ModuloType;
+import framework.factories.ModuloBrazoFactory;
+import framework.interfaces.IModuloBrazo;
 
-public class ServicioBrazo
-    extends Service
-{
-    private ModuloPlayerBrazo brazo;
+public class ServicioBrazo {
 
-    public ServicioBrazo()
-    {
-        brazo = ModuloPlayerBrazo.getInstance();
-    }
+	private IModuloBrazo brazo;
 
-    @Override
-    public IBinder onBind( Intent intent )
-    {
-        // TODO Auto-generated method stub
-        return null;
+    public ServicioBrazo() {
+    	ModuloBrazoFactory factory = new ModuloBrazoFactory();
+    	brazo = (IModuloBrazo)factory.createModulo(ModuloType.STAGE);
     }
 
     // Movimientos por steps (presici�n contiene la cantidad de pasos a mover)

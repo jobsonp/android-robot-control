@@ -61,6 +61,10 @@ public class Constantes
     public static final String INTERFACE_MOTOR_OK = "INTERFACE MOTOR (OK) - ";
 
     public static final String INTERFACE_MOTOR_FAILED = "INTERFACE MOTOR (FAILED) - ";
+    
+    public static final String INTERFACE_SPEECH_OK = "INTERFACE SPEECH (OK) - ";
+
+    public static final String INTERFACE_SPEECH_FAILED = "INTERFACE SPEECH (FAILED) - ";
 
     public static final String MODULO_GPS = "GPS - ";
 
@@ -73,6 +77,10 @@ public class Constantes
     public static final String MODULO_RUEDAS = "RUEDAS - ";
 
     public static final String MODULO_CONECTOR = "CONECTOR - ";
+    
+    
+	public static final int MSG_ERR = 1;	//MENSAJE ERROR
+	public static final int MSG_STD = 2;	//MENSAJE STANDARD
 
     /**
      * Campos de Configuracion

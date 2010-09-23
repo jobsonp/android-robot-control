@@ -1,19 +1,26 @@
 package ar.edu.uade.android.actividades;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
+import ar.edu.uade.android.servicios.ServicioBrazo;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
 public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract {
 
     private MjpegView mv;
+    
+    private ServicioBrazo brazo;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -25,9 +32,29 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
 
         setContentView( R.layout.webcam_principal );
+        
+        Button button = (Button)findViewById(R.id.button_test);
+        button.setOnClickListener(mCorkyListener);
+        
+        brazo =  new ServicioBrazo();
 
         startStreaming();
     }
+    
+    // Create an anonymous implementation of OnClickListener
+    private OnClickListener mCorkyListener = new OnClickListener() {
+        public void onClick(View v) {
+        	
+        	try {
+        		brazo.brazoBajar(1);
+        		Log.d( "un exito", "todo");
+        	} catch (Exception e) {
+				Log.e( "Como el toor", "todo");
+			}
+        	
+        	
+        }
+    };
 
     private void startStreaming()
     {
@@ -57,7 +84,7 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
 
         return eventHandled;
     }
-
+    
     @Override
     protected boolean isRouteDisplayed()
     {
