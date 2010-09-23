@@ -1,5 +1,12 @@
 package framework.modulos.stage;
 
+import java.util.Vector;
+
+import javaclient2.PlayerClient;
+import javaclient2.SpeechInterface;
+import android.util.Log;
+import ar.edu.uade.android.utils.Constantes;
+import framework.conector.Conector;
 import framework.interfaces.IModuloBrazo;
 
 public class ModuloStageBrazo implements IModuloBrazo {
@@ -19,7 +26,22 @@ public class ModuloStageBrazo implements IModuloBrazo {
 
 	@Override
 	public void brazoBajar(int presicion) {
-		// TODO Auto-generated method stub
+		// INICIAR CONEXION
+		Conector conector = Conector.getInstance();
+		if (conector.isOnline())
+		{
+			Vector vv = conector.getInterfaceSPEECH();
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();//.runThreaded(-1,-1);//.start();
+			//	EJECUTAR SPEECH
+			((SpeechInterface)vv.elementAt(1)).speech("agustin");
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			//try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+			//	CERRAR CONEXION
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		}else
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 		
 	}
 

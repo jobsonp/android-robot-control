@@ -5,6 +5,7 @@ import java.util.Vector;
 import javaclient2.GPSInterface;
 import javaclient2.PlayerClient;
 import javaclient2.ServoRTAIInterface;
+import javaclient2.SpeechInterface;
 import javaclient2.WiFiInterface;
 import javaclient2.structures.PlayerConstants;
 import android.util.Log;
@@ -191,6 +192,32 @@ public class Conector
         Vector vv = new Vector();
         vv.addElement( robot );
         vv.addElement( wifi );
+        return vv;
+    }
+    
+    public Vector getInterfaceSPEECH()
+    {
+        SpeechInterface speech = null;
+        if ( online )
+        {
+            robot = new PlayerClient( ip, puerto );
+            try
+            {
+            	speech = robot.requestInterfaceSpeech( 0, PlayerConstants.PLAYER_OPEN_MODE );
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_SPEECH_OK );
+            }
+            catch ( Exception e )
+            {
+                Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_SPEECH_FAILED );
+            }
+        }
+        else
+        {
+            Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+        }
+        Vector vv = new Vector();
+        vv.addElement( robot );
+        vv.addElement( speech );
         return vv;
     }
 }

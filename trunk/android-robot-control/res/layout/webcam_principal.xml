@@ -30,5 +30,10 @@
 				        			  android:text="Y: ">
 							</TextView> 
 				</LinearLayout>
+				
+				<Button android:id="@+id/button_test"
+            			android:layout_width="wrap_content"
+            			android:layout_height="wrap_content"
+            			android:text="testSpeechStage" />
 		</RelativeLayout>
 </RelativeLayout>
