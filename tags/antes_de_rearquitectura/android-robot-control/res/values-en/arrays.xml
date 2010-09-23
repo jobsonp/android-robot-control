@@ -1,0 +1,12 @@
+<resources>
+	<string-array name="configuracion_seleccion_pantalla_keys">
+		<item>Main Wecam</item>
+		<item>Arm Wecam</item>
+		<item>Map</item>
+	</string-array>
+	<string-array name="configuracion_seleccion_pantalla_values">
+		<item>Main Wecam</item>
+		<item>Arm Wecam</item>
+		<item>Map</item>
+	</string-array>	
+</resources>
