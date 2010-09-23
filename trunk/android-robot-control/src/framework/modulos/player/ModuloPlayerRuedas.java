@@ -1,32 +1,38 @@
-package framework.modulos;
+package framework.modulos.player;
 
 import java.util.Vector;
-import framework.conector.Conector;
+
 import javaclient2.PlayerClient;
 import javaclient2.ServoRTAIInterface;
+import framework.conector.Conector;
+import framework.interfaces.IModuloRuedas;
 
-public class ModuloRuedas extends ModuloServos {
+public class ModuloPlayerRuedas extends ModuloPlayerServos implements IModuloRuedas {
 
-	private static ModuloRuedas instance = null;
+	private static ModuloPlayerRuedas instance = null;
 	private static int ADELANTE = 6;
 	private static int ATRAS = 15;
+	@SuppressWarnings("unused")
 	private static int STOP = 0;
 	private static int GIR_DERECHA = 4;
 	private static int GIR_IZQUIERDA = 2;
+	@SuppressWarnings("unused")
 	private static int ROT_DERECHA = 7;
+	@SuppressWarnings("unused")
 	private static int ROT_IZQUIERDA = 14;
 
-	private ModuloRuedas() {
+	private ModuloPlayerRuedas() {
 		super();
 	}
 	
-	public static ModuloRuedas getInstance ()
+	public static ModuloPlayerRuedas getInstance ()
 	{
 		if (instance==null)
-			instance = new ModuloRuedas();
+			instance = new ModuloPlayerRuedas();
 		return instance;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void Adelante ()
 	{
 		//		INICIAR CONEXION
@@ -39,6 +45,7 @@ public class ModuloRuedas extends ModuloServos {
 		((PlayerClient) vv.elementAt(0)).stop();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void Atras()
 	{
 		//		INICIAR CONEXION
@@ -51,6 +58,7 @@ public class ModuloRuedas extends ModuloServos {
 		((PlayerClient) vv.elementAt(0)).stop();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void GirarIzq()
 	{
 		//		INICIAR CONEXION
@@ -63,6 +71,7 @@ public class ModuloRuedas extends ModuloServos {
 		((PlayerClient) vv.elementAt(0)).stop();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void GirarDer()
 	{
 		//		INICIAR CONEXION

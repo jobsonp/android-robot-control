@@ -1,28 +1,29 @@
-package framework.modulos;
+package framework.modulos.player;
 
 import java.util.Vector;
 
 import javaclient2.GPSInterface;
 import javaclient2.PlayerClient;
 import framework.conector.Conector;
+import framework.interfaces.IModuloGPS;
 
-public class ModuloGPS
-{
+public class ModuloPlayerGPS implements IModuloGPS {
 
-    private static ModuloGPS instance = null;
+    private static ModuloPlayerGPS instance = null;
 
-    private ModuloGPS()
+    private ModuloPlayerGPS()
     {
     }
 
-    public static ModuloGPS getInstance()
+    public static ModuloPlayerGPS getInstance()
     {
         if ( instance == null )
-            instance = new ModuloGPS();
+            instance = new ModuloPlayerGPS();
         return instance;
     }
 
-    private float[] getDatos()
+    @SuppressWarnings("unchecked")
+	private float[] getDatos()
     {
         float[] datos = { 0f, 0f, 0f };
         Conector conector = Conector.getInstance();
