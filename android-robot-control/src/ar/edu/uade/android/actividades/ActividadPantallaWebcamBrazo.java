@@ -33,9 +33,11 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
 
     private void startStreaming()
     {
-        mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.PORT_PLAYER ) + ":"
+        mv = (MjpegView) this.findViewById( R.id.mjpeg_view_brazo );
+        mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.IP_PLAYER ) + ":"
             + Configuracion.getConfigString( Constantes.ARM_WEBCAM_PORT ) ) );
         mv.setDisplayMode( MjpegView.SIZE_BEST_FIT );
+
         mv.showFps( super.getPreferences().getBoolean( "Show FPS Key", true ) );
     }
 
