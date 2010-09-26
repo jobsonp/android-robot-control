@@ -65,6 +65,10 @@ public class Constantes
     public static final String INTERFACE_SPEECH_OK = "INTERFACE SPEECH (OK) - ";
 
     public static final String INTERFACE_SPEECH_FAILED = "INTERFACE SPEECH (FAILED) - ";
+    
+    public static final String INTERFACE_POSITION_2D_OK = "INTERFACE POSITION 2D (OK) - ";
+
+    public static final String INTERFACE_POSITION_2D_FAILED = "INTERFACE POSITION 2D (FAILED) - ";
 
     public static final String MODULO_GPS = "GPS - ";
 
@@ -78,10 +82,6 @@ public class Constantes
 
     public static final String MODULO_CONECTOR = "CONECTOR - ";
     
-    
-	public static final int MSG_ERR = 1;	//MENSAJE ERROR
-	public static final int MSG_STD = 2;	//MENSAJE STANDARD
-
     /**
      * Campos de Configuracion
      */
@@ -125,6 +125,16 @@ public class Constantes
     public static final int SERVO_VERTICAL_ARRAY = 1;
 
     public static final int SERVO_MANO_ARRAY = 2;
+    
+    /**
+     * Constantes de las ruedas, configuraciones por defecto.
+     */
+    
+    public static final float STAGE_MOVEMENT_SPEED = 0.5F;
+    
+    public static final float STAGE_TURN_MOVEMENT_SPEED = 0.5F;
+    
+    public static final long STAGE_SECONDS_MOVEMENT = 1;
 
     /**
      * Constantes de las camaras

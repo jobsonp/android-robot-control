@@ -1,34 +1,34 @@
-package ar.edu.uade.android.servicios;
+package ar.edu.uade.android.controladores;
 
 import framework.enums.ModuloType;
 import framework.factories.ModuloRuedasFactory;
 import framework.interfaces.IModuloRuedas;
 
-public class ServicioServos {
+public class ControladorServos {
 
     private IModuloRuedas ruedas;
     
-    public ServicioServos() {
+    public ControladorServos() {
     	ModuloRuedasFactory factory = new ModuloRuedasFactory();
         ruedas = (IModuloRuedas)factory.createModulo(ModuloType.STAGE);
     }
 
-    public void Adelante()
+    public void adelante()
     {
         ruedas.Adelante();
     }
 
-    public void Atras()
+    public void atras()
     {
         ruedas.Atras();
     }
     
-    public void GirarIzq()
+    public void girarIzq()
     {
         ruedas.GirarIzq();
     }
 
-    public void GirarDer()
+    public void girarDer()
     {
         ruedas.GirarDer();
     }

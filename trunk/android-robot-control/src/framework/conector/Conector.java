@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import javaclient2.GPSInterface;
 import javaclient2.PlayerClient;
+import javaclient2.Position2DInterface;
 import javaclient2.ServoRTAIInterface;
 import javaclient2.SpeechInterface;
 import javaclient2.WiFiInterface;
@@ -12,9 +13,9 @@ import android.util.Log;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
-public class Conector
-{
-    private int puerto;
+public class Conector {
+    
+	private int puerto;
 
     private String ip;
 
@@ -79,7 +80,7 @@ public class Conector
         Log.i( Conector.class.getName(), "Conector inicializado." );
     }
 
-    public Vector getInterfaceGPS()
+	public Vector<Object> getInterfaceGPS()
     {
         GPSInterface gps = null;
         if ( online )
@@ -100,13 +101,14 @@ public class Conector
         {
             Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
-        Vector vv = new Vector();
+       
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( robot );
         vv.addElement( gps );
         return vv;
     }
 
-    public Vector getInterfaceSERVO()
+    public Vector<Object> getInterfaceSERVO()
     {
         ServoRTAIInterface servo = null;
         if ( online )
@@ -126,16 +128,17 @@ public class Conector
         {
             Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
-        Vector vv = new Vector();
+      
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( robot );
         vv.addElement( servo );
         return vv;
     }
 
 
-    public Vector getInfoBrazo()
+    public Vector<Object> getInfoBrazo()
     {
-        Vector vv = new Vector();
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( new Integer( brazo_pasos ) ); // int
         vv.addElement( brazo_id_servos ); // int[]
         vv.addElement( brazo_min ); // int[]
@@ -143,7 +146,7 @@ public class Conector
         return vv;
     }
 
-    public Vector getInterfaceMOTOR()
+    public Vector<Object> getInterfaceMOTOR()
     {
         ServoRTAIInterface servo = null;
         if ( online )
@@ -163,13 +166,14 @@ public class Conector
         {
             Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
-        Vector vv = new Vector();
+        
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( robot );
         vv.addElement( servo );
         return vv;
     }
 
-    public Vector getInterfaceWIRELESS()
+    public Vector<Object> getInterfaceWIRELESS()
     {
         WiFiInterface wifi = null;
         if ( online )
@@ -189,13 +193,14 @@ public class Conector
         {
             Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
-        Vector vv = new Vector();
+        
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( robot );
         vv.addElement( wifi );
         return vv;
     }
     
-    public Vector getInterfaceSPEECH()
+    public Vector<Object> getInterfaceSPEECH()
     {
         SpeechInterface speech = null;
         if ( online )
@@ -215,9 +220,33 @@ public class Conector
         {
             Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
         }
-        Vector vv = new Vector();
+        
+        Vector<Object> vv = new Vector<Object>();
         vv.addElement( robot );
         vv.addElement( speech );
         return vv;
     }
+    
+    public Vector<Object> getInterfacePOSITION2D(){
+		Position2DInterface servo = null;
+		if (online) {
+			robot = new PlayerClient (ip, puerto);
+			try {
+				servo = robot.requestInterfacePosition2D(0, PlayerConstants.PLAYER_OPEN_MODE);
+				Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_POSITION_2D_OK );
+			} catch (Exception e)
+			{
+				Log.d( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.INTERFACE_POSITION_2D_FAILED );
+			}
+		} else
+		{
+			Log.e( Conector.class.getName(), Constantes.MODULO_CONECTOR + Constantes.SERVIDOR_OFFLINE );
+		}
+		
+		Vector<Object> vv = new Vector<Object>();
+		vv.addElement(robot);
+		vv.addElement(servo);
+		return vv;
+	}
+    
 }

@@ -2,17 +2,15 @@ package ar.edu.uade.android.actividades;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 import ar.edu.uade.android.R;
+import ar.edu.uade.android.controladores.ControladorServos;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
-import ar.edu.uade.android.servicios.ServicioBrazo;
 import ar.edu.uade.android.utils.Configuracion;
 import ar.edu.uade.android.utils.Constantes;
 
@@ -20,12 +18,11 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
 
     private MjpegView mv;
     
-    private ServicioBrazo brazo;
+    private ControladorServos controladorServos;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
     {
-        // TODO Auto-generated method stub
         super.onCreate( savedInstanceState );
 
         requestWindowFeature( Window.FEATURE_NO_TITLE );
@@ -33,29 +30,81 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
 
         setContentView( R.layout.webcam_principal );
         
-        Button button = (Button)findViewById(R.id.button_test);
-        button.setOnClickListener(mCorkyListener);
+        controladorServos = new ControladorServos();
         
-        brazo =  new ServicioBrazo();
-
-        startStreaming();
+        ImageView upArrow = (ImageView) findViewById( R.id.webcam_principal_up_arrow );
+        ImageView leftArrow = (ImageView) findViewById( R.id.webcam_principal_left_arrow );
+        ImageView rightArrow = (ImageView) findViewById( R.id.webcam_principal_right_arrow );
+        ImageView downArrow = (ImageView) findViewById( R.id.webcam_principal_down_arrow );
+        
+        upArrow.setOnClickListener( upArrowOnClickListener );
+        leftArrow.setOnClickListener( leftArrowOnClickListener );
+        rightArrow.setOnClickListener( rightArrowOnClickListener );
+        downArrow.setOnClickListener( downArrowOnClickListener );
+        
+        //startStreaming();
     }
     
-    // Create an anonymous implementation of OnClickListener
-    private OnClickListener mCorkyListener = new OnClickListener() {
-        public void onClick(View v) {
+    private OnClickListener upArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
         	
         	try {
-        		brazo.brazoBajar(1);
-        		Log.d( "un exito", "todo");
+        		controladorServos.adelante();
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go forward executed." );
         	} catch (Exception e) {
-				Log.e( "Como el toor", "todo");
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go forward couldn't be executed.", e );
 			}
         	
+        }
+        
+    };
+    
+    private OnClickListener downArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorServos.atras();
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go back executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go back couldn't be executed.", e );
+			}
         	
         }
+        
     };
-
+    
+    private OnClickListener leftArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorServos.girarIzq();
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn left executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn left couldn't be executed. ", e );
+			}
+        	
+        }
+        
+    };
+    
+    private OnClickListener rightArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorServos.girarDer();
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn right executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn right couldn't be executed. ", e );
+			}
+        	
+        }
+        
+    };
+    
     private void startStreaming()
     {
         mv = (MjpegView) this.findViewById( R.id.mjpeg_view_main );
@@ -66,25 +115,6 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         mv.showFps( super.getPreferences().getBoolean( "Show FPS Key", true ) );
     }
 
-    @Override
-    public boolean onTrackballEvent( MotionEvent event )
-    {
-        boolean eventHandled = false;
-
-        TextView posX = (TextView) this.findViewById( R.id.pos_x );
-        TextView posY = (TextView) this.findViewById( R.id.pos_y );
-
-        if ( event.getAction() == MotionEvent.ACTION_MOVE )
-        {
-            posX.setText( "X: " + String.valueOf( event.getX() ) );
-            posY.setText( "Y: " + String.valueOf( event.getY() ) );
-
-            eventHandled = true;
-        }
-
-        return eventHandled;
-    }
-    
     @Override
     protected boolean isRouteDisplayed()
     {

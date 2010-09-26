@@ -1,14 +1,14 @@
-package ar.edu.uade.android.servicios;
+package ar.edu.uade.android.controladores;
 
 import framework.enums.ModuloType;
 import framework.factories.ModuloWirelessFactory;
 import framework.interfaces.IModuloWireless;
 
-public class ServicioWIFI {
+public class ControladorWIFI {
 
     private IModuloWireless wireless;
 
-    public ServicioWIFI() {
+    public ControladorWIFI() {
     	ModuloWirelessFactory factory = new ModuloWirelessFactory();
     	wireless = (IModuloWireless)factory.createModulo(ModuloType.STAGE);
     }

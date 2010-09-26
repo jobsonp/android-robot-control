@@ -1,14 +1,14 @@
-package ar.edu.uade.android.servicios;
+package ar.edu.uade.android.controladores;
 
 import framework.enums.ModuloType;
 import framework.factories.ModuloGPSFactory;
 import framework.interfaces.IModuloGPS;
 
-public class ServicioGPS {
+public class ControladorGPS {
     
 	private IModuloGPS gps;
 	
-    public ServicioGPS() {
+    public ControladorGPS() {
     	ModuloGPSFactory factory = new ModuloGPSFactory();
         gps = (IModuloGPS)factory.createModulo(ModuloType.STAGE);
     }
