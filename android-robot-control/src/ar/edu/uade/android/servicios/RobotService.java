@@ -4,13 +4,14 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.IBinder;
+import ar.edu.uade.android.controladores.ControladorGPS;
 import ar.edu.uade.android.utils.GpsPosition;
 
 public class RobotService extends Service {
 	
 	public static final String NEW_GPS_POSITION = "New_Gps_Position";
 	
-	private ServicioGPS servicioGPS;
+	private ControladorGPS servicioGPS;
 	
 	@Override
 	public IBinder onBind(Intent arg0) {
@@ -42,7 +43,7 @@ public class RobotService extends Service {
 		@Override
 		protected GpsPosition doInBackground(Void... params) {
 			
-			servicioGPS = new ServicioGPS();
+			servicioGPS = new ControladorGPS();
 			
 			GpsPosition pos = new GpsPosition();
 			pos.setLatitud(servicioGPS.getLatitude());

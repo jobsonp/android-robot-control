@@ -1,19 +1,19 @@
-package ar.edu.uade.android.servicios;
+package ar.edu.uade.android.controladores;
 
 import framework.enums.ModuloType;
 import framework.factories.ModuloBrazoFactory;
 import framework.interfaces.IModuloBrazo;
 
-public class ServicioBrazo {
+public class ControladorBrazo {
 
 	private IModuloBrazo brazo;
 
-    public ServicioBrazo() {
+    public ControladorBrazo() {
     	ModuloBrazoFactory factory = new ModuloBrazoFactory();
     	brazo = (IModuloBrazo)factory.createModulo(ModuloType.STAGE);
     }
 
-    // Movimientos por steps (presici�n contiene la cantidad de pasos a mover)
+    // Movimientos por steps (presicion contiene la cantidad de pasos a mover)
     public void brazoSubir( int presicion )
     {
         brazo.brazoSubir( presicion );
