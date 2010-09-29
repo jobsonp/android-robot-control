@@ -9,14 +9,16 @@ public class ModuloBrazoFactory extends ModuloFactory  {
 
 	@Override
 	public IModulo factoryMethod(ModuloType moduloType) {
+		
 		switch (moduloType) {
-		case PLAYER:
-			return ModuloPlayerBrazo.getInstance();
-		case STAGE:
-			return ModuloStageBrazo.getInstance();           
+			case PLAYER:
+				return ModuloPlayerBrazo.getInstance();
+			case STAGE:
+				return ModuloStageBrazo.getInstance();           
 		}
 		
 		throw new IllegalArgumentException("moduloType " + moduloType + " is not valid.");
+		
 	}
 
 }

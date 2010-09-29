@@ -126,15 +126,48 @@ public class Constantes
 
     public static final int SERVO_MANO_ARRAY = 2;
     
+    
     /**
-     * Constantes de las ruedas, configuraciones por defecto.
+     * Stage configurations
      */
+    
+    /* Constantes de las ruedas, configuraciones por defecto. */
     
     public static final float STAGE_MOVEMENT_SPEED = 0.5F;
     
     public static final float STAGE_TURN_MOVEMENT_SPEED = 0.5F;
     
     public static final long STAGE_SECONDS_MOVEMENT = 1;
+    
+    /* Constantes del brazo y mano. */
+    
+    public static int STAGE_HAND_OPEN = 1;
+	
+    public static int STAGE_HAND_CLOSE = 0;
+    
+    public static int STAGE_HAND_DEFAULT_POSITION = 0;
+	
+    public static int STAGE_ARM_HORIZONTAL_MIN_ANGLE = 0;
+	
+    public static int STAGE_ARM_HORIZONTAL_MAX_ANGLE = 180;
+	
+    public static int STAGE_ARM_HORIZONTAL_DEFAULT_ANGLE = 90;
+	
+    public static int STAGE_ARM_VERTICAL_MIN_ANGLE = 0;
+	
+    public static int STAGE_ARM_VERTICAL_MAX_ANGLE = 180;
+	
+    public static int STAGE_ARM_VERTICAL_DEFAULT_ANGLE = 90;
+    
+    public static int STAGE_ARM_VERTICAL_DEFAULT_MOVEMENT_ANGLE = 5;
+    
+    public static int STAGE_ARM_HORIZONTAL_DEFAULT_MOVEMENT_ANGLE = 5;
+    
+    public static String STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY";
+    
+    public static String STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY";
+    
+    public static String STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY";
 
     /**
      * Constantes de las camaras
