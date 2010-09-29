@@ -2,10 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="ar.edu.uade.android" android:versionCode="1"
 	android:versionName="1.0">
+	
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:icon="@drawable/icon_arc" android:label="@string/general.app_name" android:debuggable="true">
+	
+	<application
+		android:name="AndroidRobotControl"
+		android:icon="@drawable/icon_arc" 
+		android:label="@string/general.app_name" 
+		android:debuggable="true">
+		
 		<uses-library android:name="com.google.android.maps" />
+		
 		<activity android:name="ar.edu.uade.android.actividades.ActividadConectar" 
 				  android:label="@string/general.app_name"
 				  android:icon="@drawable/icon_arc">
@@ -58,6 +66,8 @@
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>	
+        
+        <service android:enabled="true" android:name=".servicios.RobotService" />
 	</application>
 	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4"/>
 </manifest>
