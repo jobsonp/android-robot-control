@@ -34,112 +34,124 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
 
         setContentView( R.layout.webcam_brazo );
 
-        //mv = (MjpegView) this.findViewById( R.id.mjpeg_view_brazo );
-        
         controladorBrazo = new ControladorBrazo();
         
-//        ImageView upArrow = (ImageView) findViewById( R.id.webcam_brazo_up_arrow );
-//        ImageView leftArrow = (ImageView) findViewById( R.id.webcam_brazo_left_arrow );
-//        ImageView rightArrow = (ImageView) findViewById( R.id.webcam_brazo_right_arrow );
-//        ImageView downArrow = (ImageView) findViewById( R.id.webcam_brazo_down_arrow );
-//        
-//        Button openCloseHandButton = (Button) findViewById( R.id.webcam_brazo_mano_button );
-//        
-//        upArrow.setOnClickListener( upArrowOnClickListener );
-//        leftArrow.setOnClickListener( leftArrowOnClickListener );
-//        rightArrow.setOnClickListener( rightArrowOnClickListener );
-//        downArrow.setOnClickListener( downArrowOnClickListener );
-//        
-//        openCloseHandButton.setOnClickListener(openCloseHandClickListener);
+        ImageView upArrow = (ImageView) findViewById( R.id.webcam_brazo_up_arrow );
+        ImageView leftArrow = (ImageView) findViewById( R.id.webcam_brazo_left_arrow );
+        ImageView rightArrow = (ImageView) findViewById( R.id.webcam_brazo_right_arrow );
+        ImageView downArrow = (ImageView) findViewById( R.id.webcam_brazo_down_arrow );
+        
+        Button openCloseHandButton = (Button) findViewById( R.id.webcam_brazo_mano_button );
+        
+        upArrow.setOnClickListener( upArrowOnClickListener );
+        leftArrow.setOnClickListener( leftArrowOnClickListener );
+        rightArrow.setOnClickListener( rightArrowOnClickListener );
+        downArrow.setOnClickListener( downArrowOnClickListener );
+        
+        openCloseHandButton.setOnClickListener(openCloseHandClickListener);
         
         resetArmAndHand();
         
-        //startStreaming();
+        startStreaming();
     }
     
-//    private OnClickListener openCloseHandClickListener = new OnClickListener() {
-//        
-//    	public void onClick(View v) {
-//        	
-//        	try {
-//        		
-//        		TextView tx = (TextView) findViewById( R.id.webcam_brazo_mano_label );
-//        		
-//        		// open or close hand
-//        		controladorBrazo.abrirManoMaximo();
-//        		
-//        		tx.setText("Abrir");
-//        		
-//        		tx.setText("Cerrar");
-//        		
-//        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go forward executed." );
-//        	} catch (Exception e) {
-//        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go forward couldn't be executed.", e );
-//			}
-//        	
-//        }
-//        
-//    };
-//    
-//    private OnClickListener upArrowOnClickListener = new OnClickListener() {
-//        
-//    	public void onClick(View v) {
-//        	
-//        	try {
-//        		//controladorServos.adelante();
-//        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go forward executed." );
-//        	} catch (Exception e) {
-//        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go forward couldn't be executed.", e );
-//			}
-//        	
-//        }
-//        
-//    };
-//    
-//    private OnClickListener downArrowOnClickListener = new OnClickListener() {
-//        
-//    	public void onClick(View v) {
-//        	
-//        	try {
-//        		controladorBrazo.brazoBajar(Constantes.STAGE_ARM_VERTICAL_DEFAULT_MOVEMENT_ANGLE);
-//        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "down arm executed." );
-//        	} catch (Exception e) {
-//        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "down arm couldn't be executed.", e );
-//			}
-//        	
-//        }
-//        
-//    };
-//    
-//    private OnClickListener leftArrowOnClickListener = new OnClickListener() {
-//        
-//    	public void onClick(View v) {
-//        	
-//        	try {
-//        		//controladorServos.girarIzq();
-//        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn left executed." );
-//        	} catch (Exception e) {
-//        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn left couldn't be executed. ", e );
-//			}
-//        	
-//        }
-//        
-//    };
-//    
-//    private OnClickListener rightArrowOnClickListener = new OnClickListener() {
-//        
-//    	public void onClick(View v) {
-//        	
-//        	try {
-//        		//controladorServos.girarDer();
-//        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn right executed." );
-//        	} catch (Exception e) {
-//        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn right couldn't be executed. ", e );
-//			}
-//        	
-//        }
-//        
-//    };
+    private OnClickListener openCloseHandClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        	
+        		SharedPreferences preferences = getSharedPreferences( Constantes.NOMBRE_ARCHIVO_PREFERENCIAS, 0 );
+        		
+        		int handCurrentPosition = preferences.getInt( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
+        		
+        		TextView tx = (TextView) findViewById( R.id.webcam_brazo_mano_label );
+        		
+        		if ( handCurrentPosition == Constantes.STAGE_HAND_OPEN ) {
+        			
+            		controladorBrazo.cerrarManoMaximo();
+            		
+            		tx.setText("Abrir");
+        			
+        		} else {
+        			
+        			controladorBrazo.abrirManoMaximo();
+        			
+        			tx.setText("Cerrar");
+        			
+        		}
+        		
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go forward executed." );
+        		
+        	} catch (Exception e) {
+        		
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go forward couldn't be executed.", e );
+        		
+			}
+        	
+        }
+        
+    };
+    
+    private OnClickListener upArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorBrazo.brazoSubir(Constantes.STAGE_ARM_VERTICAL_DEFAULT_MOVEMENT_ANGLE);
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "go forward executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "go forward couldn't be executed.", e );
+			}
+        	
+        }
+        
+    };
+    
+    private OnClickListener downArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorBrazo.brazoBajar(Constantes.STAGE_ARM_VERTICAL_DEFAULT_MOVEMENT_ANGLE);
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "down arm executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "down arm couldn't be executed.", e );
+			}
+        	
+        }
+        
+    };
+    
+    private OnClickListener leftArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorBrazo.brazoIzquierda(Constantes.STAGE_ARM_HORIZONTAL_DEFAULT_MOVEMENT_ANGLE);
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn left executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn left couldn't be executed. ", e );
+			}
+        	
+        }
+        
+    };
+    
+    private OnClickListener rightArrowOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+        	try {
+        		controladorBrazo.brazoDerecha(Constantes.STAGE_ARM_HORIZONTAL_DEFAULT_MOVEMENT_ANGLE);
+        		Log.d( ActividadPantallaWebcamPrincipal.class.getName(), "turn right executed." );
+        	} catch (Exception e) {
+        		Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "turn right couldn't be executed. ", e );
+			}
+        	
+        }
+        
+    };
     
     private void resetArmAndHand() {
     	
@@ -151,7 +163,7 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
     	
     	edit.putInt( Constantes.STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY , Constantes.STAGE_ARM_HORIZONTAL_DEFAULT_ANGLE );
     	
-    	edit.putInt( Constantes.STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
+    	edit.putInt( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
     	
     	edit.commit();
     	
@@ -177,22 +189,22 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
     @Override
     protected void onResume() {
     	super.onResume();
-    	//resetArmAndHand();
-    	//mv.startPlayback();
+    	resetArmAndHand();
+    	mv.startPlayback();
     }
 
     @Override
     public void onPause()
     {
         super.onPause();
-       // mv.stopPlayback();
+        mv.stopPlayback();
     }
 
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
-        //mv.stopPlayback();
+        mv.stopPlayback();
     }
 
 }
