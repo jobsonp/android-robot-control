@@ -42,7 +42,7 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         rightArrow.setOnClickListener( rightArrowOnClickListener );
         downArrow.setOnClickListener( downArrowOnClickListener );
         
-        //startStreaming();
+        startStreaming();
     }
     
     private OnClickListener upArrowOnClickListener = new OnClickListener() {

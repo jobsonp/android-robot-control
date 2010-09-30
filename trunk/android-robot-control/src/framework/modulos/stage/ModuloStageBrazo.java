@@ -18,7 +18,7 @@ public class ModuloStageBrazo implements IModuloBrazo {
 	
 	private SharedPreferences preferences;
 	
-	public enum Movements {
+	public enum Movement {
 		ARM_DOWN,
 		ARM_UP,
 		ARM_LEFT,
@@ -40,7 +40,7 @@ public class ModuloStageBrazo implements IModuloBrazo {
         return instance;
     }
     
-    private int calculateArmMovementAngle(Movements mov, int presicion) {
+    private int calculateArmMovementAngle(Movement mov, int presicion) {
     	
     	Integer angleValue = null;
     	
@@ -52,31 +52,137 @@ public class ModuloStageBrazo implements IModuloBrazo {
 				
 				armCurrentVerticalAngle -= presicion;
 				
-				if (armCurrentVerticalAngle <= 0) {
-					armCurrentVerticalAngle = 0;
+				if ( armCurrentVerticalAngle <= Constantes.STAGE_ARM_VERTICAL_MIN_ANGLE ) {
+					
+					armCurrentVerticalAngle = Constantes.STAGE_ARM_VERTICAL_MIN_ANGLE;
+					
 				}
 				
 				angleValue = armCurrentVerticalAngle;
 				
-				Editor edit = preferences.edit();
-				
-				edit.putInt( Constantes.STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY, angleValue );
-				
-				edit.commit();
+				saveIntegerInPreferences( Constantes.STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY , angleValue );
 				
 				break;
 				
 			}
 			
-			default: {
+			case ARM_UP: {
+				
+				int armCurrentVerticalAngle = preferences.getInt( Constantes.STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY , Constantes.STAGE_ARM_VERTICAL_DEFAULT_ANGLE );
+				
+				armCurrentVerticalAngle += presicion;
+				
+				if ( armCurrentVerticalAngle >= Constantes.STAGE_ARM_VERTICAL_MAX_ANGLE ) {
+					
+					armCurrentVerticalAngle = Constantes.STAGE_ARM_VERTICAL_MAX_ANGLE;
+					
+				}
+				
+				angleValue = armCurrentVerticalAngle;
+				
+				saveIntegerInPreferences( Constantes.STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY , angleValue );
+				
+				break;
+				
+			}
 			
+			case ARM_LEFT: {
+				
+				int armCurrentHorizontalAngle = preferences.getInt( Constantes.STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY , Constantes.STAGE_ARM_HORIZONTAL_DEFAULT_ANGLE );
+				
+				armCurrentHorizontalAngle -= presicion;
+				
+				if ( armCurrentHorizontalAngle <= Constantes.STAGE_ARM_HORIZONTAL_MIN_ANGLE ) {
+					
+					armCurrentHorizontalAngle = Constantes.STAGE_ARM_HORIZONTAL_MIN_ANGLE;
+					
+				}
+				
+				angleValue = armCurrentHorizontalAngle;
+				
+				saveIntegerInPreferences( Constantes.STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY , angleValue );
+				
+				break;
+				
+			}
+			
+			case ARM_RIGHT: {
+				
+				int armCurrentHorizontalAngle = preferences.getInt( Constantes.STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY , Constantes.STAGE_ARM_HORIZONTAL_DEFAULT_ANGLE );
+				
+				armCurrentHorizontalAngle += presicion;
+				
+				if ( armCurrentHorizontalAngle >= Constantes.STAGE_ARM_HORIZONTAL_MAX_ANGLE ) {
+					
+					armCurrentHorizontalAngle = Constantes.STAGE_ARM_HORIZONTAL_MAX_ANGLE;
+					
+				}
+				
+				angleValue = armCurrentHorizontalAngle;
+				
+				saveIntegerInPreferences( Constantes.STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY , angleValue );
+				
+				break;
+				
+			}
+			
+    	}
+    	
+    	return angleValue;
+    }
+    
+    private int openCloseHand (Movement handMovement) {
+    	
+    	Integer handPosition = null;
+    	
+    	switch (handMovement) {
+			
+			case HAND_OPEN: {
+				
+				int handCurrentPosition = preferences.getInt( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
+				
+				if (handCurrentPosition == Constantes.STAGE_HAND_CLOSE ) 
+					
+					handCurrentPosition = Constantes.STAGE_HAND_OPEN;
+				
+				handPosition = handCurrentPosition;
+				
+				saveIntegerInPreferences( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , handPosition );
+				
+				break;
+				
+			}
+			
+			case HAND_CLOSE: {
+				
+				int handCurrentPosition = preferences.getInt( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
+				
+				if (handCurrentPosition == Constantes.STAGE_HAND_OPEN ) 
+					
+					handCurrentPosition = Constantes.STAGE_HAND_CLOSE;
+				
+				handPosition = handCurrentPosition;
+				
+				saveIntegerInPreferences( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , handPosition );
+				
 				break;
 				
 			}
 
-    	}
+		}
     	
-    	return angleValue;
+    	return handPosition;
+    	
+    }
+    
+    private void saveIntegerInPreferences( String key , Integer value ) {
+    	
+    	Editor edit = preferences.edit();
+		
+		edit.putInt( key , value );
+		
+		edit.commit();
+    	
     }
 
 	@Override
@@ -90,45 +196,154 @@ public class ModuloStageBrazo implements IModuloBrazo {
 			
 			((PlayerClient) vv.elementAt(0)).setNotThreaded();
 			
-			int currentArmAngle = calculateArmMovementAngle(Movements.ARM_DOWN , presicion);
-
-			((SpeechInterface)vv.elementAt(1)).speech("Brazo - Bajar - Angulo:" + String.valueOf(currentArmAngle));
+			int currentArmAngle = calculateArmMovementAngle(Movement.ARM_DOWN , presicion);
+			
+			String message = "Brazo - Bajar - Angulo:" + String.valueOf(currentArmAngle);
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
 			
 			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
 			
 			((PlayerClient) vv.elementAt(0)).stop();
 			
-		}else
-		
+		} else
+
 			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 		
 	}
 
 	@Override
 	public void brazoDerecha(int presicion) {
-		// TODO Auto-generated method stub
+		
+		Conector conector = Conector.getInstance();
+
+		if (conector.isOnline()) {
+			
+			Vector<Object> vv = conector.getInterfaceSPEECH();
+			
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();
+			
+			int currentArmAngle = calculateArmMovementAngle(Movement.ARM_RIGHT , presicion);
+			
+			String message = "Brazo - Derecha - Angulo:" + String.valueOf(currentArmAngle);
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
+			
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		} else
+
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 		
 	}
 
 	@Override
 	public void brazoIzquierda(int presicion) {
-		// TODO Auto-generated method stub
+		
+		Conector conector = Conector.getInstance();
+
+		if (conector.isOnline()) {
+			
+			Vector<Object> vv = conector.getInterfaceSPEECH();
+			
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();
+			
+			int currentArmAngle = calculateArmMovementAngle(Movement.ARM_LEFT , presicion);
+			
+			String message = "Brazo - Izquierda - Angulo:" + String.valueOf(currentArmAngle);
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
+			
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		} else
+
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 		
 	}
 
 	@Override
 	public void brazoSubir(int presicion) {
-		// TODO Auto-generated method stub
+		
+		Conector conector = Conector.getInstance();
+
+		if (conector.isOnline()) {
+			
+			Vector<Object> vv = conector.getInterfaceSPEECH();
+			
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();
+			
+			int currentArmAngle = calculateArmMovementAngle(Movement.ARM_UP , presicion);
+			
+			String message = "Brazo - Subir - Angulo:" + String.valueOf(currentArmAngle);
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
+			
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		} else
+
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 		
 	}
 	
 	@Override
 	public void manoAbrirMaximo() {
+		
+		Conector conector = Conector.getInstance();
 
+		if (conector.isOnline()) {
+			
+			Vector<Object> vv = conector.getInterfaceSPEECH();
+			
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();
+			
+			openCloseHand(Movement.HAND_OPEN);
+			
+			String message = "Mano - Abierta";
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
+			
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		} else
+
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
+		
 	}
 
 	@Override
 	public void manoCerrarMaximo() {
+		
+		Conector conector = Conector.getInstance();
+
+		if (conector.isOnline()) {
+			
+			Vector<Object> vv = conector.getInterfaceSPEECH();
+			
+			((PlayerClient) vv.elementAt(0)).setNotThreaded();
+			
+			openCloseHand(Movement.HAND_CLOSE);
+			
+			String message = "Mano - Cerrada";
+			
+			((SpeechInterface)vv.elementAt(1)).speech(message);
+			
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + "Texto Reproducido" );
+			
+			((PlayerClient) vv.elementAt(0)).stop();
+			
+		} else
+
+			Log.e( ModuloStageBrazo.class.getName(), Constantes.MODULO_MANO + Constantes.SERVIDOR_OFFLINE );
 
 	}
 	

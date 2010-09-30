@@ -98,7 +98,7 @@ public class ActividadPantallaMapa extends ActividadPantallaAbstract implements 
 			p = new GeoPoint( (int) ( latPoint * 1E6 ), (int) ( longPoint * 1E6 ) );
 
 			mc.animateTo( p );
-			mc.setZoom( 10 );
+			mc.setZoom( 16 );
 			mapView.invalidate();
 		        
 			Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT ).show();

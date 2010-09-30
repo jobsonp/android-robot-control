@@ -146,6 +146,8 @@ public class Constantes
     public static int STAGE_HAND_CLOSE = 0;
     
     public static int STAGE_HAND_DEFAULT_POSITION = 0;
+    
+    public static String STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY";
 	
     public static int STAGE_ARM_HORIZONTAL_MIN_ANGLE = 0;
 	
@@ -166,8 +168,6 @@ public class Constantes
     public static String STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY";
     
     public static String STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY";
-    
-    public static String STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HAND_VALUE_PREFERENCES_KEY";
 
     /**
      * Constantes de las camaras

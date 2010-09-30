@@ -23,12 +23,12 @@ public class ModuloStageGPS implements IModuloGPS {
 
 	@Override
 	public float getLatitude() {
-		return 34.12345F;
+		return 34.616944445F;
 	}
 
 	@Override
 	public float getLongitude() {
-		return 58.12345F;
+		return 58.381944445F;
 	}
 
 }
