@@ -8,6 +8,30 @@
 				                             android:layout_width="fill_parent"
         								     android:layout_height="wrap_content" />
         								     
+       	<LinearLayout
+				android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:orientation="horizontal"
+	        	android:gravity="top">        								     
+	      	
+	       	<Button
+	       		android:id="@+id/webcam_principal_screenshot_button" 
+	       		android:text="@string/button.screenshot"
+	       		android:clickable="true"
+	       		android:layout_width="100dp"
+	      		android:layout_height="40dp">
+	       	</Button>
+	       	
+	       	<Button
+	       		android:id="@+id/webcam_principal_speech_button" 
+	       		android:text="@string/button.speech"
+	       		android:clickable="true"
+	       		android:layout_width="100dp"
+	      		android:layout_height="40dp">
+	       	</Button>
+	       	
+       	</LinearLayout>
+        								     
 		 <LinearLayout
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"

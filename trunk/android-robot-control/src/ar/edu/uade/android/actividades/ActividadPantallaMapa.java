@@ -99,7 +99,6 @@ public class ActividadPantallaMapa extends ActividadPantallaAbstract implements 
 
 			mc.animateTo( p );
 			mc.setZoom( 16 );
-			mapView.invalidate();
 		        
 			Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT ).show();
 			

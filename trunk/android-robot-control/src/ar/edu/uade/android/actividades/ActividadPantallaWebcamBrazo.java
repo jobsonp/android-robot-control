@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.controladores.ControladorBrazo;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
@@ -23,6 +22,8 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
 	private MjpegView mv;
 	 
 	private ControladorBrazo controladorBrazo;
+	
+	private Boolean hasStreamingSAlreadytarted;
 
     @Override
     protected void onCreate( Bundle savedInstanceState )
@@ -52,7 +53,7 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
         
         resetArmAndHand();
         
-        startStreaming();
+        initializeStreamingView();
     }
     
     private OnClickListener openCloseHandClickListener = new OnClickListener() {
@@ -65,19 +66,19 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
         		
         		int handCurrentPosition = preferences.getInt( Constantes.STAGE_HAND_CURRENT_VALUE_PREFERENCES_KEY , Constantes.STAGE_HAND_DEFAULT_POSITION );
         		
-        		TextView tx = (TextView) findViewById( R.id.webcam_brazo_mano_label );
+        		Button button = (Button) findViewById( R.id.webcam_brazo_mano_button );
         		
         		if ( handCurrentPosition == Constantes.STAGE_HAND_OPEN ) {
         			
             		controladorBrazo.cerrarManoMaximo();
             		
-            		tx.setText("Abrir");
+            		button.setText("Abrir");
         			
         		} else {
         			
         			controladorBrazo.abrirManoMaximo();
         			
-        			tx.setText("Cerrar");
+        			button.setText("Cerrar");
         			
         		}
         		
@@ -170,7 +171,7 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
     }
 
     
-    private void startStreaming()
+    private void initializeStreamingView()
     {
         mv = (MjpegView) this.findViewById( R.id.mjpeg_view_brazo );
         mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.IP_PLAYER ) + ":"
@@ -178,6 +179,8 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
         mv.setDisplayMode( MjpegView.SIZE_BEST_FIT );
 
         mv.showFps( super.getPreferences().getBoolean( "Show FPS Key", true ) );
+        
+        hasStreamingSAlreadytarted = true;
     }
 
     @Override
@@ -190,7 +193,9 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
     protected void onResume() {
     	super.onResume();
     	resetArmAndHand();
-    	mv.startPlayback();
+    	if (!hasStreamingSAlreadytarted) {
+    		mv.startPlayback();
+    	}
     }
 
     @Override
@@ -198,6 +203,7 @@ public class ActividadPantallaWebcamBrazo extends ActividadPantallaAbstract {
     {
         super.onPause();
         mv.stopPlayback();
+        hasStreamingSAlreadytarted = false;
     }
 
     @Override

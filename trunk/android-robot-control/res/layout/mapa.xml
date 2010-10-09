@@ -9,7 +9,7 @@
 		android:layout_height="fill_parent"
 		android:enabled="true"
 		android:clickable="true"
-		android:apiKey="0bimg0GImkOCqxWbIhwqpVvmgu9YNjb29s-U4GA"
+		android:apiKey="@string/google.maps.api.key"
     />
 	<LinearLayout android:id="@+id/layout_zoom" 
     	android:layout_width="wrap_content" 

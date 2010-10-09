@@ -60,7 +60,7 @@
 							  android:layout_width="0dip"
 							  android:maxLength="5"
 							  android:singleLine="True"
-							  android:text="1234">
+							  android:text="60000">
 					</EditText>
 		</LinearLayout>
 		<LinearLayout android:id="@+id/LinearLayout01"
@@ -78,7 +78,7 @@
 							  android:layout_width="0dip"
 							  android:maxLength="5"
 							  android:singleLine="True"
-							  android:text="1235">
+							  android:text="60001">
 					</EditText>
 		</LinearLayout>
 		<LinearLayout android:id="@+id/LinearLayout01"

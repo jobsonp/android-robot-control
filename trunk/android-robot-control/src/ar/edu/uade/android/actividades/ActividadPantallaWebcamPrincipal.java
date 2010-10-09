@@ -1,11 +1,14 @@
 package ar.edu.uade.android.actividades;
 
+import java.io.IOException;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.controladores.ControladorServos;
@@ -42,8 +45,39 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         rightArrow.setOnClickListener( rightArrowOnClickListener );
         downArrow.setOnClickListener( downArrowOnClickListener );
         
-        startStreaming();
+        Button speechButton = (Button) this.findViewById( R.id.webcam_principal_speech_button );
+        speechButton.setOnClickListener( speechOnClickListener );
+        
+        Button screenshotButton = (Button) this.findViewById( R.id.webcam_principal_screenshot_button );
+        screenshotButton.setOnClickListener( screenshotCaptureOnClickListener );
+        
+        initializeStreamingView();
     }
+    
+    private OnClickListener speechOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+    		dialog();
+    		
+        }
+        
+    };
+    
+    private OnClickListener screenshotCaptureOnClickListener = new OnClickListener() {
+        
+    	public void onClick(View v) {
+        	
+    		try {
+				screenshot( v );
+				toast( getString( R.string.toast_screeshotCaptured) );
+			} catch (IOException e) {
+				Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "Screenshot couldn't be captured.", e );
+			}
+    		
+        }
+        
+    };
     
     private OnClickListener upArrowOnClickListener = new OnClickListener() {
         
@@ -105,7 +139,7 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         
     };
     
-    private void startStreaming()
+    private void initializeStreamingView()
     {
         mv = (MjpegView) this.findViewById( R.id.mjpeg_view_main );
         mv.setSource( MjpegInputStream.read( "http://" + Configuracion.getConfigString( Constantes.IP_PLAYER ) + ":"

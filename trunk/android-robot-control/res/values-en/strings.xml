@@ -46,6 +46,18 @@
     <string name="configuracion.mostrar.trackball.key">Trackball Key</string>
     	<string name="configuracion.mostrar.trackball.titulo">Trackball info</string>
     	<string name="configuracion.mostrar.trackball.descripcion">Show trackball events information, mainly for debug</string>
+    	
+    <!-- Speech -->
+    <string name="button.speech">Speech</string>
+    
+    <!-- Screenshot -->
+    <string name="button.screenshot">Screenshot</string>
+    	
+   	<!-- Pantalla de Webcam Principal -->
+   	
+   	<!-- Pantalla de Webcam Brazo -->
+   	
+   	<!-- Pantalla de Mapa -->
 	
     <!-- Dialogos de Confirmacion -->
     <string name="salir">Exit</string>
@@ -67,9 +79,13 @@
     
     <string name="toast.posicionActualizada">Robot position has been updated</string>
     
+    <string name="toast.screeshotCaptured">Screenshot captured!</string>
+    
+    <string name="toast.speechSent">Speech sent!</string>
+    
     
     <!-- Google Maps Api Key -->
     <!-- Tiene que ser generada por el SDK y registrada en http://code.google.com/android/maps-api-signup.html -->
     <!-- El comando es: keytool -list -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android -->
-    <string name="google.maps.api.key">082FjfUeeja15MgHeAV3BYDLvrmVokkc9SfVVew</string>
+    <string name="google.maps.api.key">0bimg0GImkOCqxWbIhwqpVvmgu9YNjb29s-U4GA</string>
 </resources>
