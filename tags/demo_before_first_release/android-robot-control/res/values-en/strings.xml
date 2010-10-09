@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Generales -->
+    <string name="general.app_name">Android Robot Control</string>
+    <string name="general.cancelar">Cancel</string>
+    <string name="general.aceptar">Ok</string>
+    
+    <!-- Actividades -->
+    <string name="actividad.conexion">Connection</string>
+	<string name="actividad.desconectar">Disconnect</string>
+	<string name="actividad.pantalla.mapa">Map</string>
+	<string name="actividad.pantalla.webcam.principal">Main Webcam</string>
+	<string name="actividad.pantalla.webcam.brazo">Arm Webcam</string>
+	<string name="actividad.configuracion">Settings</string>
+    
+    <!-- Servicios -->
+    <string name="servicio.brazo">Arm Service</string>
+    <string name="servicio.gps">GPS Service</string>
+    <string name="servicio.servos">Servos Service</string>
+    <string name="servicio.wifi">Wifi Service</string>
+    
+    <!-- Pantalla de coneccion -->
+    <string name="conectar">Connect</string>
+    <string name="ingresarIp">Enter the robot IP address:</string>
+    <string name="ingresarPuertoPlayerServer">Player Server Port:</string>
+    <string name="ingresarPuertoWebcamPrincipal">Main Webcam Port:</string>
+    <string name="ingresarPuertoWebcamBrazo">Arm Webcam Port:</string>
+    
+    
+    <!-- Pantalla de configuracion -->
+    <string name="configuracion.titulo">Settings</string>
+    
+    <string name="configuracion.categoria.pantalla">Screen</string>
+	    <string name="configuracion.seleccion.pantalla.inicio.key">Start Screen Key</string>
+	    <string name="configuracion.seleccion.pantalla.inicio.titulo">Start Screen</string>
+	  	<string name="configuracion.seleccion.pantalla.inicio.descripcion">Screen to be display when starting</string>
+	    	<string name="configuracion.seleccion.pantalla">Select start screen</string>
+	    	<string name="configuracion.vista.main.titulo">Main view</string>
+	    	<string name="configuracion.vista.arm.titulo">Arm view</string>
+	    	<string name="configuracion.vista.map.titulo">Map View</string>
+		<string name="configuracion.seleccion.fps.key">Show FPS Key</string>
+		<string name="configuracion.seleccion.fps.titulo">Show FPS</string>
+		<string name="configuracion.seleccion.fps.descripcion">Display frames per second on webcams views</string>
+    
+    <string name="configuracion.categoria.trackball">Trackball</string>
+    <string name="configuracion.mostrar.trackball.key">Trackball Key</string>
+    	<string name="configuracion.mostrar.trackball.titulo">Trackball info</string>
+    	<string name="configuracion.mostrar.trackball.descripcion">Show trackball events information, mainly for debug</string>
+    	
+    <!-- Speech -->
+    <string name="button.speech">Speech</string>
+    
+    <!-- Screenshot -->
+    <string name="button.screenshot">Screenshot</string>
+    	
+   	<!-- Pantalla de Webcam Principal -->
+   	
+   	<!-- Pantalla de Webcam Brazo -->
+   	
+   	<!-- Pantalla de Mapa -->
+	
+    <!-- Dialogos de Confirmacion -->
+    <string name="salir">Exit</string>
+    <string name="salirMensaje">Are you sure you wanna exit?</string>
+    
+    <!-- Menu -->
+    <string name="menu.vista">View</string>
+    <string name="menu.desconectar">Disconnect</string>
+    <string name="menu.vista.camara.principal">Main Webcam</string>
+    <string name="menu.vista.camara.brazo">Arm Webcam</string>
+    <string name="menu.vista.mapa">Map</string>
+    <string name="menu.configuracion">Settings</string>
+    
+    <!-- Mensajes de Toast -->
+    <string name="toast.conectando">Connecting...</string>
+    <string name="toast.desconectando">Disconnecting...</string>
+    <string name="toast.conectado.al.robot">Connected to the robot</string>
+    <string name="toast.ip.o.puerto.invalidos">Invalid ip or port(s)</string>
+    
+    <string name="toast.posicionActualizada">Robot position has been updated</string>
+    
+    <string name="toast.screeshotCaptured">Screenshot captured!</string>
+    
+    <string name="toast.speechSent">Speech sent!</string>
+    
+    
+    <!-- Google Maps Api Key -->
+    <!-- Tiene que ser generada por el SDK y registrada en http://code.google.com/android/maps-api-signup.html -->
+    <!-- El comando es: keytool -list -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android -->
+    <string name="google.maps.api.key">0bimg0GImkOCqxWbIhwqpVvmgu9YNjb29s-U4GA</string>
+</resources>

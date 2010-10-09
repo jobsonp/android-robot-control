@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:orientation="vertical" 
+			  android:layout_width="fill_parent"
+			  android:layout_height="fill_parent" 
+			  android:gravity="center_vertical">
+
+		<LinearLayout android:id="@+id/LinearLayout01"
+					  android:layout_width="fill_parent" 
+					  android:layout_height="wrap_content">
+					<TextView android:text="@string/ingresarIp" 
+							  android:id="@+id/TextView01"
+							  android:layout_width="wrap_content"
+							  android:layout_height="wrap_content">
+					</TextView>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout01"
+			  		  android:layout_width="fill_parent" 
+			  		  android:layout_height="wrap_content">					
+					<EditText android:id="@+id/RobotIp"
+					          android:layout_height="wrap_content"
+        					  android:layout_weight="1"
+							  android:layout_gravity="center" 
+							  android:layout_width="0dip"
+							  android:maxLength="21"
+							  android:singleLine="True"
+							  android:text="192.168.1.10">
+					</EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout01"
+			  		  android:layout_width="fill_parent" 
+			  		  android:layout_height="wrap_content">
+					<TextView android:text="@string/ingresarPuertoPlayerServer" 
+							  android:id="@+id/TextView01"
+							  android:layout_width="wrap_content"
+							  android:layout_height="wrap_content">
+					</TextView>
+					<EditText android:id="@+id/PlayerServerPort"
+					          android:layout_height="wrap_content"
+        					  android:layout_weight="1"
+							  android:layout_gravity="center" 
+							  android:layout_width="0dip"
+							  android:maxLength="5"
+							  android:singleLine="True"
+							  android:text="6665">
+					</EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout01"
+			  		  android:layout_width="fill_parent" 
+			  		  android:layout_height="wrap_content">
+					<TextView android:text="@string/ingresarPuertoWebcamPrincipal" 
+							  android:id="@+id/TextView01"
+							  android:layout_width="wrap_content"
+							  android:layout_height="wrap_content">
+					</TextView>
+					<EditText android:id="@+id/MainWebcamPort"
+					          android:layout_height="wrap_content"
+        					  android:layout_weight="5"
+							  android:layout_gravity="center" 
+							  android:layout_width="0dip"
+							  android:maxLength="5"
+							  android:singleLine="True"
+							  android:text="60000">
+					</EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout01"
+			  		  android:layout_width="fill_parent" 
+			     	  android:layout_height="wrap_content">					
+					<TextView android:text="@string/ingresarPuertoWebcamBrazo" 
+							  android:id="@+id/TextView01"
+							  android:layout_width="wrap_content"
+							  android:layout_height="wrap_content">
+					</TextView>
+					<EditText android:id="@+id/ArmWebcamPort"
+					          android:layout_height="wrap_content"
+        					  android:layout_weight="5"
+							  android:layout_gravity="center" 
+							  android:layout_width="0dip"
+							  android:maxLength="5"
+							  android:singleLine="True"
+							  android:text="60001">
+					</EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout01"
+					  android:layout_width="wrap_content" 
+					  android:layout_height="wrap_content"
+					  android:layout_gravity="right">
+					<Button android:text="@string/conectar" 
+							android:id="@+id/ButtonConectar"
+							android:layout_width="wrap_content" 
+							android:layout_height="wrap_content">
+					</Button>
+					<Button android:text="@string/general.cancelar" 
+							android:id="@+id/ButtonCancelar"
+							android:layout_width="wrap_content" 
+							android:layout_height="wrap_content">
+					</Button>
+		</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="ar.edu.uade.android" android:versionCode="1"
+	android:versionName="1.0">
+	
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	
+	<application
+		android:name="AndroidRobotControl"
+		android:icon="@drawable/icon_arc" 
+		android:label="@string/general.app_name" 
+		android:debuggable="true">
+		
+		<uses-library android:name="com.google.android.maps" />
+		
+		<activity android:name="ar.edu.uade.android.actividades.ActividadConectar" 
+				  android:label="@string/general.app_name"
+				  android:icon="@drawable/icon_arc">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="pantalla.conectar" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadDesconectar" 
+				  android:label="@string/actividad.desconectar"
+				  android:icon="@drawable/icon_arc">
+			<intent-filter>
+				<action android:name="acciones.desconectar" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamPrincipal" 
+				  android:label="@string/actividad.pantalla.webcam.principal"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.webcam.principal"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamBrazo" 
+				  android:label="@string/actividad.pantalla.webcam.brazo"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.webcam.brazo"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>        
+		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaMapa" 
+				  android:label="@string/actividad.pantalla.mapa"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.mapa"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+		<activity android:name="ar.edu.uade.android.actividades.ActividadConfiguracion" 
+				  android:label="@string/actividad.configuracion"
+				  android:icon="@drawable/icon_arc">
+            <intent-filter>
+                <action android:name="pantalla.configuracion"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>	
+        
+        <service android:enabled="true" android:name=".servicios.RobotService" />
+	</application>
+	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4"/>
+</manifest>
