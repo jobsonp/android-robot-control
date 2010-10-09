@@ -82,6 +82,8 @@ public class Constantes
 
     public static final String MODULO_CONECTOR = "CONECTOR - ";
     
+    public static final String MODULO_SPEECH = "SPEECH - ";
+    
     /**
      * Campos de Configuracion
      */
@@ -168,6 +170,10 @@ public class Constantes
     public static String STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_VERTICAL_ANGLE_PREFERENCES_KEY";
     
     public static String STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY = "STAGE_ARM_CURRENT_HORIZONTAL_ANGLE_PREFERENCES_KEY";
+    
+    // General stage configuration 
+    
+    public static final long STAGE_SHOW_SPEECH_MESSAGE_DEFAULT_TIME_IN_SECONDS = 3;
 
     /**
      * Constantes de las camaras
@@ -176,4 +182,13 @@ public class Constantes
     public static final int CAMARA_PRINCIPAL = 1;
 
     public static final int CAMARA_BRAZO = 0;
+    
+    /**
+     * Android app default configuration
+     */
+    
+    public static final String VIBRATION_FEEDBACK_MILLISECONDS_KEY = "VIBRATION_FEEDBACK_MILLISECONDS_KEY";
+    
+    public static final long VIBRATION_FEEDBACK_MILLISECONDS_DEFAULT_VALUE = 100;
+    
 }

@@ -13,7 +13,10 @@ public class Configuracion
         properties = new Properties();
 
         // Properties de configuracion
+        
+        // TODO: ask if the robot/stage is online or not
         properties.put( Constantes.ONLINE_PLAYER, "true" );
+        
         properties.put( Constantes.BRAZO_HORIZ_ID, "7" );
         properties.put( Constantes.BRAZO_VERT_ID, "6" );
         properties.put( Constantes.BRAZO_MANO_ID, "5" );
@@ -33,7 +36,7 @@ public class Configuracion
         // CONSTANTES DE LA CAMARA
         properties.put( Constantes.CAMARA_PRINCIPAL, "1" );
         properties.put( Constantes.CAMARA_BRAZO, "0" );
-
+        
         Log.d( Configuracion.class.getName(), "Configuracion cargada." );
     }
 

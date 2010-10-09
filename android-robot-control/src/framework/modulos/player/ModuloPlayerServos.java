@@ -15,10 +15,7 @@ public class ModuloPlayerServos {
 	public ModuloPlayerServos() {
 		
 	}
-
-
 	
-	@SuppressWarnings("unchecked")
 	public void setServo(int numServo, int pos)
 	{
 		//mover servo y actualizar posicionServo
@@ -26,7 +23,7 @@ public class ModuloPlayerServos {
 		Conector conector = Conector.getInstance();
 		if (conector.isOnline())
 		{
-			Vector vv = conector.getInterfaceSERVO();
+			Vector<Object> vv = conector.getInterfaceSERVO();
 			((PlayerClient) vv.elementAt(0)).start();
 			//	Mover
 			((ServoRTAIInterface)vv.elementAt(1)).moveServo(numServo, pos);
