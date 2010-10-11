@@ -1,21 +1,69 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/configuracion.categoria.pantalla">
-		<CheckBoxPreference android:summary="@string/configuracion.seleccion.fps.descripcion" 
-		  					android:title="@string/configuracion.seleccion.fps.titulo" android:key="@string/configuracion.seleccion.fps.key">
+	<PreferenceCategory android:title="@string/configuracion.interfaz.titulo">
+		<ListPreference
+			android:title="@string/configuracion.interfaz.pantalla.inicial.titulo"
+			android:summary="@string/configuracion.interfaz.pantalla.inicial.descripcion"
+			android:negativeButtonText="@string/general.cancelar"
+			android:selectable="true"
+			android:dialogTitle="@string/configuracion.interfaz.pantalla.inicial.dialogo.titulo"
+			android:entries="@array/configuracion_interfaz_pantalla_inicial_dialogo_strings"
+			android:entryValues="@array/configuracion_interfaz_pantalla_inicial_dialogo_values"
+			android:defaultValue="@string/configuracion.interfaz.pantalla.inicial.valor.defecto"
+			android:key="@string/configuracion.interfaz.pantalla.inicial.preference.key">
+		</ListPreference>
+		<CheckBoxPreference 
+			android:title="@string/configuracion.interfaz.cps.titulo"
+			android:summary="@string/configuracion.interfaz.cps.descripcion"
+			android:key="@string/configuracion.interfaz.cps.preference.key" 
+			android:defaultValue="@string/configuracion.interfaz.cps.valor.defecto">
 		</CheckBoxPreference>
-
-		<ListPreference android:summary="@string/configuracion.seleccion.pantalla.inicio.descripcion" 
-						android:negativeButtonText="@string/general.cancelar" 
-						android:selectable="true" 
-						android:title="@string/configuracion.seleccion.pantalla.inicio.titulo" 
-						android:dialogTitle="@string/configuracion.seleccion.pantalla" android:entries="@array/configuracion_seleccion_pantalla_keys" android:entryValues="@array/configuracion_seleccion_pantalla_values" android:defaultValue="@string/configuracion.vista.main.titulo" android:key="@string/configuracion.seleccion.pantalla.inicio.key">
+		<CheckBoxPreference 
+			android:title="@string/configuracion.interfaz.salir.titulo"
+			android:summary="@string/configuracion.interfaz.salir.descripcion"
+			android:key="@string/configuracion.interfaz.salir.preference.key" 
+			android:defaultValue="@string/configuracion.interfaz.salir.valor.defecto">
+		</CheckBoxPreference>			
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/configuracion.captura.pantalla.titulo">
+		<EditTextPreference 
+			android:title="@string/configuracion.captura.pantalla.directorio.titulo"
+			android:summary="@string/configuracion.captura.pantalla.directorio.descripcion"
+			android:key="@string/configuracion.captura.pantalla.directorio.preference.key" 
+			android:defaultValue="@string/configuracion.captura.pantalla.directorio.valor.defecto">
+		</EditTextPreference>
+		<ListPreference
+			android:title="@string/configuracion.captura.pantalla.formato.titulo"
+			android:summary="@string/configuracion.captura.pantalla.formato.descripcion"
+			android:negativeButtonText="@string/general.cancelar"
+			android:selectable="true"
+			android:dialogTitle="@string/configuracion.captura.pantalla.formato.dialogo.titulo"
+			android:entries="@array/configuracion_captura_pantalla_formato_dialogo_strings"
+			android:entryValues="@array/configuracion_captura_pantalla_formato_dialogo_values"
+			android:defaultValue="@string/configuracion.captura.pantalla.formato.valor.defecto"
+			android:key="@string/configuracion.captura.pantalla.formato.preference.key">
+		</ListPreference>
+		<ListPreference
+			android:title="@string/configuracion.captura.pantalla.compresion.titulo"
+			android:summary="@string/configuracion.captura.pantalla.compresion.descripcion"
+			android:negativeButtonText="@string/general.cancelar"
+			android:selectable="true"
+			android:defaultValue="@string/configuracion.captura.pantalla.compresion.valor.defecto"
+			android:key="@string/configuracion.captura.pantalla.compresion.preference.key">
 		</ListPreference>
 	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/configuracion.categoria.trackball">
-		<CheckBoxPreference android:selectable="true" 
-							android:summary="@string/configuracion.mostrar.trackball.descripcion" 
-							android:title="@string/configuracion.mostrar.trackball.titulo" 
-							android:key="@string/configuracion.mostrar.trackball.key">
+	<PreferenceCategory android:title="@string/configuracion.vibracion.titulo">
+		<CheckBoxPreference 
+			android:title="@string/configuracion.vibracion.activar.titulo"
+			android:summary="@string/configuracion.vibracion.activar.descripcion"
+			android:key="@string/configuracion.vibracion.activar.preference.key"
+			android:defaultValue="@string/configuracion.vibracion.activar.valor.defecto">
 		</CheckBoxPreference>
+		<EditTextPreference 
+			android:title="@string/configuracion.vibracion.duracion.titulo"
+			android:summary="@string/configuracion.vibracion.duracion.descripcion"
+			android:key="@string/configuracion.vibracion.duracion.preference.key" 
+			android:defaultValue="@string/configuracion.vibracion.duracion.valor.defecto"
+			android:dependency="@string/configuracion.vibracion.activar.preference.key">
+		</EditTextPreference>
 	</PreferenceCategory>
 </PreferenceScreen>

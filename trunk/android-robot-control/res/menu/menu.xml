@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- DREPRECADO -->
     <item android:id="@+id/MenuVista"
     	  android:title="@string/menu.vista"
     	  android:icon="@android:drawable/ic_menu_view" >
@@ -18,10 +20,12 @@
 	    	</group>
     	</menu>
     </item>
-    <item android:id="@+id/MenuDesconectar"
-    	  android:title="@string/menu.desconectar" 
-    	  android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
-    <item android:id="@+id/MenuConfiguracion"
-    	  android:title="@string/menu.configuracion"
+    <!-- DREPRECADO -->
+    
+    <item android:id="@+id/menu.configuracion"
+    	  android:title="@string/menu.configuracion.texto"
     	  android:icon="@android:drawable/ic_menu_preferences"/>
+    <item android:id="@+id/menu.desconectar"
+    	  android:title="@string/menu.desconectar.texto" 
+    	  android:icon="@android:drawable/ic_menu_close_clear_cancel"/>    	      	  
 </menu>

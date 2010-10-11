@@ -23,15 +23,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 			<intent-filter>
-				<action android:name="pantalla.conectar" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<activity android:name="ar.edu.uade.android.actividades.ActividadDesconectar" 
-				  android:label="@string/actividad.desconectar"
-				  android:icon="@drawable/icon_arc">
-			<intent-filter>
-				<action android:name="acciones.desconectar" />
+				<action android:name="ar.edu.uade.android.actividades.ActividadConectar" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
@@ -39,7 +31,7 @@
 				  android:label="@string/actividad.pantalla.webcam.principal"
 				  android:icon="@drawable/icon_arc">
             <intent-filter>
-                <action android:name="pantalla.webcam.principal"></action>
+                <action android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamPrincipal"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
@@ -47,7 +39,7 @@
 				  android:label="@string/actividad.pantalla.webcam.brazo"
 				  android:icon="@drawable/icon_arc">
             <intent-filter>
-                <action android:name="pantalla.webcam.brazo"></action>
+                <action android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamBrazo"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>        
@@ -55,7 +47,7 @@
 				  android:label="@string/actividad.pantalla.mapa"
 				  android:icon="@drawable/icon_arc">
             <intent-filter>
-                <action android:name="pantalla.mapa"></action>
+                <action android:name="ar.edu.uade.android.actividades.ActividadPantallaMapa"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
@@ -63,7 +55,7 @@
 				  android:label="@string/actividad.configuracion"
 				  android:icon="@drawable/icon_arc">
             <intent-filter>
-                <action android:name="pantalla.configuracion"></action>
+                <action android:name="ar.edu.uade.android.actividades.ActividadConfiguracion"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>	
