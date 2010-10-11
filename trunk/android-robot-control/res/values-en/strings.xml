@@ -22,7 +22,8 @@
     <!-- Pantalla de coneccion -->
     <string name="conexion.texto.ingresar.parametros">Ingresar los siguientes parámetros: \n</string>	
 	<string name="conexion.texto.tipo.robot">Tipo de robot</string>
-	<string name="conexion.texto.tipo.robot.rtai">Real con RTAI</string>
+	<string name="conexion.texto.tipo.robot.dialogo.titulo">Seleccionar Tipo de Robot</string>
+	<string name="conexion.texto.tipo.robot.rtai">Robot con RTAI</string>
 	<string name="conexion.texto.tipo.robot.stage">Emulado con Stage</string>
 	<string name="conexion.texto.ip.robot">IP o Nombre del robot</string>
 	<string name="conexion.texto.puerto.player">Puerto del servidor Player</string>
