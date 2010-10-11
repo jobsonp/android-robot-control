@@ -5,8 +5,6 @@ import java.io.IOException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,9 +25,6 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
     protected void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-
-        requestWindowFeature( Window.FEATURE_NO_TITLE );
-        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
 
         setContentView( R.layout.webcam_principal );
         
@@ -70,7 +65,7 @@ public class ActividadPantallaWebcamPrincipal extends ActividadPantallaAbstract 
         	
     		try {
 				screenshot( v );
-				toast( getString( R.string.toast_screeshotCaptured) );
+				toast( getString( R.string.toast_pantalla_capturada) );
 			} catch (IOException e) {
 				Log.e( ActividadPantallaWebcamPrincipal.class.getName(), "Screenshot couldn't be captured.", e );
 			}
