@@ -1,13 +1,17 @@
 package ar.edu.uade.android.actividades;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.utils.Configuracion;
@@ -25,6 +29,7 @@ public class ActividadConectar
     private static final String PUERTO_WEBCAM_BRAZO = "puerto-webcam-brazo";
 
     private SharedPreferences preferences;
+    private ArrayAdapter<CharSequence> adapter;
 
     public void onCreate( Bundle savedInstanceState )
     {
@@ -40,6 +45,11 @@ public class ActividadConectar
         Button buttonGuardar = (Button) this.findViewById( R.id.conexion_boton_guardar );
         buttonGuardar.setOnClickListener( this );
 
+        Spinner tipoRobot = (Spinner) findViewById( R.id.conexion_tipo_robot );
+        adapter = new ArrayAdapter<CharSequence>( this, android.R.layout.simple_spinner_item, new ArrayList<CharSequence>(2) );
+        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+        tipoRobot.setAdapter( adapter );
+
         leerParametros();
     }
 
@@ -47,7 +57,7 @@ public class ActividadConectar
     public void onClick( View v )
     {
         // FIX ME - tipo robot
-        String tipoRobot = "bla";
+        String tipoRobot = ( (Spinner) findViewById( R.id.conexion_tipo_robot ) ).getSelectedItem().toString();
         String ipNombreRobot = ( (EditText) findViewById( R.id.conexion_ip_robot ) ).getText().toString();
         String puertoPlayer = ( (EditText) findViewById( R.id.conexion_puerto_player ) ).getText().toString();
         String puertoWebcamPrincipal = ( (EditText) findViewById( R.id.conexion_puerto_webcam_principal ) ).getText()
@@ -108,9 +118,8 @@ public class ActividadConectar
      */
     private void leerParametros()
     {
-        // FIX ME
-        // ((EditText)findViewById( R.id.conexion_tipo_robot ) ).setText( preferences.getString(
-        // TIPO_ROBOT, "" ));
+        leerTipoRobot();
+        
         ( (EditText) findViewById( R.id.conexion_ip_robot ) ).setText( preferences.getString( IP_NOMBRE_ROBOT, "" ) );
         ( (EditText) findViewById( R.id.conexion_puerto_player ) ).setText( preferences.getString( PUERTO_PLAYER, "" ) );
         ( (EditText) findViewById( R.id.conexion_puerto_webcam_principal ) ).setText( preferences
@@ -118,6 +127,24 @@ public class ActividadConectar
         ( (EditText) findViewById( R.id.conexion_puerto_webcam_brazo ) ).setText( preferences
             .getString( PUERTO_WEBCAM_BRAZO, "" ) );
 
+    }
+
+    private void leerTipoRobot()
+    {
+        String emuladoStage =getResources().getString( R.string.conexion_texto_tipo_robot_stage );
+        String robotRtai =getResources().getString( R.string.conexion_texto_tipo_robot_rtai );
+        String preference = preferences.getString( TIPO_ROBOT, "" );
+
+        if( preference.equals( "" ) || preference.equals( emuladoStage ))
+        {
+            adapter.add(emuladoStage );
+            adapter.add(robotRtai );
+        }
+        else
+        {
+            adapter.add(robotRtai );
+            adapter.add(emuladoStage );
+        }
     }
 
     /**
