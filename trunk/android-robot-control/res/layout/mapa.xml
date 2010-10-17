@@ -4,17 +4,21 @@
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent">
    <com.google.android.maps.MapView
-		android:id="@+id/mapa"
+		android:id="@+id/vista_mapa"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:enabled="true"
 		android:clickable="true"
-		android:apiKey="@string/google.maps.api.key"
-    />
+		android:apiKey="@string/google.maps.api.key"/>
+    <include 
+		android:id="@+id/barra_selector_vistas" 
+		layout="@layout/barra_selector_vistas" />
+	<include 
+		android:id="@+id/barra_comandos" 
+		layout="@layout/barra_comandos" />   
 	<LinearLayout android:id="@+id/layout_zoom" 
     	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content" 
     	android:layout_alignParentBottom="true" 
-    	android:layout_centerHorizontal="true" 
-  	/>
+    	android:layout_centerHorizontal="true"/>
 </RelativeLayout>

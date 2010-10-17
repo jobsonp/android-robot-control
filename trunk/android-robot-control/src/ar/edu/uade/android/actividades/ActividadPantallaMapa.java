@@ -4,8 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.MenuItem.OnMenuItemClickListener;
+import android.view.View;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.servicios.RobotService;
 import ar.edu.uade.android.utils.GpsPosition;
@@ -16,7 +17,6 @@ import com.google.android.maps.MapView;
 
 public class ActividadPantallaMapa
     extends ActividadPantallaAbstract
-    implements OnMenuItemClickListener
 {
 
     private IntentFilter mFilter;
@@ -90,7 +90,7 @@ public class ActividadPantallaMapa
 
     private void createMap()
     {
-        mapView = (MapView) findViewById( R.id.mapa );
+        mapView = (MapView) findViewById( R.id.vista_mapa );
         mapView.setBuiltInZoomControls( true );
         mapView.displayZoomControls( true );
     }
@@ -116,9 +116,7 @@ public class ActividadPantallaMapa
 
             // Toast.makeText( this, R.string.toast_posicionActualizada, Toast.LENGTH_SHORT
             // ).show();
-
         }
-
     }
 
     @Override
@@ -127,4 +125,36 @@ public class ActividadPantallaMapa
         return false;
     }
 
+    @Override
+    public void ejecutarFlechaAbajo()
+    {
+        getControladorServos().atras();
+    }
+
+    @Override
+    public void ejecutarFlechaArriba()
+    {
+        getControladorServos().adelante();
+    }
+
+    @Override
+    public void ejecutarFlechaDerecha()
+    {
+        getControladorServos().girarDer();
+    }
+
+    @Override
+    public void ejecutarFlechaIzquierda()
+    {
+        getControladorServos().girarIzq();
+    }
+
+    @Override
+    public Bitmap obtenerBitmap()
+    {
+        MapView vistaMapa = (MapView)findViewById( R.id.vista_mapa );
+        vistaMapa.setDrawingCacheQuality( View.DRAWING_CACHE_QUALITY_LOW );
+        vistaMapa.setDrawingCacheEnabled( true );
+        return vistaMapa.getDrawingCache();
+    }
 }

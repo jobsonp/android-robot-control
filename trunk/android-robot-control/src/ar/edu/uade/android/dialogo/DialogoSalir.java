@@ -21,7 +21,7 @@ public class DialogoSalir
 
         this.setTitle( R.string.menu_desconectar_dialogo_titulo );
         this.setMessage( R.string.menu_desconectar_dialogo_descripcion );
-        this.setIcon( R.drawable.ask );
+        this.setIcon( R.drawable.dialogo_pregunta );
         this.setPositiveButton( R.string.general_aceptar, new DialogInterface.OnClickListener()
         {
             public void onClick( DialogInterface dialog, int which )

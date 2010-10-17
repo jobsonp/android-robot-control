@@ -123,13 +123,15 @@
 			android:text="@string/conexion.boton.guardar" 
 			android:id="@+id/conexion.boton.guardar"
 			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:onClick="guardarParametros">
 		</Button>
 		<Button 
 			android:text="@string/conexion.boton.conectar" 
 			android:id="@+id/conexion.boton.conectar"
 			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:onClick="conectar">
 		</Button>
 	</LinearLayout>
 </LinearLayout>
