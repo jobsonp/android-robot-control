@@ -6,7 +6,7 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	
+	<uses-permission android:name="android.permission.VIBRATE" />
 	<application
 		android:name="AndroidRobotControl"
 		android:icon="@drawable/icon_arc" 
@@ -17,7 +17,7 @@
 		
 		<activity android:name="ar.edu.uade.android.actividades.ActividadConectar" 
 				  android:label="@string/general.app_name"
-				  android:icon="@drawable/icon_arc">
+				  android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -28,32 +28,28 @@
 			</intent-filter>
 		</activity>
 		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamPrincipal" 
-				  android:label="@string/actividad.pantalla.webcam.principal"
-				  android:icon="@drawable/icon_arc">
+				  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamPrincipal"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
 		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamBrazo" 
-				  android:label="@string/actividad.pantalla.webcam.brazo"
-				  android:icon="@drawable/icon_arc">
+				  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="ar.edu.uade.android.actividades.ActividadPantallaWebcamBrazo"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>        
 		<activity android:name="ar.edu.uade.android.actividades.ActividadPantallaMapa" 
-				  android:label="@string/actividad.pantalla.mapa"
-				  android:icon="@drawable/icon_arc">
+				  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="ar.edu.uade.android.actividades.ActividadPantallaMapa"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>
             </intent-filter>
         </activity>
 		<activity android:name="ar.edu.uade.android.actividades.ActividadConfiguracion" 
-				  android:label="@string/actividad.configuracion"
-				  android:icon="@drawable/icon_arc">
+				  android:label="@string/actividad.configuracion">
             <intent-filter>
                 <action android:name="ar.edu.uade.android.actividades.ActividadConfiguracion"></action>
                 <category android:name="android.intent.category.DEFAULT"></category>

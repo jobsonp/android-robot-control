@@ -8,6 +8,12 @@ public class Constantes
 
     public static final String NOMBRE_ARCHIVO_PREFERENCIAS = "ar.edu.uade.android_preferences";
 
+    
+    /**
+     * Tipo Robot
+     */
+    public static final String TIPO_ROBOT = "tipo robot";
+    
     /**
      * Debug Messages
      */

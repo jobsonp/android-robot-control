@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:orientation="vertical" 
+	android:layout_width="wrap_content"
+	android:layout_height="fill_parent"
+	android:background="#AA000000"
+	android:layout_alignParentRight="true">
+	<Button
+        android:id="@+id/boton_funcion_screenshot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_funcion_screenshot"
+        android:onClick="capturaDePantallaHandler"
+        android:layout_gravity="center_horizontal"/>
+	<Button
+        android:id="@+id/boton_funcion_mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_funcion_mensaje" 
+        android:onClick="enviarMensajeHandler"
+        android:layout_gravity="center_horizontal"/>	
+	<Button
+        android:id="@+id/boton_funcion_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_funcion_brazo" 
+        android:onClick="abrirCerrarBrazoHandler"
+        android:layout_gravity="center_horizontal"/>
+	<TableLayout
+		android:orientation="vertical" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_flecha_vacia"
+                android:clickable="false"
+                android:longClickable="false"/>		
+			<Button
+		        android:id="@+id/boton_flecha_arriba"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/boton_flecha_arriba" 
+		        android:onClick="flechaArribaHandler"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_flecha_vacia"
+                android:clickable="false"
+                android:longClickable="false" />
+		</TableRow>
+		<TableRow>
+			<Button
+		        android:id="@+id/boton_flecha_izquierda"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/boton_flecha_izquierda" 
+		        android:onClick="flechaIzquierdaHandler"/>
+			<ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_flecha_vacia"
+                android:clickable="false"
+                android:longClickable="false" />
+			<Button
+		        android:id="@+id/boton_flecha_derecha"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/boton_flecha_derecha" 
+		        android:onClick="flechaDerechaHandler"/>			
+		</TableRow>
+		<TableRow>
+			<ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_flecha_vacia"
+                android:clickable="false"
+                android:longClickable="false" />
+			<Button
+		        android:id="@+id/boton_flecha_abajo"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:background="@drawable/boton_flecha_abajo" 
+		        android:onClick="flechaAbajoHandler"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icono_flecha_vacia"
+                android:clickable="false"
+                android:longClickable="false" />
+		</TableRow>		
+	</TableLayout>
+</LinearLayout>

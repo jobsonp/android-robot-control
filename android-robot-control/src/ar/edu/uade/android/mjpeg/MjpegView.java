@@ -40,7 +40,8 @@ public class MjpegView
     private int dispWidth;
     private int dispHeight;
     private int displayMode;
-
+    private Bitmap lastBitmap;
+    
     public class MjpegViewThread
         extends Thread
     {
@@ -99,7 +100,7 @@ public class MjpegView
             p.getTextBounds( fps, 0, fps.length(), b );
 
             // false indentation to fix forum layout
-            Bitmap bm = Bitmap.createBitmap( b.width(), b.height(), Bitmap.Config.ARGB_8888 );
+            Bitmap bm = Bitmap.createBitmap( b.width()+5, b.height()+5, Bitmap.Config.ARGB_8888 );
 
             Canvas c = new Canvas( bm );
             p.setColor( overlayBackgroundColor );
@@ -131,6 +132,7 @@ public class MjpegView
                             try
                             {
                                 bm = mIn.readMjpegFrame();
+                                lastBitmap = bm.copy( Bitmap.Config.RGB_565, false );
                                 destRect = destRect( bm.getWidth(), bm.getHeight() );
                                 c.drawColor( Color.BLACK );
                                 c.drawBitmap( bm, null, destRect, p );
@@ -150,7 +152,7 @@ public class MjpegView
                                     frameCounter++;
                                     if ( ( System.currentTimeMillis() - start ) >= 1000 )
                                     {
-                                        fps = String.valueOf( frameCounter ) + "fps";
+                                        fps = String.valueOf( frameCounter ) + "cps";
                                         frameCounter = 0;
                                         start = System.currentTimeMillis();
                                         ovl = makeFpsOverlay( overlayPaint );
@@ -180,11 +182,11 @@ public class MjpegView
         setFocusable( true );
         overlayPaint = new Paint();
         overlayPaint.setTextAlign( Paint.Align.LEFT );
-        overlayPaint.setTextSize( 12 );
+        overlayPaint.setTextSize( 36 );
         overlayPaint.setTypeface( Typeface.DEFAULT );
         overlayTextColor = Color.WHITE;
-        overlayBackgroundColor = Color.BLACK;
-        ovlPos = MjpegView.POSITION_LOWER_RIGHT;
+        overlayBackgroundColor = Color.argb( 160, 0, 0, 0 );
+        ovlPos = MjpegView.POSITION_LOWER_LEFT;
         displayMode = MjpegView.SIZE_STANDARD;
         dispWidth = getWidth();
         dispHeight = getHeight();
@@ -279,4 +281,10 @@ public class MjpegView
     {
         displayMode = s;
     }
+
+    public Bitmap getLastFrame()
+    {
+        return lastBitmap;
+    }
+
 }
