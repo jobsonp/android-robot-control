@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ToggleButton;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.servicios.RobotService;
 import ar.edu.uade.android.utils.GpsPosition;
@@ -42,6 +43,10 @@ public class ActividadPantallaMapa
         /* Start the service if it's not up */
         startService( getServerIntent() );
         createMap();
+        
+        ((ToggleButton)findViewById( R.id.boton_vista_principal )).setChecked( false );
+        ((ToggleButton)findViewById( R.id.boton_vista_brazo )).setChecked( false );
+        ((ToggleButton)findViewById( R.id.boton_vista_mapa )).setChecked( true );
     }
 
     @Override

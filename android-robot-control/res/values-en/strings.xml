@@ -100,7 +100,7 @@
     <string name="toast.pinza.cerrada">Pinza Cerrada</string>
     
     <!--  ERRORES -->
-    <string name="error.captura.pantalla">Error al guardar la captura</string>
+    <string name="error.captura.pantalla">Error al capturar la pantalla</string>
     <string name="error.enviar.mensaje">Error al enviar el mensaje</string>
     <string name="error.abrir.cerrar.brazo">Error manejando el brazo</string>    
     <string name="error.al.enviar.el.comando">Error al enviar el comando</string>

@@ -21,13 +21,15 @@
         android:background="@drawable/boton_funcion_mensaje" 
         android:onClick="enviarMensajeHandler"
         android:layout_gravity="center_horizontal"/>	
-	<Button
-        android:id="@+id/boton_funcion_"
+	<ToggleButton
+        android:id="@+id/boton_funcion_brazo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/boton_funcion_brazo" 
         android:onClick="abrirCerrarBrazoHandler"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:textOn=""
+        android:textOff=""/>
 	<TableLayout
 		android:orientation="vertical" 
 		android:layout_width="wrap_content"

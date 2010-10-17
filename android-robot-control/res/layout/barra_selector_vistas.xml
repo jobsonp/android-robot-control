@@ -9,23 +9,29 @@
 	android:layout_alignParentTop="true" 
     android:layout_alignParentLeft="true">
 	<TableRow>
-		 <Button
+		 <ToggleButton
 	        android:id="@+id/boton_vista_principal"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/boton_vista_principal" 
-	        android:onClick="cambiarAVistaPrincipalHandler" />
-		 <Button
+	        android:onClick="cambiarAVistaPrincipalHandler" 
+	        android:textOn=""
+	        android:textOff=""/>
+		 <ToggleButton
 	        android:id="@+id/boton_vista_brazo"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/boton_vista_brazo" 
-	        android:onClick="cambiarAVistaBrazoHandler"/>
-		 <Button
+	        android:onClick="cambiarAVistaBrazoHandler"
+			android:textOn=""
+	        android:textOff=""/>
+		 <ToggleButton
 	        android:id="@+id/boton_vista_mapa"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/boton_vista_mapa" 
-	        android:onClick="cambiarAVistaMapaHandler"/>
+	        android:onClick="cambiarAVistaMapaHandler"
+			android:textOn=""
+	        android:textOff=""/>
 	</TableRow>
 </TableLayout>
