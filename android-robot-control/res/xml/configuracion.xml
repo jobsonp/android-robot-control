@@ -42,14 +42,15 @@
 			android:defaultValue="@string/configuracion.captura.pantalla.formato.valor.defecto"
 			android:key="@string/configuracion.captura.pantalla.formato.preference.key">
 		</ListPreference>
-		<ListPreference
-			android:title="@string/configuracion.captura.pantalla.compresion.titulo"
+		<ar.edu.uade.android.dialogo.SeekBarPreference 
+			android:key="@string/configuracion.captura.pantalla.compresion.preference.key"
+        	android:title="@string/configuracion.captura.pantalla.compresion.titulo"
 			android:summary="@string/configuracion.captura.pantalla.compresion.descripcion"
-			android:negativeButtonText="@string/general.cancelar"
-			android:selectable="true"
-			android:defaultValue="@string/configuracion.captura.pantalla.compresion.valor.defecto"
-			android:key="@string/configuracion.captura.pantalla.compresion.preference.key">
-		</ListPreference>
+			android:dialogMessage="@string/configuracion.captura.pantalla.compresion.dialogo.titulo"
+        	android:defaultValue="85"
+        	android:text="%"
+        	android:max="100">
+       	</ar.edu.uade.android.dialogo.SeekBarPreference>
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/configuracion.vibracion.titulo">
 		<CheckBoxPreference 

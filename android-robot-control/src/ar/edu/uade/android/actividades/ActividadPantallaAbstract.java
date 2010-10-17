@@ -50,7 +50,7 @@ public abstract class ActividadPantallaAbstract
         controladorBrazo = new ControladorBrazo();
         controladorSpeech = new ControladorSpeech();
         controladorServos = new ControladorServos();
-        
+
         requestWindowFeature( Window.FEATURE_NO_TITLE );
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
         preferences = getSharedPreferences( Constantes.NOMBRE_ARCHIVO_PREFERENCIAS, 0 );
@@ -162,9 +162,11 @@ public abstract class ActividadPantallaAbstract
             .getString( getResources().getString( R.string.configuracion_captura_pantalla_formato_preference_key ),
                         getResources().getString( R.string.configuracion_captura_pantalla_formato_valor_defecto ) );
 
-        String compresion = getPreferences()
-            .getString( getResources().getString( R.string.configuracion_captura_pantalla_compresion_preference_key ),
-                        getResources().getString( R.string.configuracion_captura_pantalla_compresion_valor_defecto ) );
+        int compresion = getPreferences()
+            .getInt(
+                     getResources().getString( R.string.configuracion_captura_pantalla_compresion_preference_key ),
+                     Integer.parseInt( getResources()
+                         .getString( R.string.configuracion_captura_pantalla_compresion_valor_defecto ) ) );
 
         File archivoCapturaPantalla = new File( directorio + System.currentTimeMillis() + "." + formato );
 
@@ -173,8 +175,7 @@ public abstract class ActividadPantallaAbstract
             archivoCapturaPantalla.createNewFile();
 
             OutputStream fOut = new FileOutputStream( archivoCapturaPantalla );
-            bitmap.compress( formato.equals( "png" ) ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG, Integer
-                .parseInt( compresion ), fOut );
+            bitmap.compress( formato.equals( "png" ) ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG,  compresion , fOut );
             fOut.flush();
             fOut.close();
             bitmap.recycle();
@@ -258,13 +259,13 @@ public abstract class ActividadPantallaAbstract
             if ( handCurrentPosition == Constantes.STAGE_HAND_OPEN )
             {
                 controladorBrazo.cerrarManoMaximo();
-                ((ToggleButton)findViewById( R.id.boton_funcion_brazo )).setChecked( false );
+                ( (ToggleButton) findViewById( R.id.boton_funcion_brazo ) ).setChecked( false );
                 toast( getResources().getString( R.string.toast_pinza_cerrada ) );
             }
             else
             {
                 controladorBrazo.abrirManoMaximo();
-                ((ToggleButton)findViewById( R.id.boton_funcion_brazo )).setChecked( true );
+                ( (ToggleButton) findViewById( R.id.boton_funcion_brazo ) ).setChecked( true );
                 toast( getResources().getString( R.string.toast_pinza_abierta ) );
             }
         }
@@ -428,4 +429,3 @@ public abstract class ActividadPantallaAbstract
     public abstract Bitmap obtenerBitmap();
 
 }
-
