@@ -3,6 +3,7 @@ package ar.edu.uade.android.actividades;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.widget.ToggleButton;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
@@ -22,6 +23,10 @@ public class ActividadPantallaWebcamBrazo
         setContentView( R.layout.webcam_brazo );
         resetArmAndHand();
         initializeStreamingView();
+
+        ( (ToggleButton) findViewById( R.id.boton_vista_principal ) ).setChecked( false );
+        ( (ToggleButton) findViewById( R.id.boton_vista_brazo ) ).setChecked( true );
+        ( (ToggleButton) findViewById( R.id.boton_vista_mapa ) ).setChecked( false );
     }
 
     private void resetArmAndHand()

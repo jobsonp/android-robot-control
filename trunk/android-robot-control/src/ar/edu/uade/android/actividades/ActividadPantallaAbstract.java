@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.controladores.ControladorBrazo;
 import ar.edu.uade.android.controladores.ControladorServos;
@@ -49,7 +50,7 @@ public abstract class ActividadPantallaAbstract
         controladorBrazo = new ControladorBrazo();
         controladorSpeech = new ControladorSpeech();
         controladorServos = new ControladorServos();
-
+        
         requestWindowFeature( Window.FEATURE_NO_TITLE );
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
         preferences = getSharedPreferences( Constantes.NOMBRE_ARCHIVO_PREFERENCIAS, 0 );
@@ -257,11 +258,13 @@ public abstract class ActividadPantallaAbstract
             if ( handCurrentPosition == Constantes.STAGE_HAND_OPEN )
             {
                 controladorBrazo.cerrarManoMaximo();
+                ((ToggleButton)findViewById( R.id.boton_funcion_brazo )).setChecked( false );
                 toast( getResources().getString( R.string.toast_pinza_cerrada ) );
             }
             else
             {
                 controladorBrazo.abrirManoMaximo();
+                ((ToggleButton)findViewById( R.id.boton_funcion_brazo )).setChecked( true );
                 toast( getResources().getString( R.string.toast_pinza_abierta ) );
             }
         }
@@ -425,3 +428,4 @@ public abstract class ActividadPantallaAbstract
     public abstract Bitmap obtenerBitmap();
 
 }
+

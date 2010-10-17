@@ -2,6 +2,7 @@ package ar.edu.uade.android.actividades;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.widget.ToggleButton;
 import ar.edu.uade.android.R;
 import ar.edu.uade.android.mjpeg.MjpegInputStream;
 import ar.edu.uade.android.mjpeg.MjpegView;
@@ -22,6 +23,10 @@ public class ActividadPantallaWebcamPrincipal
         setContentView( R.layout.webcam_principal );
 
         initializeStreamingView();
+
+        ( (ToggleButton) findViewById( R.id.boton_vista_principal ) ).setChecked( true );
+        ( (ToggleButton) findViewById( R.id.boton_vista_brazo ) ).setChecked( false );
+        ( (ToggleButton) findViewById( R.id.boton_vista_mapa ) ).setChecked( false );
     }
 
     private void initializeStreamingView()
