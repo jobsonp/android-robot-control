@@ -123,7 +123,6 @@ public abstract class ActividadPantallaAbstract
      */
     public final void vibrationFeedback()
     {
-
         boolean vibracionActivada = getPreferences()
             .getBoolean(
                          getResources().getString( R.string.configuracion_vibracion_activar_preference_key ),
@@ -132,11 +131,13 @@ public abstract class ActividadPantallaAbstract
 
         if ( vibracionActivada )
         {
-            String milisegundos = getPreferences()
-                .getString( getResources().getString( R.string.configuracion_vibracion_duracion_preference_key ),
-                            getResources().getString( R.string.configuracion_vibracion_duracion_valor_defecto ) );
+            int milisegundos = getPreferences()
+                .getInt(
+                         getResources().getString( R.string.configuracion_vibracion_duracion_preference_key ),
+                         Integer.parseInt( getResources()
+                             .getString( R.string.configuracion_vibracion_duracion_valor_defecto ) ) );
 
-            ( (Vibrator) getSystemService( VIBRATOR_SERVICE ) ).vibrate( Integer.parseInt( milisegundos ) );
+            ( (Vibrator) getSystemService( VIBRATOR_SERVICE ) ).vibrate( milisegundos );
         }
 
     }
@@ -175,7 +176,8 @@ public abstract class ActividadPantallaAbstract
             archivoCapturaPantalla.createNewFile();
 
             OutputStream fOut = new FileOutputStream( archivoCapturaPantalla );
-            bitmap.compress( formato.equals( "png" ) ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG,  compresion , fOut );
+            bitmap.compress( formato.equals( "png" ) ? Bitmap.CompressFormat.PNG : Bitmap.CompressFormat.JPEG,
+                             compresion, fOut );
             fOut.flush();
             fOut.close();
             bitmap.recycle();
