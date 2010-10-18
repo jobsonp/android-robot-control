@@ -169,8 +169,17 @@ public abstract class ActividadPantallaAbstract
                      Integer.parseInt( getResources()
                          .getString( R.string.configuracion_captura_pantalla_compresion_valor_defecto ) ) );
 
-        File archivoCapturaPantalla = new File( directorio + System.currentTimeMillis() + "." + formato );
+        // Chequear por el separador de la ultima carpeta
+        if ( !directorio.endsWith( String.valueOf( File.separatorChar ) ) )
+        {
+            directorio = directorio + File.separatorChar;
+        }
 
+        // Crear todos los directorios necesarios.
+        File directorioFile = new File( directorio );
+        directorioFile.mkdirs();
+
+        File archivoCapturaPantalla = new File( directorio + System.currentTimeMillis() + "." + formato );
         try
         {
             archivoCapturaPantalla.createNewFile();
