@@ -64,6 +64,7 @@
 			<string name="configuracion.captura.pantalla.compresion.descripcion">Seleccionar porcentaje de compresión de la imagen.</string>
 			<string name="configuracion.captura.pantalla.compresion.preference.key">compresion</string>
 			<string name="configuracion.captura.pantalla.compresion.valor.defecto">85</string>
+			<string name="configuracion.captura.pantalla.compresion.valor.maximo">100</string>
 			<string name="configuracion.captura.pantalla.compresion.dialogo.titulo">Seleccionar Porcentaje de Compresión</string>
 		
 		<string name="configuracion.vibracion.titulo">Vibración</string>
@@ -77,6 +78,8 @@
 			<string name="configuracion.vibracion.duracion.descripcion">Seleccionar la duración de la vibración en milisegundos.</string>
 			<string name="configuracion.vibracion.duracion.preference.key">duracion-vibracion</string>
 			<string name="configuracion.vibracion.duracion.valor.defecto">150</string>
+			<string name="configuracion.vibracion.duracion.valor.maximo">500</string>
+			<string name="configuracion.vibracion.duracion.dialogo.titulo">Seleccionar Duración de Vibración</string>
 			
 	    <string name="configuracion.actualmente">Actualmente:</string>
 	    <string name="configuracion.porcentaje">%</string>

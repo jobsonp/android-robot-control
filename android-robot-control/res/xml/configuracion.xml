@@ -43,9 +43,9 @@
 			android:key="@string/configuracion.captura.pantalla.formato.preference.key">
 		</ListPreference>
 		<ar.edu.uade.android.dialogo.SeekBarPreference 
-			android:key="@string/configuracion.captura.pantalla.compresion.preference.key"
         	android:title="@string/configuracion.captura.pantalla.compresion.titulo"
 			android:summary="@string/configuracion.captura.pantalla.compresion.descripcion"
+			android:key="@string/configuracion.captura.pantalla.compresion.preference.key"
 			android:dialogMessage="@string/configuracion.captura.pantalla.compresion.dialogo.titulo"
         	android:defaultValue="85"
         	android:text="%"
@@ -59,12 +59,15 @@
 			android:key="@string/configuracion.vibracion.activar.preference.key"
 			android:defaultValue="@string/configuracion.vibracion.activar.valor.defecto">
 		</CheckBoxPreference>
-		<EditTextPreference 
+		<ar.edu.uade.android.dialogo.SeekBarPreference 
 			android:title="@string/configuracion.vibracion.duracion.titulo"
 			android:summary="@string/configuracion.vibracion.duracion.descripcion"
 			android:key="@string/configuracion.vibracion.duracion.preference.key" 
-			android:defaultValue="@string/configuracion.vibracion.duracion.valor.defecto"
-			android:dependency="@string/configuracion.vibracion.activar.preference.key">
-		</EditTextPreference>
+			android:dialogMessage="@string/configuracion.vibracion.duracion.dialogo.titulo"
+        	android:defaultValue="140"
+        	android:dependency="@string/configuracion.vibracion.activar.preference.key"
+        	android:text="ms"
+        	android:max="400">
+       	</ar.edu.uade.android.dialogo.SeekBarPreference>		
 	</PreferenceCategory>
 </PreferenceScreen>
