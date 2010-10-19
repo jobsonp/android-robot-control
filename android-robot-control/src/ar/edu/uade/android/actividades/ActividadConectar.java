@@ -1,5 +1,6 @@
 package ar.edu.uade.android.actividades;
 
+import java.net.Socket;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -61,7 +62,8 @@ public class ActividadConectar
         String puertoWebcamBrazo = ( (EditText) findViewById( R.id.conexion_puerto_webcam_brazo ) ).getText()
             .toString();
 
-        if ( parametrosValidos( ipNombreRobot, puertoPlayer, puertoWebcamPrincipal, puertoWebcamBrazo ) )
+        if ( validarPuertos( puertoPlayer, puertoWebcamPrincipal, puertoWebcamBrazo )
+            && chequearConectividad( ipNombreRobot, puertoPlayer ) )
         {
             // Ahora que la ip y los puertos son validos los cargo a la configuracion.
             Configuracion.setConfiguracion( Constantes.TIPO_ROBOT, tipoRobot );
@@ -127,7 +129,7 @@ public class ActividadConectar
         editor.putString( PUERTO_WEBCAM_PRINCIPAL, puertoWebcamPrincipal );
         editor.putString( PUERTO_WEBCAM_BRAZO, puertoWebcamBrazo );
         editor.commit();
-        
+
         Toast.makeText( this, R.string.toast_parametros_guardados, Toast.LENGTH_SHORT ).show();
     }
 
@@ -140,11 +142,35 @@ public class ActividadConectar
      * @param puertoWebcamBrazo
      * @return
      */
-    private boolean parametrosValidos( String ipNombreRobot, String puertoPlayer, String puertoWebcamPrincipal,
-                                       String puertoWebcamBrazo )
+    private boolean validarPuertos( String puertoPlayer, String puertoWebcamPrincipal, String puertoWebcamBrazo )
     {
-        return Validador.validarIp( ipNombreRobot ) && Validador.validarPuerto( puertoPlayer )
-            && Validador.validarPuerto( puertoWebcamPrincipal ) && Validador.validarPuerto( puertoWebcamBrazo );
+        return Validador.validarPuerto( puertoPlayer ) && Validador.validarPuerto( puertoWebcamPrincipal )
+            && Validador.validarPuerto( puertoWebcamBrazo );
+    }
+
+    /**
+     * Valida la conectividad a la ip o nombre de dominio configurado.
+     * 
+     * @param ipNombre
+     * @return
+     */
+    private boolean chequearConectividad( String ipNombre, String puerto )
+    {
+        Socket s = null;
+        try
+        {
+            s = new Socket( ipNombre, Integer.parseInt( puerto ) );
+            if ( s.isConnected() )
+            {
+                s.close();
+                return true;
+            }
+        }
+        catch ( Exception e )
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     /**
