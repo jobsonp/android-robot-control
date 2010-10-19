@@ -16,6 +16,7 @@ public class Validador
 
     /**
      * Valida el formato de una ip.
+     * 
      * @param ip a validar
      * @return true / false dependiendo si la ip es valida o no.
      */
@@ -26,6 +27,7 @@ public class Validador
 
     /**
      * Valida un numero de puerto.
+     * 
      * @param puerto a validar
      * @return true / false dependiendo si el puerto es valido o no.
      */
@@ -44,7 +46,7 @@ public class Validador
         }
         return false;
     }
-    
+
     /**
      * Valida una ip mas un puerto. Ej: 192.168.1.110:8412
      * 
@@ -53,10 +55,10 @@ public class Validador
      */
     public static boolean validarIpPuerto( String ipPuerto )
     {
-        String[] ipMasPuerto = ipPuerto.split( ":" ); 
-        if( ipMasPuerto.length == 2 )
+        String[] ipMasPuerto = ipPuerto.split( ":" );
+        if ( ipMasPuerto.length == 2 )
         {
-            return Validador.validarIp( ipMasPuerto[0] ) && Validador.validarPuerto( ipMasPuerto[1] ); 
+            return Validador.validarIp( ipMasPuerto[0] ) && Validador.validarPuerto( ipMasPuerto[1] );
         }
         return false;
     }
