@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Generales -->
+    <string name="general.app_name">Android Robot Control</string>
+    <string name="general.cancelar">Cancelar</string>
+    <string name="general.aceptar">Aceptar</string>
+
+
+	<!-- Dialogo Enviar Mensaje -->
+    <string name="dialogo.enviar.mensaje.boton.enviar">Enviar</string>
+    <string name="dialogo.enviar.mensaje.boton.cancelar">Cancelar</string>
+	<string name="dialogo.enviar.mensaje.titulo">"Ingresar Mensaje</string>
+	
+	
+	<string name="actividad.configuracion">Configuración</string>
+    
+    <!-- Pantalla de coneccion -->
+    <string name="conexion.texto.ingresar.parametros">Ingresar los siguientes parámetros: \n</string>	
+	<string name="conexion.texto.tipo.robot">Tipo de robot</string>
+	<string name="conexion.texto.tipo.robot.dialogo.titulo">Seleccionar Tipo de Robot</string>
+	<string name="conexion.texto.tipo.robot.rtai">Robot con RTAI</string>
+	<string name="conexion.texto.tipo.robot.stage">Emulado con Stage</string>
+	<string name="conexion.texto.ip.robot">IP o Nombre del robot</string>
+	<string name="conexion.texto.puerto.player">Puerto del servidor Player</string>
+	<string name="conexion.texto.puerto.webcam.principal">Puerto del video principal</string>
+	<string name="conexion.texto.puerto.webcam.brazo">Puerto del video del brazo</string>
+    <string name="conexion.boton.conectar">Conectar</string>
+    <string name="conexion.boton.guardar">Guardar</string>
+    
+    <!-- Pantalla de configuracion -->
+    <string name="configuracion.titulo">Configuración</string>
+		<string name="configuracion.interfaz.titulo">Interfaz</string>
+		
+			<string name="configuracion.interfaz.pantalla.inicial.titulo">Pantalla Inicial</string>
+			<string name="configuracion.interfaz.pantalla.inicial.descripcion">Seleccionar la pantalla a mostrar despues de conectar el robot.</string>
+			<string name="configuracion.interfaz.pantalla.inicial.preference.key">pantalla-inicial</string>
+			<string name="configuracion.interfaz.pantalla.inicial.dialogo.titulo">Seleccionar Pantalla Inicial</string>
+			<string name="configuracion.interfaz.pantalla.inicial.valor.defecto">principal</string>
+		
+			<string name="configuracion.interfaz.cps.titulo">Mostrar CPS</string>
+			<string name="configuracion.interfaz.cps.descripcion">Mostrar cuadros por segundo</string>
+			<string name="configuracion.interfaz.cps.preference.key">mostrar-cps</string>
+			<string name="configuracion.interfaz.cps.valor.defecto">false</string>
+		
+			<string name="configuracion.interfaz.salir.titulo">Salir</string>
+			<string name="configuracion.interfaz.salir.descripcion">Solicitar confirmación al salir.</string>
+			<string name="configuracion.interfaz.salir.preference.key">confirmacion-salir</string>
+			<string name="configuracion.interfaz.salir.valor.defecto">true</string>
+		
+		<string name="configuracion.captura.pantalla.titulo">Captura de Pantalla</string>
+			
+			<string name="configuracion.captura.pantalla.directorio.titulo">Directorio</string>
+			<string name="configuracion.captura.pantalla.directorio.descripcion">Seleccionar directorio donde se guardarán las capturas.</string>
+			<string name="configuracion.captura.pantalla.directorio.preference.key">directorio</string>
+			<string name="configuracion.captura.pantalla.directorio.valor.defecto">/sdcard/arc/</string>
+			
+			<string name="configuracion.captura.pantalla.formato.titulo">Formato</string>
+			<string name="configuracion.captura.pantalla.formato.descripcion">Seleccionar formato de imagen a utilizar.</string>
+			<string name="configuracion.captura.pantalla.formato.preference.key">formato-imagen</string>
+			<string name="configuracion.captura.pantalla.formato.valor.defecto">png</string>
+			<string name="configuracion.captura.pantalla.formato.dialogo.titulo">Seleccionar Formato de Imagen</string>
+			
+			<string name="configuracion.captura.pantalla.compresion.titulo">Compresión</string>
+			<string name="configuracion.captura.pantalla.compresion.descripcion">Seleccionar porcentaje de compresión de la imagen.</string>
+			<string name="configuracion.captura.pantalla.compresion.preference.key">compresion</string>
+			<string name="configuracion.captura.pantalla.compresion.valor.defecto">85</string>
+			<string name="configuracion.captura.pantalla.compresion.valor.maximo">100</string>
+			<string name="configuracion.captura.pantalla.compresion.dialogo.titulo">Seleccionar Porcentaje de Compresión</string>
+		
+		<string name="configuracion.vibracion.titulo">Vibración</string>
+		
+			<string name="configuracion.vibracion.activar.titulo">Activar Vibración</string>
+			<string name="configuracion.vibracion.activar.descripcion">Activar vibración para botones táctiles.</string>
+			<string name="configuracion.vibracion.activar.preference.key">activar-vibracion</string>
+			<string name="configuracion.vibracion.activar.valor.defecto">true</string>
+		
+			<string name="configuracion.vibracion.duracion.titulo">Duración</string>
+			<string name="configuracion.vibracion.duracion.descripcion">Seleccionar la duración de la vibración en milisegundos.</string>
+			<string name="configuracion.vibracion.duracion.preference.key">duracion-vibracion</string>
+			<string name="configuracion.vibracion.duracion.valor.defecto">150</string>
+			<string name="configuracion.vibracion.duracion.valor.maximo">500</string>
+			<string name="configuracion.vibracion.duracion.dialogo.titulo">Seleccionar Duración de Vibración</string>
+			
+	    <string name="configuracion.actualmente">Actualmente:</string>
+	    <string name="configuracion.porcentaje">%</string>
+	    <string name="configuracion.milisegundos">ms</string>
+    	
+    <!-- Menu -->
+    <string name="menu.configuracion.texto">Configuración</string>
+    <string name="menu.desconectar.texto">Desconectar</string>
+    <string name="menu.desconectar.dialogo.titulo">Desconectar</string>
+    <string name="menu.desconectar.dialogo.descripcion">Esta seguro que desea desconectar el robot?</string>
+    
+    <!-- Mensajes de Toast -->
+    <string name="toast.conectando">Conectando...</string>
+    <string name="toast.desconectando">Desconectando...</string>
+    <string name="toast.ip.o.puerto.invalidos">Invalid ip or port(s)</string>
+	<string name="toast.parametros.guardados">Parámetros Guardados</string>
+
+    <string name="toast.pantalla.capturada">Pantalla Capturada</string>    
+    <string name="toast.mensaje.enviado">Mensaje Enviado</string>
+    <string name="toast.pinza.abierta">Pinza Abierta</string>
+    <string name="toast.pinza.cerrada">Pinza Cerrada</string>
+    
+    <!--  ERRORES -->
+    <string name="error.captura.pantalla">Error al capturar la pantalla</string>
+    <string name="error.enviar.mensaje">Error al enviar el mensaje</string>
+    <string name="error.abrir.cerrar.brazo">Error manejando el brazo</string>    
+    <string name="error.al.enviar.el.comando">Error al enviar el comando</string>
+    
+    <!-- Google Maps Api Key -->
+    <!-- Tiene que ser generada por el SDK y registrada en http://code.google.com/android/maps-api-signup.html-->
+    <!-- El comando es: keytool -list -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android-->
+    <!-- string name="google.maps.api.key">0bimg0GImkOCqxWbIhwqpVvmgu9YNjb29s-U4GA</string  -->
+    
+    <string name="google.maps.api.key">082FjfUeeja02355S7mk8sUIDH8Pz3bq5nH833w</string>
+    
+</resources>

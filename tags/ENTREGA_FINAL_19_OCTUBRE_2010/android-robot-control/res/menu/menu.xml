@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item 
+    	android:id="@+id/menu.configuracion"
+    	android:title="@string/menu.configuracion.texto"
+    	android:icon="@android:drawable/ic_menu_preferences"/>
+    <item 
+    	android:id="@+id/menu.desconectar"
+    	android:title="@string/menu.desconectar.texto" 
+    	android:icon="@android:drawable/ic_menu_close_clear_cancel"/>    	      	  
+</menu>

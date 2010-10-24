@@ -1,0 +1,10 @@
+VLC 1.0.2
+
+Correr este comando en una consola. Luego prender el emulador y ejecutar la applicacion.
+Lo unico que puede variar es la direccion del dispositivo de captura v4l2:///dev/video0
+
+Si queres ver el streaming en una ventana a parte de stremearlo:
+cvlc -vvv v4l2:///dev/video0 --sout '#transcode{vcodec=MJPG,vb=800,scale=1,width=480,height=320,acodec=none}:duplicate{dst=standard{access=http,mux=mpjpeg,dst=localhost:1234},dst=display}'
+
+Si solo queres stremear:
+cvlc -vvv v4l2:///dev/video0 --sout '#transcode{vcodec=MJPG,vb=800,scale=1,width=480,height=320,acodec=none}:duplicate{dst=standard{access=http,mux=mpjpeg,dst=localhost:1234}}'

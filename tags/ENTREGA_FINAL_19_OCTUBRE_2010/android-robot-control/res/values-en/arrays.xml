@@ -1,0 +1,20 @@
+<resources>
+	<string-array name="configuracion_interfaz_pantalla_inicial_dialogo_strings">
+		<item>Principal</item>
+		<item>Brazo</item>
+		<item>Mapa</item>
+	</string-array>
+	<string-array name="configuracion_interfaz_pantalla_inicial_dialogo_values">
+		<item>principal</item>
+		<item>brazo</item>
+		<item>mapa</item>
+	</string-array>
+	<string-array name="configuracion_captura_pantalla_formato_dialogo_strings">
+		<item>PNG</item>
+		<item>JPEG</item>
+	</string-array>
+	<string-array name="configuracion_captura_pantalla_formato_dialogo_values">
+		<item>png</item>
+		<item>jpeg</item>
+	</string-array>	
+</resources>
